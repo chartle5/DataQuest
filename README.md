@@ -28,17 +28,18 @@ print(df.head())
 
 Running the server (for frontend integration)
 
-1. Start the Flask server (serves `/api/rank` and `/api/train`):
+1. Start the Flask server (serves both the API **and** the frontend):
 ```bash
 python -m src.server
 ```
 
-2. Serve the frontend directory during development (from project root):
-```bash
-python -m http.server 8000 --directory frontend
-```
+Open `http://localhost:8080` in your browser. The server serves the frontend and handles API calls.
 
-Open `http://localhost:8000` in your browser. The frontend calls the server at `/api/rank`.
+API Endpoints:
+- `POST /api/rank`    — Rank candidates (`{condition, top_n}`) and write output to `outputs/`
+- `POST /api/train`   — Train a model for a condition (`{condition}`)
+- `GET  /api/metrics` — Retrieve latest evaluation metrics (precision, recall, F1, ROC-AUC, precision@k)
+- `GET  /api/trials`  — List cached trial files
 
 Training models
 
