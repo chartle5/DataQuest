@@ -8,9 +8,8 @@
       <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/>
     </filter>
   </defs>
-  <rect width="64" height="64" rx="12" fill="url(#g)" filter="url(#s)" />
-  <g transform="translate(0,2)">
-    <text x="50%" y="44%" font-family="Inter, Arial" font-weight="800" font-size="20" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">N</text>
-    <text x="50%" y="62%" font-family="Inter, Arial" font-weight="600" font-size="12" fill="rgba(255,255,255,0.9)" text-anchor="middle" dominant-baseline="middle">C</text>
-  </g>
+    <rect width="64" height="64" rx="12" fill="url(#g)" />
+    <g transform="translate(0,0)">
+      <text x="50%" y="54%" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="800" font-size="28" fill="#fff" text-anchor="middle" dominant-baseline="middle">NC</text>
+    </g>
 </svg>
