@@ -5,6 +5,7 @@ from typing import List
 from ..config import DATA_DIR, PAIRS_OUTPUT_PATH, RANKED_OUTPUT_PATH, TRIALS_CACHE_PATH
 from ..patients.features import build_patient_profiles
 from ..trials.api import fetch_trials
+from ..trials.rag import build_trial_rag_features
 from ..matching.features import build_match_features
 from ..matching.ranker import TrialRanker
 
@@ -23,17 +24,20 @@ def build_patient_trial_pairs(trials_limit: int = 50) -> pd.DataFrame:
         limit=trials_limit,
         cache_path=TRIALS_CACHE_PATH,
     )
+    trial_rag = build_trial_rag_features(trials, DATA_DIR)
     rows = []
 
     for trial in trials:
         for patient in profiles.values():
             features = build_match_features(patient, trial.criteria)
+            rag_features = trial_rag.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
             label = _rule_label(features)
             rows.append(
                 {
                     "trial_id": trial.trial_id,
                     "patient_id": patient.patient_id,
                     **features,
+                    **rag_features,
                     "label": label,
                 }
             )
