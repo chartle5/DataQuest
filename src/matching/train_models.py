@@ -12,20 +12,30 @@ from src.matching.ranker import TrialRanker
 
 
 def _rule_label(features: dict) -> int:
-    """3-class labeling: 0=ineligible, 1=eligible, 2=uncertain."""
+    """Graded relevance label for lambdarank: 0=excluded, 1=poor, 2=partial, 3=good.
+
+    Higher values indicate better patient-trial match quality.
+    """
+    # Hard exclusions -> grade 0
     if features.get("renal_exclusion_hit", 0.0) == 1.0:
         return 0
     if features.get("stroke_exclusion_hit", 0.0) == 1.0:
         return 0
     if features.get("insulin_pump_conflict", 0.0) == 1.0:
         return 0
-    if features.get("missing_hba1c", 0.0) == 1.0 or features.get("missing_renal_lab", 0.0) == 1.0:
+
+    # Count how many inclusion criteria are satisfied
+    inc = features.get("inclusion_satisfied_count", 0.0)
+    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+
+    # Good match: key condition present + most inclusions met + no missing data
+    if features.get("t2d_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+        return 3
+    # Partial match: key condition present or high inclusion count
+    if features.get("t2d_present", 0.0) == 1.0 or inc >= 3:
         return 2
-    if (features.get("age_match", 0.0) == 1.0
-            and features.get("sex_match", 1.0) == 1.0
-            and features.get("t2d_present", 0.0) == 1.0):
-        return 1
-    return 0
+    # Poor match: few criteria met, no hard exclusion
+    return 1
 
 
 def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: Path = None):
@@ -66,7 +76,7 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
     group = df[df["trial_id"].isin(train_trials)].groupby("trial_id").size().tolist()
 
     ranker = TrialRanker()
-    ranker.fit(X_train, y_train, group)
+    ranker.fit(X_train, y_train, group, feature_names=feature_cols)
 
     # persist model
     try:

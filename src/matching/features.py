@@ -11,19 +11,19 @@ def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Di
     features["age_match"] = _match_age(patient.age, criteria)
     features["sex_match"] = _match_sex(patient.sex, criteria)
     features["t2d_present"] = _has_condition(patient, "type 2 diabetes")
-    features["hba1c_above_min"] = _lab_meets_min(patient, "hba1c", criteria.hba1c_min)
-    features["hba1c_below_max"] = _lab_meets_max(patient, "hba1c", criteria.hba1c_max)
+    features["hba1c_above_min"] = _lab_meets_min(patient, "a1c", criteria.hba1c_min)
+    features["hba1c_below_max"] = _lab_meets_max(patient, "a1c", criteria.hba1c_max)
     features["renal_exclusion_hit"] = _has_condition(patient, "renal failure")
     features["stroke_exclusion_hit"] = _has_condition(patient, "stroke")
     features["insulin_pump_conflict"] = _has_medication(patient, "insulin pump")
 
-    features["missing_hba1c"] = 1.0 if _lab_missing(patient, "hba1c") else 0.0
+    features["missing_hba1c"] = 1.0 if _lab_missing(patient, "a1c") else 0.0
     features["missing_renal_lab"] = 1.0 if _lab_missing(patient, "creatinine") else 0.0
     features["recent_hospitalization"] = 1.0 if patient.recent_hospitalization else 0.0
 
     # --- normalized gap features ---
     features["age_gap"] = _normalized_age_gap(patient.age, criteria)
-    features["hba1c_gap"] = _normalized_lab_gap(patient, "hba1c", criteria.hba1c_min, criteria.hba1c_max)
+    features["hba1c_gap"] = _normalized_lab_gap(patient, "a1c", criteria.hba1c_min, criteria.hba1c_max)
 
     # --- aggregate features ---
     inclusion_fields = ["age_match", "sex_match", "t2d_present", "hba1c_above_min", "hba1c_below_max"]
