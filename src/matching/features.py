@@ -43,6 +43,19 @@ def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Di
     else:
         features["diagnosis_overlap_score"] = features["t2d_present"]
 
+    # --- continuous / tie-breaking features ---
+    features["age_normalized"] = patient.age / 100.0
+    hba1c_val = _lab_value(patient, "a1c")
+    features["hba1c_value"] = hba1c_val / 20.0 if hba1c_val is not None else 0.0
+    features["medication_count"] = min(len(patient.medications), 30) / 30.0
+    features["condition_count"] = min(len(patient.conditions), 30) / 30.0
+    features["insulin_on_med"] = 1.0 if any("insulin" in m for m in patient.medications) else 0.0
+
+    # Lab completeness: fraction of key labs present
+    key_labs = ["a1c", "glucose", "creatinine", "cholesterol", "triglycerides", "hemoglobin"]
+    present = sum(1.0 for k in key_labs if _lab_value(patient, k) is not None)
+    features["lab_completeness"] = present / len(key_labs)
+
     return features
 
 

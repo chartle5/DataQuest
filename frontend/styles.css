@@ -69,6 +69,7 @@ select:focus,input[type=number]:focus{box-shadow:0 6px 18px rgba(6,182,212,0.07)
 .conf-low{background:rgba(239,68,68,0.12);color:var(--red)}
 .reason-list{margin:0;padding:0 0 0 16px;color:var(--muted);font-size:12px}
 .reason-list li{margin-bottom:2px}
+.reasons-cell{color:var(--muted);font-size:12px;line-height:1.5}
 
 /* Metrics panel */
 .metrics-panel{display:none;margin-top:20px;padding:16px;border-radius:10px;background:rgba(124,58,237,0.04);border:1px solid rgba(124,58,237,0.12)}

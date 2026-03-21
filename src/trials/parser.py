@@ -5,9 +5,21 @@ from .schema import TrialCriteria
 from .ner import extract_entities
 
 
-AGE_RANGE_RE = re.compile(r"(\d{1,3})\s*(?:to|-|–)\s*(\d{1,3})\s*(?:years|yrs|year|y)?", re.IGNORECASE)
-AGE_MIN_RE = re.compile(r"(>=|at least|older than|\bmin(?:imum)?\b)\s*(\d{1,3})\s*(?:years|yrs|year|y)", re.IGNORECASE)
-AGE_MAX_RE = re.compile(r"(<=|at most|younger than|\bmax(?:imum)?\b)\s*(\d{1,3})\s*(?:years|yrs|year|y)", re.IGNORECASE)
+# Age-range regex requires an age unit (years/yrs/year/y/year-old) to avoid
+# false positives from BMI ranges ("19 to 30 kg/m2"), HbA1c ("7.0-11.0 %"),
+# and duration phrases ("3-6 months").
+AGE_RANGE_RE = re.compile(
+    r"(?:aged?\s+)?(\d{1,3})\s*(?:to|-|–)\s*(\d{1,3})\s*(?:years|yrs|year|y(?:ears)?)[\s\-]?(?:old|of\s+age)?",
+    re.IGNORECASE,
+)
+AGE_MIN_RE = re.compile(
+    r"(?:>=|≥|at\s+least|older\s+than|\bmin(?:imum)?\b|age\s*>\s*=?)\s*(\d{1,3})\s*(?:years|yrs|year|y(?:ears)?)",
+    re.IGNORECASE,
+)
+AGE_MAX_RE = re.compile(
+    r"(?:<=|≤|at\s+most|younger\s+than|\bmax(?:imum)?\b|age\s*<\s*=?)\s*(\d{1,3})\s*(?:years|yrs|year|y(?:ears)?)",
+    re.IGNORECASE,
+)
 HBA1C_RE = re.compile(r"hba1c[^\d]*(>=|>|<=|<)?\s*(\d+(?:\.\d+)?)", re.IGNORECASE)
 
 
@@ -39,16 +51,23 @@ def _split_criteria(text: str) -> Tuple[str, str]:
 def _parse_age(text: str) -> Tuple[Optional[int], Optional[int]]:
     m = AGE_RANGE_RE.search(text)
     if m:
-        return int(m.group(1)), int(m.group(2))
+        lo, hi = int(m.group(1)), int(m.group(2))
+        # Sanity: reject ranges that are obviously not human ages
+        if 1 <= lo <= 120 and 1 <= hi <= 120 and lo < hi:
+            return lo, hi
 
     min_age = None
     max_age = None
     m = AGE_MIN_RE.search(text)
     if m:
-        min_age = int(m.group(2))
+        val = int(m.group(1))
+        if 1 <= val <= 120:
+            min_age = val
     m = AGE_MAX_RE.search(text)
     if m:
-        max_age = int(m.group(2))
+        val = int(m.group(1))
+        if 1 <= val <= 120:
+            max_age = val
 
     return min_age, max_age
 

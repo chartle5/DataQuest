@@ -120,28 +120,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const table = document.createElement('table');
     table.className = 'results-table';
 
-    // Header
+    // Header — clean field order: Name, Patient ID, Confidence, Status, Reasons
     const thead = document.createElement('thead');
     thead.innerHTML = `<tr>
-      <th>#</th><th>Patient</th><th>Score</th><th>Confidence</th><th>Reasons</th>
+      <th>#</th><th>Name</th><th>Patient ID</th><th>Confidence</th><th>Status</th><th>Reasons</th>
     </tr>`;
     table.appendChild(thead);
 
     const tbody = document.createElement('tbody');
     candidates.forEach((c, i) => {
-      const tr = document.createElement('tr');
-      const confidenceClass = c.confidence === 'high' ? 'conf-high' : c.confidence === 'uncertain' ? 'conf-uncertain' : c.confidence === 'ineligible' ? 'conf-low' : 'conf-moderate';
-      const nameDisplay = (c.first || c.last) ? `${c.first} ${c.last}` : c.patient_id.substring(0, 12) + '...';
+      const confidence = c.confidence_score != null ? c.confidence_score : 0;
+      const status = c.status || 'unknown';
+      const confidenceClass = status === 'high' ? 'conf-high' : status === 'uncertain' ? 'conf-uncertain' : status === 'ineligible' ? 'conf-low' : 'conf-moderate';
+      const firstName = c.first_name || c.first || '';
+      const lastName = c.last_name || c.last || '';
+      const nameDisplay = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : c.patient_id.substring(0, 12) + '...';
+      const reasons = (c.reasons || []).map(r => escapeHtml(r)).join('. ');
 
+      const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${i + 1}</td>
-        <td>
-          <div class="patient-name">${escapeHtml(nameDisplay)}</div>
-          <div class="patient-id">${escapeHtml(c.patient_id.substring(0, 20))}...</div>
-        </td>
-        <td><span class="score-badge">${c.score.toFixed(4)}</span></td>
-        <td><span class="confidence-badge ${confidenceClass}">${escapeHtml(c.confidence)}</span></td>
-        <td><ul class="reason-list">${(c.reasons || []).map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul></td>
+        <td><span class="patient-name">${escapeHtml(nameDisplay)}</span></td>
+        <td><span class="patient-id">${escapeHtml(c.patient_id.substring(0, 20))}...</span></td>
+        <td><span class="score-badge">${confidence.toFixed(1)}%</span></td>
+        <td><span class="confidence-badge ${confidenceClass}">${escapeHtml(status)}</span></td>
+        <td class="reasons-cell">${reasons}</td>
       `;
       tbody.appendChild(tr);
     });

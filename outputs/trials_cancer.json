@@ -1,0 +1,122 @@
+[
+  {
+    "trial_id": "NCT01865123",
+    "title": "A Randomized Controlled Trial of Meditation Compared to Exposure Therapy and Education Control on PTSD in Veterans",
+    "conditions": [
+      "Post-traumatic Stress Disorder"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Current medical diagnosis of PTSD\n2. A symptom severity score of 45 or higher on the Clinically Administered PTSD Scale (CAPS)\n3. Three or more months since service-related trauma\n4. If being treated with psychoactive medication, a stable regimen (no change in drugs or dose) for at least 2 months before enrollment\n5. Age: 18 years or older\n6. Language: English literate -\n\nExclusion Criteria:\n\n1\\. Current unstable or uncontrolled psychotic symptoms, mania or bipolar disorder 2. Current suicidal or homicidal ideation 3. Moderate or greater cognitive impairment indicated by chart diagnosis or observable cognitive difficulties 4. Having received Prolonged Exposure therapy or having been instructed in Transcendental Meditation.\n\n\\-",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Current medical diagnosis of PTSD\n2. A symptom severity score of 45 or higher on the Clinically Administered PTSD Scale (CAPS)\n3. Three or more months since service-related trauma\n4. If being treated with psychoactive medication, a stable regimen (no change in drugs or dose) for at least 2 months before enrollment\n5. Age: 18 years or older\n6. Language: English literate -",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1\\. Current unstable or uncontrolled psychotic symptoms, mania or bipolar disorder 2. Current suicidal or homicidal ideation 3. Moderate or greater cognitive impairment indicated by chart diagnosis or observable cognitive difficulties 4. Having received Prolonged Exposure therapy or having been instructed in Transcendental Meditation.\n\n\\-"
+    }
+  },
+  {
+    "trial_id": "NCT02706223",
+    "title": "Testing and Treating Hepatitis C in Community Pharmacies",
+    "conditions": [
+      "Hepatitis C"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* HCV PCR positive,\n* Stable OST dose for greater than 12 weeks prior to study enrolment\n\nExclusion Criteria:\n\n* Evidence of current or previous decompensated liver disease,\n* Currently receiving HCV eradication treatment\n* HIV infection,\n* HBsAg positive with detectable HBV DNA,\n* Pregnancy\n* Cirrhosis or high fibrosis score\n* Genotype deemed unsuitable for treatment with available study drugs\n* Unable or unwilling to provide informed consent",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* HCV PCR positive,\n* Stable OST dose for greater than 12 weeks prior to study enrolment",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Evidence of current or previous decompensated liver disease,\n* Currently receiving HCV eradication treatment\n* HIV infection,\n* HBsAg positive with detectable HBV DNA,\n* Pregnancy\n* Cirrhosis or high fibrosis score\n* Genotype deemed unsuitable for treatment with available study drugs\n* Unable or unwilling to provide informed consent"
+    }
+  },
+  {
+    "trial_id": "NCT05337423",
+    "title": "Photobiomodulation in the Treatment of Hand-foot Syndrome",
+    "conditions": [
+      "Erythrodysesthesia Syndrome"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* over 18 years of age,\n* hospitalized or outpatients,\n* with oncological pathology (confirmed by anatomo-pathological or cytological diagnosis)\n* undergoing chemotherapy treatment (oral capecitabine and 5-Fluorouracil in continuous infusion, following the treatment plans protocolized by the institution: Xelox Bevacizumab, Capecitabine, Capecitabine + Radiotherapy, Folfoxiri, Xeliri-Bevacizumab, Folfox4-Bevacizumab , Docetaxel-CDDP-5-Fluorouracil (Colony Stimulating Factors), mFolfirinox q/14 days, Flot.)\n* who develop hand-foot syndrome of greater or equal toxicity to 1 on the CTC scale NCI v. 5.0 and on Saif scale. Et al. for dark skin\n\nExclusion Criteria:\n\n* Patients with palmo-plantar skin comorbidities,\n* autoimmune comorbidities,\n* amputated limbs,\n* systemic infection,\n* localized or regional limb infection,\n* respiratory isolation,\n* contact isolation\n* insulin-requiring diabetics.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* over 18 years of age,\n* hospitalized or outpatients,\n* with oncological pathology (confirmed by anatomo-pathological or cytological diagnosis)\n* undergoing chemotherapy treatment (oral capecitabine and 5-Fluorouracil in continuous infusion, following the treatment plans protocolized by the institution: Xelox Bevacizumab, Capecitabine, Capecitabine + Radiotherapy, Folfoxiri, Xeliri-Bevacizumab, Folfox4-Bevacizumab , Docetaxel-CDDP-5-Fluorouracil (Colony Stimulating Factors), mFolfirinox q/14 days, Flot.)\n* who develop hand-foot syndrome of greater or equal toxicity to 1 on the CTC scale NCI v. 5.0 and on Saif scale. Et al. for dark skin",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Patients with palmo-plantar skin comorbidities,\n* autoimmune comorbidities,\n* amputated limbs,\n* systemic infection,\n* localized or regional limb infection,\n* respiratory isolation,\n* contact isolation\n* insulin-requiring diabetics."
+    }
+  },
+  {
+    "trial_id": "NCT01913223",
+    "title": "Endoscopic Sub-mucosal Dissection With the Nestis\u00ae Jet Injector System With a Bi-functional Catheter: First Prospective Trial",
+    "conditions": [
+      "Barrett's Esophagus",
+      "Intestinal Dysplasia",
+      "Esophageal Dysplasia",
+      "Colorectal Neoplasms"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* in the esophagus: squamous cell carcinoma (well differentiated G1) or high grade dysplasia or neoplasia on barrett esophagus with high grade dysplasia or adenocarcinoma confirmed by two different pathologists, with only superficial tissue (mucosal invasion (T1m) and no lymph nodes on EUS endoscopy radial and mini probe), larger than 15 mm of diameter, with an extension of less than 10 cm high and less than two thirds of the esophageal circumference\n* in the stomach: superficial adenocarcinoma or high grade dysplasia (well differentiated G1) with no depth invasion of the sub mucosa in EUS endoscopy and no lymph nodes according to the recommendations of the Japanese gastric cancer association, and with a diameter of more than 15 mm\n* in the colon and the rectum: sessile serrated adenomas, adenomas or superficial adenocarcinoma (well differentiated G1), larger than 15 mm, corresponding to non granular Lateral spreading tumor (NG-LST) or granular (G-LST) with a focal Kudo V zone in the lesion, with a circumferential extension of less than two thirds and with only a superficial extension (no sub mucosal invasion and no lymph nodes in EUS endoscopy of the rectum).\n* Consent form signed\n* Anesthesiology risk limited with ASA score 1 or 2\n* Patients over 18 years old\n* Affiliation to social safety system\n\nExclusion Criteria:\n\n* other lesions of the digestive tract\n* high anesthetic risk (ASA score \\> 2)\n* previous treatment of the lesion (radiotherapy, endoscopy, surgery, chemotherapy\u2026)\n* other malignant disease locally advanced or with metastasis\n* hemostasis disorders\n* pregnancy or breast feeding\n* participation in another clinical trial",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* in the esophagus: squamous cell carcinoma (well differentiated G1) or high grade dysplasia or neoplasia on barrett esophagus with high grade dysplasia or adenocarcinoma confirmed by two different pathologists, with only superficial tissue (mucosal invasion (T1m) and no lymph nodes on EUS endoscopy radial and mini probe), larger than 15 mm of diameter, with an extension of less than 10 cm high and less than two thirds of the esophageal circumference\n* in the stomach: superficial adenocarcinoma or high grade dysplasia (well differentiated G1) with no depth invasion of the sub mucosa in EUS endoscopy and no lymph nodes according to the recommendations of the Japanese gastric cancer association, and with a diameter of more than 15 mm\n* in the colon and the rectum: sessile serrated adenomas, adenomas or superficial adenocarcinoma (well differentiated G1), larger than 15 mm, corresponding to non granular Lateral spreading tumor (NG-LST) or granular (G-LST) with a focal Kudo V zone in the lesion, with a circumferential extension of less than two thirds and with only a superficial extension (no sub mucosal invasion and no lymph nodes in EUS endoscopy of the rectum).\n* Consent form signed\n* Anesthesiology risk limited with ASA score 1 or 2\n* Patients over 18 years old\n* Affiliation to social safety system",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* other lesions of the digestive tract\n* high anesthetic risk (ASA score \\> 2)\n* previous treatment of the lesion (radiotherapy, endoscopy, surgery, chemotherapy\u2026)\n* other malignant disease locally advanced or with metastasis\n* hemostasis disorders\n* pregnancy or breast feeding\n* participation in another clinical trial"
+    }
+  },
+  {
+    "trial_id": "NCT00843323",
+    "title": "Photodynamic Therapy (PDT) Effect on Large Surface Photodamaged Skin",
+    "conditions": [
+      "Actinic Keratosis",
+      "Photoaging",
+      "Solar Elastosis"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Patients with severe photodamage and at least 3 actinic keratosis on the face\n\nExclusion Criteria:\n\n* Pregnancy, laser, chemical peel, imiquimod or 5-Fu treatment in the last year",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Patients with severe photodamage and at least 3 actinic keratosis on the face",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Pregnancy, laser, chemical peel, imiquimod or 5-Fu treatment in the last year"
+    }
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "trial_id": "NCT02426294",
+  "trial_title": "Comparison of Pioglitazone Versus Glimepiride in Type 2 Diabetes Inadequately Controlled With Metformin Plus Alogliptin",
+  "candidates": [
+    {
+      "patient_id": "29bb9b62-36b5-a44d-ad39-2ab8c5f8ffb2",
+      "first_name": "Cordell41",
+      "last_name": "Harber290",
+      "status": "high",
+      "confidence_score": 84.16,
+      "reasons": [
+        "Age outside range (gap 0.46)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "dbbe461a-dfd4-400e-c77d-b99a29dada93",
+      "first_name": "Hank686",
+      "last_name": "Kris249",
+      "status": "high",
+      "confidence_score": 82.46,
+      "reasons": [
+        "Age outside range (gap 0.38)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "45cb99d4-99fb-7ac1-64d2-42964be13a53",
+      "first_name": "Hildred696",
+      "last_name": "Boyle917",
+      "status": "high",
+      "confidence_score": 82.44,
+      "reasons": [
+        "Age outside range (gap 0.69)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "97309261-961a-50e4-ef11-7181dfabdb63",
+      "first_name": "Mariano761",
+      "last_name": "Hickle134",
+      "status": "high",
+      "confidence_score": 81.73,
+      "reasons": [
+        "Age outside range (gap 0.54)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "ebb99571-dc6c-2d72-d0c4-fe17388be05a",
+      "first_name": "Demetrius568",
+      "last_name": "Spinka232",
+      "status": "high",
+      "confidence_score": 80.59,
+      "reasons": [
+        "Age outside range (gap 0.77)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    }
+  ]
+}
