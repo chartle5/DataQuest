@@ -69,7 +69,7 @@ def rank_patients(df: pd.DataFrame) -> pd.DataFrame:
     train_groups = df[train_mask].groupby("trial_id").size().tolist()
 
     ranker = TrialRanker()
-    ranker.fit(X_train, y_train, train_groups)
+    ranker.fit(X_train, y_train, train_groups, feature_names=feature_cols)
 
     # score all rows (train + test) for output
     df["score"] = ranker.predict(X)
@@ -96,23 +96,28 @@ def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10) -> Dic
     """Compute evaluation metrics for the ranking model."""
     from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
 
-    # binarize scores for classification metrics
+    # Binarize graded labels: grade >= 2 counts as "relevant"
+    y_binary = (y_true >= 2).astype(float)
     threshold = np.median(scores)
     y_pred = (scores >= threshold).astype(float)
 
     metrics: Dict[str, float] = {}
-    try:
-        metrics["roc_auc"] = float(roc_auc_score(y_true, scores))
-    except ValueError:
+    # ROC-AUC needs at least two classes in y_binary
+    if len(np.unique(y_binary)) >= 2:
+        try:
+            metrics["roc_auc"] = float(roc_auc_score(y_binary, scores))
+        except ValueError:
+            metrics["roc_auc"] = 0.0
+    else:
         metrics["roc_auc"] = 0.0
-    metrics["precision"] = float(precision_score(y_true, y_pred, zero_division=0))
-    metrics["recall"] = float(recall_score(y_true, y_pred, zero_division=0))
-    metrics["f1"] = float(f1_score(y_true, y_pred, zero_division=0))
+    metrics["precision"] = float(precision_score(y_binary, y_pred, zero_division=0))
+    metrics["recall"] = float(recall_score(y_binary, y_pred, zero_division=0))
+    metrics["f1"] = float(f1_score(y_binary, y_pred, zero_division=0))
 
-    # precision@k
+    # precision@k: fraction of top-k scored patients that are relevant (grade >= 2)
     top_k_idx = np.argsort(scores)[::-1][:k]
     if len(top_k_idx) > 0:
-        metrics[f"precision_at_{k}"] = float(y_true[top_k_idx].sum() / len(top_k_idx))
+        metrics[f"precision_at_{k}"] = float(y_binary[top_k_idx].sum() / len(top_k_idx))
     else:
         metrics[f"precision_at_{k}"] = 0.0
 
@@ -120,8 +125,11 @@ def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10) -> Dic
 
 
 def _rule_label(features: dict) -> int:
-    """3-class labeling: 0=ineligible, 1=eligible, 2=uncertain."""
-    # Hard exclusions -> 0
+    """Graded relevance label for lambdarank: 0=excluded, 1=poor, 2=partial, 3=good.
+
+    Higher values indicate better patient-trial match quality.
+    """
+    # Hard exclusions -> grade 0
     if features.get("renal_exclusion_hit", 0.0) == 1.0:
         return 0
     if features.get("stroke_exclusion_hit", 0.0) == 1.0:
@@ -129,17 +137,18 @@ def _rule_label(features: dict) -> int:
     if features.get("insulin_pump_conflict", 0.0) == 1.0:
         return 0
 
-    # Missing critical data -> uncertain
-    if features.get("missing_hba1c", 0.0) == 1.0 or features.get("missing_renal_lab", 0.0) == 1.0:
+    # Count how many inclusion criteria are satisfied
+    inc = features.get("inclusion_satisfied_count", 0.0)
+    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+
+    # Good match: key condition present + most inclusions met + no missing data
+    if features.get("t2d_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+        return 3
+    # Partial match: key condition present or high inclusion count
+    if features.get("t2d_present", 0.0) == 1.0 or inc >= 3:
         return 2
-
-    # All inclusion criteria met -> eligible
-    if (features.get("age_match", 0.0) == 1.0
-            and features.get("sex_match", 1.0) == 1.0
-            and features.get("t2d_present", 0.0) == 1.0):
-        return 1
-
-    return 0
+    # Poor match: few criteria met, no hard exclusion
+    return 1
 
 
 if __name__ == "__main__":
