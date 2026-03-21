@@ -1,0 +1,20 @@
+# Data Ingestion & Handling
+requests
+pandas
+numpy
+pydantic
+
+# Healthcare Standards
+fhir.resources
+
+# Local Medical NLP
+spacy>=3.4.0
+scispacy
+negspacy
+
+# Math & Unit Conversion (for Lab values)
+pint
+scikit-learn
+
+# Dashboard & UI
+streamlit
