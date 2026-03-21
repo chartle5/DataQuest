@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovaCura Analytics — Demo UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="logo.svg" alt="NovaCura Analytics logo" class="logo">
+    <h1 class="brand">NovaCura <span class="brand-sub">Analytics</span></h1>
+  </header>
+
+  <main class="main">
+    <div class="card">
+      <form id="demoForm" class="form" aria-label="Prediction demo form">
+        <div class="field">
+          <label for="conditionSelect">Condition</label>
+          <select id="conditionSelect" name="condition">
+            <option value="type2">Type II Diabetes</option>
+            <option value="cancer">Cancer</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="topN">Top N candidates</label>
+          <input id="topN" name="topN" type="number" min="1" max="100" value="5" placeholder="e.g., 5" />
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Run</button>
+        </div>
+      </form>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
