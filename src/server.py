@@ -13,6 +13,7 @@ import json
 import logging
 import os
 import hashlib
+import re
 from typing import Any, Dict, List, Optional
 
 import numpy as np
@@ -41,6 +42,11 @@ _profiles_cache: Dict[str, PatientProfile] = {}
 _patient_names: Dict[str, Dict[str, str]] = {}  # patient_id -> {first, last}
 
 
+def _clean_name(name: str) -> str:
+    """Strip trailing digits from Synthea-generated names (e.g. 'Cordell41' -> 'Cordell')."""
+    return re.sub(r'\d+$', '', name).strip()
+
+
 def _get_profiles() -> Dict[str, PatientProfile]:
     global _profiles_cache, _patient_names
     if _profiles_cache:
@@ -51,8 +57,8 @@ def _get_profiles() -> Dict[str, PatientProfile]:
     for _, row in patients_df.iterrows():
         pid = row["Id"]
         _patient_names[pid] = {
-            "first": str(row.get("FIRST", "")),
-            "last": str(row.get("LAST", "")),
+            "first": _clean_name(str(row.get("FIRST", ""))),
+            "last": _clean_name(str(row.get("LAST", ""))),
         }
 
     _profiles_cache = build_patient_profiles(
@@ -132,7 +138,13 @@ def _build_reasons(feat: Dict[str, float]) -> List[str]:
     if feat.get("age_match") == 1.0:
         reasons.append("Age within required range")
     elif feat.get("age_gap", 0) > 0:
-        reasons.append(f"Age outside range (gap {feat['age_gap']:.2f})")
+        gap = feat["age_gap"]
+        if gap <= 0.15:
+            reasons.append(f"Age slightly outside range (gap {gap:.2f})")
+        elif gap <= 0.50:
+            reasons.append(f"Age moderately outside range (gap {gap:.2f})")
+        else:
+            reasons.append(f"Age significantly outside range (gap {gap:.2f})")
 
     if feat.get("sex_match") == 1.0:
         reasons.append("Sex matches trial requirement")
@@ -205,7 +217,7 @@ def _heuristic_score(df, feature_cols):
 
     # Primary match signals (binary)
     weights = {
-        "age_match": 0.12,
+        "age_match": 0.20,
         "sex_match": 0.04,
         "t2d_present": 0.18,
         "hba1c_above_min": 0.08,
@@ -232,7 +244,7 @@ def _heuristic_score(df, feature_cols):
         "exclusion_conflict_count": -0.08,
         "missing_hba1c": -0.04,
         "missing_renal_lab": -0.02,
-        "age_gap": -0.10,
+        "age_gap": -0.25,
         "hba1c_gap": -0.05,
         "recent_hospitalization": -0.02,
     }
