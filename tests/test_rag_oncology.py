@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
+from typing import Dict, List
 
 from src.trials.rag import build_rag_index, build_trial_rag_features, compute_rag_features, load_rag_documents
 from src.trials.schema import TrialCriteria, TrialRecord
 
 
-def _write_jsonl(path: Path, rows: list[dict]) -> None:
+def _write_jsonl(path: Path, rows: List[Dict]) -> None:
     with path.open("w", encoding="utf-8") as handle:
         for row in rows:
             handle.write(json.dumps(row))

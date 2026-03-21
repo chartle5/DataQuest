@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NovaCura Analytics — Demo UI</title>
+  <title>NovaCura Analytics — Clinical Trial Pre-screening</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <img src="logo.svg" alt="NovaCura Analytics logo" class="logo">
     <h1 class="brand">NovaCura <span class="brand-sub">Analytics</span></h1>
+    <p class="tagline">Clinical Trial Pre-screening &amp; Candidate Ranking</p>
   </header>
 
   <main class="main">
     <div class="card">
-      <form id="demoForm" class="form" aria-label="Prediction demo form">
+      <form id="demoForm" class="form" aria-label="Ranking form">
         <div class="field">
           <label for="conditionSelect">Condition</label>
           <select id="conditionSelect" name="condition">
-            <option value="type2">Type II Diabetes</option>
-            <option value="cancer">Cancer</option>
+            <option value="type 2 diabetes">Type II Diabetes</option>
+            <option value="cancer">Cancer (Oncology)</option>
           </select>
         </div>
 
@@ -30,12 +30,15 @@
         </div>
 
         <div class="actions">
-          <button type="submit" class="btn">Run</button>
+          <button type="submit" class="btn btn-primary" id="rankBtn">Rank Candidates</button>
+          <button type="button" class="btn btn-secondary" id="trainBtn">Train Model</button>
         </div>
       </form>
 
       <div id="message" class="message" aria-live="polite"></div>
-        <div id="results" class="results" aria-live="polite"></div>
+      <div id="trialInfo" class="trial-info" aria-live="polite"></div>
+      <div id="results" class="results" aria-live="polite"></div>
+      <div id="metricsPanel" class="metrics-panel" aria-live="polite"></div>
     </div>
   </main>
 

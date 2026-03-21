@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional, Set
 
 import pandas as pd
@@ -16,10 +16,14 @@ class PatientProfile:
     recent_hospitalization: bool = False
 
 
-def _calc_age(birthdate: str, as_of: Optional[datetime]) -> int:
+def _calc_age(birthdate: str, as_of: Optional[datetime] = None) -> int:
     if as_of is None:
-        as_of = datetime.utcnow()
+        as_of = datetime.now(timezone.utc)
     dob = datetime.fromisoformat(birthdate)
+    if dob.tzinfo is None:
+        dob = dob.replace(tzinfo=timezone.utc)
+    if as_of.tzinfo is None:
+        as_of = as_of.replace(tzinfo=timezone.utc)
     return as_of.year - dob.year - ((as_of.month, as_of.day) < (dob.month, dob.day))
 
 

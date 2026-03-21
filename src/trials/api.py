@@ -75,7 +75,7 @@ def fetch_trials(
 
 
 def save_trials_json(trials: Iterable[TrialRecord], path: str) -> None:
-    data = [trial.dict() for trial in trials]
+    data = [trial.model_dump() for trial in trials]
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 

@@ -11,6 +11,23 @@ from src.matching.features import build_match_features
 from src.matching.ranker import TrialRanker
 
 
+def _rule_label(features: dict) -> int:
+    """3-class labeling: 0=ineligible, 1=eligible, 2=uncertain."""
+    if features.get("renal_exclusion_hit", 0.0) == 1.0:
+        return 0
+    if features.get("stroke_exclusion_hit", 0.0) == 1.0:
+        return 0
+    if features.get("insulin_pump_conflict", 0.0) == 1.0:
+        return 0
+    if features.get("missing_hba1c", 0.0) == 1.0 or features.get("missing_renal_lab", 0.0) == 1.0:
+        return 2
+    if (features.get("age_match", 0.0) == 1.0
+            and features.get("sex_match", 1.0) == 1.0
+            and features.get("t2d_present", 0.0) == 1.0):
+        return 1
+    return 0
+
+
 def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: Path = None):
     out_dir = out_dir or (config.OUTPUT_DIR / "models")
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -29,17 +46,27 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
     for trial in trials:
         for patient in profiles.values():
             feat = build_match_features(patient, trial.criteria)
-            label = 1 if feat.get("age_match", 0.0) == 1.0 and feat.get("sex_match", 1.0) == 1.0 and feat.get("t2d_present", 1.0) == 1.0 else 0
+            label = _rule_label(feat)
             rows.append({"trial_id": trial.trial_id, "patient_id": patient.patient_id, **feat, "label": label})
 
     df = pd.DataFrame(rows)
     feature_cols = [c for c in df.columns if c not in ("trial_id", "patient_id", "label")]
     X = df[feature_cols].values.astype(float)
     y = df["label"].values.astype(float)
-    group = df.groupby("trial_id").size().tolist()
+
+    # --- train / test split by trial ---
+    trial_ids = df["trial_id"].unique()
+    rng = np.random.RandomState(42)
+    rng.shuffle(trial_ids)
+    split_idx = max(1, int(len(trial_ids) * 0.8))
+    train_trials = set(trial_ids[:split_idx])
+
+    train_mask = df["trial_id"].isin(train_trials).values
+    X_train, y_train = X[train_mask], y[train_mask]
+    group = df[df["trial_id"].isin(train_trials)].groupby("trial_id").size().tolist()
 
     ranker = TrialRanker()
-    ranker.fit(X, y, group)
+    ranker.fit(X_train, y_train, group)
 
     # persist model
     try:
@@ -49,6 +76,18 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
         joblib.dump(ranker.model, model_path)
     except Exception:
         model_path = None
+
+    # --- evaluate on test set ---
+    test_mask = ~train_mask
+    if test_mask.any():
+        y_test = y[test_mask]
+        scores_test = ranker.predict(X[test_mask])
+        from src.pipelines.build_pairs import _compute_metrics
+        metrics = _compute_metrics(y_test, scores_test)
+        import json
+        metrics_path = config.OUTPUT_DIR / "evaluation_metrics.json"
+        with open(metrics_path, "w") as f:
+            json.dump(metrics, f, indent=2)
 
     return model_path
 
