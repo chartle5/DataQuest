@@ -20,8 +20,8 @@ body{
 }
 .site-header{display:flex;flex-direction:column;align-items:center;margin:40px 0 18px}
 .logo{width:64px;height:64px;filter:drop-shadow(0 6px 18px rgba(12,18,36,0.6))}
-.brand{font-size:18px;margin:10px 0 0;font-weight:700;letter-spacing:0.6px;color:var(--text)}
-.brand-sub{font-size:12px;display:block;margin-top:2px;color:var(--muted);font-weight:600}
+.brand{font-size:18px;margin:10px 0 0;font-weight:700;letter-spacing:0.6px;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center}
+.brand-sub{font-size:12px;display:block;margin-top:2px;color:var(--muted);font-weight:600;letter-spacing:0.2px}
 .main{width:100%;display:flex;justify-content:center;padding:24px}
 .card{width:100%;max-width:580px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;box-shadow:0 10px 40px rgba(2,6,23,0.6);padding:30px;border:1px solid rgba(255,255,255,0.03)}
 .form{display:grid;gap:18px}
