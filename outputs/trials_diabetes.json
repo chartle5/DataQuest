@@ -1,0 +1,1201 @@
+[
+  {
+    "trial_id": "NCT05296759",
+    "title": "Botulinum Toxin Type A in Diabetic Peripheral Neuropathy",
+    "conditions": [
+      "Diabetic Neuropathies"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* diabetic patients type 2 were included on single line of treatment with carbamazepine\n\nExclusion Criteria:\n\n* any sever medical condition that might interfere with the results.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* diabetic patients type 2 were included on single line of treatment with carbamazepine",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* any sever medical condition that might interfere with the results."
+    }
+  },
+  {
+    "trial_id": "NCT02081586",
+    "title": "mHealth Skill Enhancement Plus Phone CBT for Type 2 Diabetes Distress Medication Nonadherence: Pilot Study",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. have a diagnosis of T2DM;\n2. have a score of \\>3 on the Diabetes Distress Scale;\n3. be taking at least one oral antihyperglycemic agent (the patient may also be using injectable antihyperglycemic medications, including insulin);\n4. have an HbA1c level of greater than 8 at baseline;\n5. be receiving treatment for T2DM in the primary care setting;\n6. be aged 30 - 65 years and\n7. be able to read at the 8th-grade level and to provide informed consent. -\n\nExclusion Criteria:\n\n1. diagnosis of bipolar disorder or schizophrenia; primary diagnosis of obsessive-compulsive disorder, posttraumatic stress disorder, substance abuse, or dependence in the last 6 months; or any psychotic disorder;\n2. diabetes treated without oral medications;\n3. inability to read or comprehend English at the 8th-grade level;\n4. refusal to provide informed consent;\n5. dementia or disorders with substantial cognitive impairment; and\n6. serious suicidal risk -",
+    "criteria": {
+      "min_age": 30,
+      "max_age": 65,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 8.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. have a diagnosis of T2DM;\n2. have a score of \\>3 on the Diabetes Distress Scale;\n3. be taking at least one oral antihyperglycemic agent (the patient may also be using injectable antihyperglycemic medications, including insulin);\n4. have an HbA1c level of greater than 8 at baseline;\n5. be receiving treatment for T2DM in the primary care setting;\n6. be aged 30 - 65 years and\n7. be able to read at the 8th-grade level and to provide informed consent. -",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. diagnosis of bipolar disorder or schizophrenia; primary diagnosis of obsessive-compulsive disorder, posttraumatic stress disorder, substance abuse, or dependence in the last 6 months; or any psychotic disorder;\n2. diabetes treated without oral medications;\n3. inability to read or comprehend English at the 8th-grade level;\n4. refusal to provide informed consent;\n5. dementia or disorders with substantial cognitive impairment; and\n6. serious suicidal risk -"
+    }
+  },
+  {
+    "trial_id": "NCT05211869",
+    "title": "T1DTechCHW: Enhancing the Community Health Worker Model to Promote Diabetes Technology Use in Young Adults From Underrepresented Minority Groups",
+    "conditions": [
+      "Diabetes",
+      "Type 1 Diabetes",
+      "Young Adult",
+      "Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* T1D duration \u22656 months\n* 18-35 years old\n* Self-identified URM status: non-Hispanic Black or Hispanic\n* English- or Spanish-speaking\n* Not currently on a connected diabetes technology system (includes never offered, prescribed but not started within 3 months of receiving the device, discontinued, or previously refused technology)\n\nExclusion Criteria:\n\n* Developmental or sensory disability interfering with study participation\n* Current pregnancy\n* Participation in another behavioral or diabetes technology intervention study in the past 6 months.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 35,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* T1D duration \u22656 months\n* 18-35 years old\n* Self-identified URM status: non-Hispanic Black or Hispanic\n* English- or Spanish-speaking\n* Not currently on a connected diabetes technology system (includes never offered, prescribed but not started within 3 months of receiving the device, discontinued, or previously refused technology)",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Developmental or sensory disability interfering with study participation\n* Current pregnancy\n* Participation in another behavioral or diabetes technology intervention study in the past 6 months."
+    }
+  },
+  {
+    "trial_id": "NCT04739241",
+    "title": "Premixed vs Basal Bolus Insulin Therapy in Older Patients With Type 2 Diabetes",
+    "conditions": [
+      "Type 2 Diabetes Treated With Insulin"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Outpatients\n* Age \u2265 65 years old\n* Type 2 diabetes mellitus\n* HbA1c \u22659% (74 mmol/mol)\n* Previously treated with one or two doses of basal insulin and oral hypoglycaemic agents\n\nExclusion Criteria:\n\n* Severe insulin-resistance\n* High doses of corticosteroids\n* Chemotherapy treatment\n* High comorbidity\n* Bad compliance of the treatment\n* Frequent severe hypoglycaemia",
+    "criteria": {
+      "min_age": 65,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 9.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Outpatients\n* Age \u2265 65 years old\n* Type 2 diabetes mellitus\n* HbA1c \u22659% (74 mmol/mol)\n* Previously treated with one or two doses of basal insulin and oral hypoglycaemic agents",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Severe insulin-resistance\n* High doses of corticosteroids\n* Chemotherapy treatment\n* High comorbidity\n* Bad compliance of the treatment\n* Frequent severe hypoglycaemia"
+    }
+  },
+  {
+    "trial_id": "NCT01077505",
+    "title": "An Evaluation of the Pharmacokinetics of an Oral Contraceptive (Brevicon) When Co-administered With Albiglutide .",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Healthy female subjects, defined as individuals who are free from clinically significant illness or disease as determined by their medical history, physical examination, clinical laboratory tests, and 12-lead ECG;\n* Women of childbearing potential must use protocol-defined contraceptive methods;\n* BMI is 19 to 30 kg/m2 and body weight \u226550 kg (110 lbs) and \\<114 kg (\\<250 lbs);\n* Aspartate aminotransferase (AST), ALT, alkaline phosphatase, and bilirubin is \\</=1.5 \u00d7 ULN;\n\nExclusion Criteria:\n\n* Any clinically relevant abnormality identified on the screening medical assessment, laboratory examination, or ECG;\n* Blood pressure \u2265140/90 mm Hg or heart rate \\>100 beats/minute at Screening;\n* Corrected QT (QTc) intervals \\>450 msec (per ECG machine interpretation);\n* Pregnant or nursing females;\n* A positive prestudy hepatitis B surface antigen, positive hepatitis C antibody, or HIV result within 3 months of Screening;\n* Current or chronic history of liver disease, or known hepatic or biliary abnormalities (with the exception of Gilbert's syndrome or asymptomatic gallstones);\n* Smoking or using any nicotine products, including smoking cessation patches containing any amount of nicotine within the 6 months before Screening;\n* Women of childbearing potential who are unwilling or unable to use an appropriate method of contraception;\n* Subjects have participated in a clinical trial and have received an investigational product within the following time period prior to the first dosing day in the current study: 30 days, 5 half-lives, or twice the duration of the biological effect of the investigational product (whichever is longer);\n* History of substance abuse within the past year as determined by the investigator;\n* History of alcohol abuse defined as an average weekly intake of \\>7 drinks;\n* Positive urine drug screen at Screening or predose during the Run-in Period and on Day 1 of Periods 1 and 2;\n* Use of prescription or nonprescription drugs, vitamins, dietary/herbal supplements including St. John's Wort, nonsteroidal antiinflammatory medications, and aspirin within 14 days or 5 half-lives, whichever is longer prior to the first dose of investigational product;\n* Willing to refrain from consuming grapefruit or cranberry products (such as juice, fruit, or nutritional supplements) at any time during participation in the study;\n* Donation of blood in excess of 500 mL within 56 days prior to dosing or intention of donating in the month after completing the study;\n* History of thyroid dysfunction or an abnormal (i.e., outside normal reference range) thyroid function test assessed by thyroid stimulating hormone (TSH) at Screening;\n* History of drug allergy or other allergy, which, in the opinion of the responsible study physician, contradicts the subject's participation;\n* History of any condition that would contraindicate OC administration (including hypertension, stroke, ischemic heart disease, venous thromboembolism, carcinoma of the breast, etc.);\n* History of type 1 or 2 diabetes mellitus;\n* History of migraine if aged \\>35 years or has focal symptoms associated with migraine;\n* Any condition that would affect drug transit time or absorption (e.g., gastrointestinal bypass surgery, partial or total gastrectomy, small bowel resection, chronic diarrhea, vagotomy, chronic gastroesophageal reflux disease, malabsorption, colostomy, Crohn's disease, ulcerative colitis, or celiac sprue); or\n* Previous or current receipt of exenatide or any other GLP 1 agonist;",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": "female",
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Healthy female subjects, defined as individuals who are free from clinically significant illness or disease as determined by their medical history, physical examination, clinical laboratory tests, and 12-lead ECG;\n* Women of childbearing potential must use protocol-defined contraceptive methods;\n* BMI is 19 to 30 kg/m2 and body weight \u226550 kg (110 lbs) and \\<114 kg (\\<250 lbs);\n* Aspartate aminotransferase (AST), ALT, alkaline phosphatase, and bilirubin is \\</=1.5 \u00d7 ULN;",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Any clinically relevant abnormality identified on the screening medical assessment, laboratory examination, or ECG;\n* Blood pressure \u2265140/90 mm Hg or heart rate \\>100 beats/minute at Screening;\n* Corrected QT (QTc) intervals \\>450 msec (per ECG machine interpretation);\n* Pregnant or nursing females;\n* A positive prestudy hepatitis B surface antigen, positive hepatitis C antibody, or HIV result within 3 months of Screening;\n* Current or chronic history of liver disease, or known hepatic or biliary abnormalities (with the exception of Gilbert's syndrome or asymptomatic gallstones);\n* Smoking or using any nicotine products, including smoking cessation patches containing any amount of nicotine within the 6 months before Screening;\n* Women of childbearing potential who are unwilling or unable to use an appropriate method of contraception;\n* Subjects have participated in a clinical trial and have received an investigational product within the following time period prior to the first dosing day in the current study: 30 days, 5 half-lives, or twice the duration of the biological effect of the investigational product (whichever is longer);\n* History of substance abuse within the past year as determined by the investigator;\n* History of alcohol abuse defined as an average weekly intake of \\>7 drinks;\n* Positive urine drug screen at Screening or predose during the Run-in Period and on Day 1 of Periods 1 and 2;\n* Use of prescription or nonprescription drugs, vitamins, dietary/herbal supplements including St. John's Wort, nonsteroidal antiinflammatory medications, and aspirin within 14 days or 5 half-lives, whichever is longer prior to the first dose of investigational product;\n* Willing to refrain from consuming grapefruit or cranberry products (such as juice, fruit, or nutritional supplements) at any time during participation in the study;\n* Donation of blood in excess of 500 mL within 56 days prior to dosing or intention of donating in the month after completing the study;\n* History of thyroid dysfunction or an abnormal (i.e., outside normal reference range) thyroid function test assessed by thyroid stimulating hormone (TSH) at Screening;\n* History of drug allergy or other allergy, which, in the opinion of the responsible study physician, contradicts the subject's participation;\n* History of any condition that would contraindicate OC administration (including hypertension, stroke, ischemic heart disease, venous thromboembolism, carcinoma of the breast, etc.);\n* History of type 1 or 2 diabetes mellitus;\n* History of migraine if aged \\>35 years or has focal symptoms associated with migraine;\n* Any condition that would affect drug transit time or absorption (e.g., gastrointestinal bypass surgery, partial or total gastrectomy, small bowel resection, chronic diarrhea, vagotomy, chronic gastroesophageal reflux disease, malabsorption, colostomy, Crohn's disease, ulcerative colitis, or celiac sprue); or\n* Previous or current receipt of exenatide or any other GLP 1 agonist;"
+    }
+  },
+  {
+    "trial_id": "NCT06724822",
+    "title": "RF Vapor Ablation Retreatment of Duodenal Mucosa in Non-responders With Type-2 Diabetes Mellitus",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Subjects previously enrolled and treated in the STEAM T2DM Clinical study.\n2. Subjects with improvement in HbA1c of \u22640.5% or with HbA1c of \u2265 7.5% at the 6-month visit while participating in the STEAM T2DM study.\n3. Agrees to use an additional glucose-lowering treatment (e.g., liraglutide, other OAD except for glyburide), if recommended by the study Investigator in case of persistent hyperglycemia.\n4. Able to comply with study requirements and understand and sign the Informed Consent Form\n5. Compliance with STEAM T2DM clinical protocol\n\nExclusion Criteria:\n\n1. Non-compliance with STEAM T2DM clinical protocol\n2. Diagnosis of Type-1 Diabetes\n3. History of diabetic ketoacidosis or hyperosmolar nonketotic coma.\n4. Probable insulin production failure, defined as fasting C Peptide serum \\<1 ng/mL (333pmol/l).\n5. Previous use of any types of insulin for \\>1 month (at any time, except for treatment of gestational diabetes).\n6. Current use of injectable medications for diabetes (insulin, GLP-1RA).\n7. Current use of glyburide, a sulfonylurea (SU) glucose-lowering drug for diabetes.\n8. History of severe hypoglycemia (more than 1 severe hypoglycemic event, as defined by need for third-party assistance, in the last year).\n9. Known autoimmune disease, including but not limited to celiac disease, duodenal Crohn disease or pre-existing symptoms of systemic lupus erythematosus, scleroderma or other systemic autoimmune connective tissue disorder\n10. Previous GI surgery that could limit treatment of the duodenum such as Billroth 2, Roux-en-Y gastric bypass, or other similar procedures or conditions. (Prior laparoscopic sleeve gastrectomy (LSG) will not be an exclusion)\n11. History of chronic or acute pancreatitis.\n12. History of diabetic gastroparesis.\n13. Known active hepatitis or active liver disease.\n14. Acute gastrointestinal illness in the previous 7 days.\n15. Known history of severe irritable bowel syndrome, radiation enteritis or other inflammatory bowel disease, such as Crohn's disease.\n16. Known history of a structural or functional disorder of the esophagus that may impede passage of the device through the gastrointestinal tract or increase risk of esophageal damage during an endoscopic procedure, including moderate-severe (Grade C or D) esophagitis, dysphagia due to achalasia or stricture/stenosis, esophageal varices, esophageal perforation, or any other disorder of the esophagus.\n17. Upper gastrointestinal conditions such as active ulcers, polyps, varices, strictures, congenital or acquired duodenal telangiectasia\n18. Current use of anticoagulation therapy (such as warfarin) that cannot be discontinued for 7 days before and 14 days after the procedure.\n19. Current use of P2Y12 inhibitors (clopidogrel, prasugrel, ticagrelor) that cannot be discontinued for 14 days before and 14 days after the procedure.\n20. Unable to discontinue non-steroidal anti-inflammatory drugs (NSAIDs) during treatment through 4 weeks following the procedure. Use of acetaminophen and low dose aspirin is allowed.\n21. Use of systemic glucocorticoids (excluding topical or ophthalmic application or inhaled forms) for more than 10 consecutive days within 12 weeks prior to the baseline visit.\n22. Use of drugs known to affect GI motility (e.g. Metoclopramide)\n23. Use of weight loss medications such as Sibutramine (e.g. Meridia), Orlistat (e.g. Xenical), Phentermine or over-the-counter weight loss medications (prescription medication)\n24. Currently taking, or unable to stop taking dietary supplements or herbal agents, including vitamin C or multivitamins containing vitamin C at \\>500 mg per day, multivitamins containing biotin (vitamin B7), and supplements for hair, skin, and nail growth. Multivitamins not containing biotin are permitted.\n25. Significant cardiovascular disease, including known history of valvular disease, or myocardial infarction, heart failure, transient ischemic attack, or stroke within 6 months prior to the Screening Visit.\n26. Mean of 3 separate blood pressure measurements \\>180 mmHg (systolic) or \\>100 mmHg (diastolic).\n27. Estimated glomerular filtration rate (eGFR) \u2264 60 ml/min/1.73m2 (estimated by MDRD).\n28. Known immunocompromised status, including but not limited to individuals who have undergone organ transplantation, chemotherapy, or radiotherapy within the past 12 months, who have clinically significant leukopenia, who are positive for the human immunodeficiency virus (HIV) or whose immune status makes the participant a poor candidate for clinical trial participation in the opinion of the investigator.\n29. Active illicit substance abuse or alcoholism (\\>2 drinks/day regularly)\n30. Active malignancy within the last 5 years (excluding non-melanoma skin cancers)\n31. Women breastfeeding\n32. Participating in another ongoing clinical trial of an investigational drug or device.\n33. Any other mental or physical condition which, in the opinion of the study investigator, makes the participant a poor candidate for clinical trial participation.\n34. Critically ill or has a life expectancy \\<3 years\n35. Use of heart pacemaker or other electronic device implants\n36. General contraindications to deep or conscious sedation, general anesthesia, high risk as determined by anesthesiologist (e.g., ASA score 4 or higher), or contraindications to upper GI endoscopy.\n\n    \\-",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 0.5,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Subjects previously enrolled and treated in the STEAM T2DM Clinical study.\n2. Subjects with improvement in HbA1c of \u22640.5% or with HbA1c of \u2265 7.5% at the 6-month visit while participating in the STEAM T2DM study.\n3. Agrees to use an additional glucose-lowering treatment (e.g., liraglutide, other OAD except for glyburide), if recommended by the study Investigator in case of persistent hyperglycemia.\n4. Able to comply with study requirements and understand and sign the Informed Consent Form\n5. Compliance with STEAM T2DM clinical protocol",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Non-compliance with STEAM T2DM clinical protocol\n2. Diagnosis of Type-1 Diabetes\n3. History of diabetic ketoacidosis or hyperosmolar nonketotic coma.\n4. Probable insulin production failure, defined as fasting C Peptide serum \\<1 ng/mL (333pmol/l).\n5. Previous use of any types of insulin for \\>1 month (at any time, except for treatment of gestational diabetes).\n6. Current use of injectable medications for diabetes (insulin, GLP-1RA).\n7. Current use of glyburide, a sulfonylurea (SU) glucose-lowering drug for diabetes.\n8. History of severe hypoglycemia (more than 1 severe hypoglycemic event, as defined by need for third-party assistance, in the last year).\n9. Known autoimmune disease, including but not limited to celiac disease, duodenal Crohn disease or pre-existing symptoms of systemic lupus erythematosus, scleroderma or other systemic autoimmune connective tissue disorder\n10. Previous GI surgery that could limit treatment of the duodenum such as Billroth 2, Roux-en-Y gastric bypass, or other similar procedures or conditions. (Prior laparoscopic sleeve gastrectomy (LSG) will not be an exclusion)\n11. History of chronic or acute pancreatitis.\n12. History of diabetic gastroparesis.\n13. Known active hepatitis or active liver disease.\n14. Acute gastrointestinal illness in the previous 7 days.\n15. Known history of severe irritable bowel syndrome, radiation enteritis or other inflammatory bowel disease, such as Crohn's disease.\n16. Known history of a structural or functional disorder of the esophagus that may impede passage of the device through the gastrointestinal tract or increase risk of esophageal damage during an endoscopic procedure, including moderate-severe (Grade C or D) esophagitis, dysphagia due to achalasia or stricture/stenosis, esophageal varices, esophageal perforation, or any other disorder of the esophagus.\n17. Upper gastrointestinal conditions such as active ulcers, polyps, varices, strictures, congenital or acquired duodenal telangiectasia\n18. Current use of anticoagulation therapy (such as warfarin) that cannot be discontinued for 7 days before and 14 days after the procedure.\n19. Current use of P2Y12 inhibitors (clopidogrel, prasugrel, ticagrelor) that cannot be discontinued for 14 days before and 14 days after the procedure.\n20. Unable to discontinue non-steroidal anti-inflammatory drugs (NSAIDs) during treatment through 4 weeks following the procedure. Use of acetaminophen and low dose aspirin is allowed.\n21. Use of systemic glucocorticoids (excluding topical or ophthalmic application or inhaled forms) for more than 10 consecutive days within 12 weeks prior to the baseline visit.\n22. Use of drugs known to affect GI motility (e.g. Metoclopramide)\n23. Use of weight loss medications such as Sibutramine (e.g. Meridia), Orlistat (e.g. Xenical), Phentermine or over-the-counter weight loss medications (prescription medication)\n24. Currently taking, or unable to stop taking dietary supplements or herbal agents, including vitamin C or multivitamins containing vitamin C at \\>500 mg per day, multivitamins containing biotin (vitamin B7), and supplements for hair, skin, and nail growth. Multivitamins not containing biotin are permitted.\n25. Significant cardiovascular disease, including known history of valvular disease, or myocardial infarction, heart failure, transient ischemic attack, or stroke within 6 months prior to the Screening Visit.\n26. Mean of 3 separate blood pressure measurements \\>180 mmHg (systolic) or \\>100 mmHg (diastolic).\n27. Estimated glomerular filtration rate (eGFR) \u2264 60 ml/min/1.73m2 (estimated by MDRD).\n28. Known immunocompromised status, including but not limited to individuals who have undergone organ transplantation, chemotherapy, or radiotherapy within the past 12 months, who have clinically significant leukopenia, who are positive for the human immunodeficiency virus (HIV) or whose immune status makes the participant a poor candidate for clinical trial participation in the opinion of the investigator.\n29. Active illicit substance abuse or alcoholism (\\>2 drinks/day regularly)\n30. Active malignancy within the last 5 years (excluding non-melanoma skin cancers)\n31. Women breastfeeding\n32. Participating in another ongoing clinical trial of an investigational drug or device.\n33. Any other mental or physical condition which, in the opinion of the study investigator, makes the participant a poor candidate for clinical trial participation.\n34. Critically ill or has a life expectancy \\<3 years\n35. Use of heart pacemaker or other electronic device implants\n36. General contraindications to deep or conscious sedation, general anesthesia, high risk as determined by anesthesiologist (e.g., ASA score 4 or higher), or contraindications to upper GI endoscopy.\n\n    \\-"
+    }
+  },
+  {
+    "trial_id": "NCT03975556",
+    "title": "Culturally-Adapted Diet for Puerto Rican Adults",
+    "conditions": [
+      "Diabetes Mellitus, Type 2",
+      "Obesity",
+      "Hypertension",
+      "Dyslipidemias",
+      "High Triglycerides",
+      "High Blood Glucose",
+      "Abdominal Obesity"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Age 25-65 y old at the time of enrollment\n2. Non-institutionalized\n3. Living in PR at the time of recruitment and for at least the previous year and not planning to move from the island within the next 6 months\n4. Able to answer questions without assistance\n5. Having a cellphone with the capacity to receive text messages\n6. Having at least two of the following:\n\n   1. elevated BMI\n   2. elevated waist circumference\n   3. self-reported physician-diagnosed hypertension or use of hypertension medication or measured high blood pressure\n   4. self-reported physician-diagnosed pre-diabetes or measured pre-diabetes\n   5. self-reported physician-diagnosed dyslipidemia or use of lipid-lowering agents or laboratory values confirming dyslipidemia\n\nExclusion Criteria:\n\n1. Under 25 or over 65 years of age\n2. Currently do not live in Puerto Rico or have not lived in PR for at least 1 year or plan to move within 6 months\n3. Institutionalized\n4. Not able to answer questions without assistance\n5. Not having at least 2 of the five listed metabolic criteria\n6. Self-reported physician-diagnosed type 1 or type 2 diabetes or use of diabetes medication (including insulin), or diabetes-diagnosis values confirmed by laboratory.\n7. Self-reported pregnancy\n8. Gastrointestinal or chronic conditions\n9. Food intolerance or allergies",
+    "criteria": {
+      "min_age": 25,
+      "max_age": 65,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Age 25-65 y old at the time of enrollment\n2. Non-institutionalized\n3. Living in PR at the time of recruitment and for at least the previous year and not planning to move from the island within the next 6 months\n4. Able to answer questions without assistance\n5. Having a cellphone with the capacity to receive text messages\n6. Having at least two of the following:\n\n   1. elevated BMI\n   2. elevated waist circumference\n   3. self-reported physician-diagnosed hypertension or use of hypertension medication or measured high blood pressure\n   4. self-reported physician-diagnosed pre-diabetes or measured pre-diabetes\n   5. self-reported physician-diagnosed dyslipidemia or use of lipid-lowering agents or laboratory values confirming dyslipidemia",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Under 25 or over 65 years of age\n2. Currently do not live in Puerto Rico or have not lived in PR for at least 1 year or plan to move within 6 months\n3. Institutionalized\n4. Not able to answer questions without assistance\n5. Not having at least 2 of the five listed metabolic criteria\n6. Self-reported physician-diagnosed type 1 or type 2 diabetes or use of diabetes medication (including insulin), or diabetes-diagnosis values confirmed by laboratory.\n7. Self-reported pregnancy\n8. Gastrointestinal or chronic conditions\n9. Food intolerance or allergies"
+    }
+  },
+  {
+    "trial_id": "NCT01351922",
+    "title": "A Survey to Evaluate Diabetes Management, Control, Chronic Complications, Psychosocial Aspects of Diabetic Subjects in India",
+    "conditions": [
+      "Diabetes",
+      "Diabetes Mellitus, Type 1",
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Patients should have visited the centre at least once in the last 3-6 months apart from the initial visit\n* First twenty patients of diabetes visiting the centre during the data collection period\n* Patients willing to sign the informed consent form\n\nExclusion Criteria:\n\n* Repetition of any patient as patients should not be included twice for any reason\n* Unwilling to participate or unable to comply with protocol requirements",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Patients should have visited the centre at least once in the last 3-6 months apart from the initial visit\n* First twenty patients of diabetes visiting the centre during the data collection period\n* Patients willing to sign the informed consent form",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Repetition of any patient as patients should not be included twice for any reason\n* Unwilling to participate or unable to comply with protocol requirements"
+    }
+  },
+  {
+    "trial_id": "NCT03104829",
+    "title": "DSME or DSME + MI in T1DM on Glycemic Control",
+    "conditions": [
+      "Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* T1DM\n* age more than 10 years old\n* HbA1C more than 8%\n\nExclusion Criteria:\n\n* other types of DM\n* receive medications that may effect blood glucose\n* mental retardation",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": 8.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* T1DM\n* age more than 10 years old\n* HbA1C more than 8%",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* other types of DM\n* receive medications that may effect blood glucose\n* mental retardation"
+    }
+  },
+  {
+    "trial_id": "NCT07010731",
+    "title": "Level of Social Support and Associated Factors Among Diabetic Patients in Bahir Dar City Public Hospitals, Amhara Regional State, North West Ethiopia, 2023",
+    "conditions": [
+      "Social Support and Associated Factors Among Diabetic Patients"
+    ],
+    "eligibility_text": "Inclusion Criteria:The study population was a diabetic patient with a follow-up who fulfilled the eligibility criteria -\n\nExclusion Criteria:Those patients who are critically ill and those less than 18 years old was excluded because they couldn't provide adequate information related to the study.\n\n\\-",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:The study population was a diabetic patient with a follow-up who fulfilled the eligibility criteria -",
+      "raw_exclusion_text": "Exclusion Criteria:Those patients who are critically ill and those less than 18 years old was excluded because they couldn't provide adequate information related to the study.\n\n\\-"
+    }
+  },
+  {
+    "trial_id": "NCT05383859",
+    "title": "Diet and Physical Activity Program for Type 2 Diabetes Mellitus",
+    "conditions": [
+      "Type 2 Diabetes"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Be cared for by one of the nurses participating in the research team\n* Ability to complete the questionnaire\n* Sign the informed consent\n* Keep the Primary care health center during till the end of the research",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Be cared for by one of the nurses participating in the research team\n* Ability to complete the questionnaire\n* Sign the informed consent\n* Keep the Primary care health center during till the end of the research",
+      "raw_exclusion_text": null
+    }
+  },
+  {
+    "trial_id": "NCT05628662",
+    "title": "Artificial Pancreas With Carbohydrate Suggestion for Patients With Type 1 Diabetes Prone to Hypoglycemia",
+    "conditions": [
+      "Type 1 Diabetes Mellitus Prone to Hypoglycemia"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Subjects aged 18 or more with Type 1 Diabetes for at least 5 years.\n* Treated with continuous subcutaneous insulin infusion (CSII) for at least six months.\n* Trained to carbohydrate counting.\n* Subjects prone to hypoglycemia, despite optimal diabetes management and hypoglycemia-specific education programs, as defined by \\>4 hypoglycemic episodes per week and at least one of the following:\n\n  1. Occurrence of at least 2 severe hypoglycemic episodes during the last 2 years (need for third party).\n  2. Occurrence of at least 1 severe hypoglycemic episode during the last 2 years and high glycemic variability (coefficient of variation \\>36%).\n  3. Impaired awareness of hypoglycemia (Clarke test \u22654).\n* Physical examination, laboratory data and EKG without alterations. Abnormalities considered clinically irrelevant by the investigator will not be exclusion criteria.\n* Negative SARS-CoV-2 PCR test performed at arrival.\n* Subject willing to wear the SAFE-AP system continuously throughout the study.\n\nExclusion Criteria:\n\n* Pregnancy and breastfeeding.\n* History of drug or alcohol abuse.\n* Progressive fatal disease.\n* Clinically relevant microvascular complications (macroalbuminuria, pre-proliferative and proliferative retinopathy), cardiovascular, hepatic, neurological, endocrine or other systematic, apart from T1D, which may hamper the implementation of the clinical study protocol or interpretation of results study.\n* Scheduled surgery during the study period.\n* Mental conditions that prevent the subject to understand the nature, purpose and possible consequences of the study.\n* Subjects who are unlikely to meet the clinical study protocol, eg. uncooperative attitude, inability to return for follow-up visits, or poor probability of completing the study.\n* Using an experimental drug or device during the past 30 days.",
+    "criteria": {
+      "min_age": 5,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Subjects aged 18 or more with Type 1 Diabetes for at least 5 years.\n* Treated with continuous subcutaneous insulin infusion (CSII) for at least six months.\n* Trained to carbohydrate counting.\n* Subjects prone to hypoglycemia, despite optimal diabetes management and hypoglycemia-specific education programs, as defined by \\>4 hypoglycemic episodes per week and at least one of the following:\n\n  1. Occurrence of at least 2 severe hypoglycemic episodes during the last 2 years (need for third party).\n  2. Occurrence of at least 1 severe hypoglycemic episode during the last 2 years and high glycemic variability (coefficient of variation \\>36%).\n  3. Impaired awareness of hypoglycemia (Clarke test \u22654).\n* Physical examination, laboratory data and EKG without alterations. Abnormalities considered clinically irrelevant by the investigator will not be",
+      "raw_exclusion_text": "exclusion criteria.\n* Negative SARS-CoV-2 PCR test performed at arrival.\n* Subject willing to wear the SAFE-AP system continuously throughout the study.\n\nExclusion Criteria:\n\n* Pregnancy and breastfeeding.\n* History of drug or alcohol abuse.\n* Progressive fatal disease.\n* Clinically relevant microvascular complications (macroalbuminuria, pre-proliferative and proliferative retinopathy), cardiovascular, hepatic, neurological, endocrine or other systematic, apart from T1D, which may hamper the implementation of the clinical study protocol or interpretation of results study.\n* Scheduled surgery during the study period.\n* Mental conditions that prevent the subject to understand the nature, purpose and possible consequences of the study.\n* Subjects who are unlikely to meet the clinical study protocol, eg. uncooperative attitude, inability to return for follow-up visits, or poor probability of completing the study.\n* Using an experimental drug or device during the past 30 days."
+    }
+  },
+  {
+    "trial_id": "NCT02558296",
+    "title": "Bexagliflozin Efficacy and Safety Trial",
+    "conditions": [
+      "Type 2 Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Subjects with a diagnosis of T2DM\n* Subjects who have had a stable treatment regimen for T2DM for the past 3 months\n* Subjects who present with at least one of the following 3 histories:\n\nGroup 1: A history of atherosclerotic vascular disease Group 2: A history of heart failure Group 3: Age \u2265 55 years with diabetes for \u2265 10 years, uncontrolled hypertension, currently smoking, reduced kidney function, or cholesterol problems\n\nExclusion Criteria:\n\n* Diagnosis of type 1 diabetes mellitus or maturity-onset/diabetes of the young\n* History of genitourinary tract infections\n* Evidence of abnormal liver function\n* History of MI, stroke or hospitalization for heart failure in the past 3 months\n* Prior kidney transplant or evidence of kidney problems\n* Prior or planned pace maker implantation\n* Pregnant or nursing",
+    "criteria": {
+      "min_age": 55,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Subjects with a diagnosis of T2DM\n* Subjects who have had a stable treatment regimen for T2DM for the past 3 months\n* Subjects who present with at least one of the following 3 histories:\n\nGroup 1: A history of atherosclerotic vascular disease Group 2: A history of heart failure Group 3: Age \u2265 55 years with diabetes for \u2265 10 years, uncontrolled hypertension, currently smoking, reduced kidney function, or cholesterol problems",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Diagnosis of type 1 diabetes mellitus or maturity-onset/diabetes of the young\n* History of genitourinary tract infections\n* Evidence of abnormal liver function\n* History of MI, stroke or hospitalization for heart failure in the past 3 months\n* Prior kidney transplant or evidence of kidney problems\n* Prior or planned pace maker implantation\n* Pregnant or nursing"
+    }
+  },
+  {
+    "trial_id": "NCT03902288",
+    "title": "Short-term Effect of Pomegranate Juice on Blood Sugar and Its Controlling Hormones in Pre-diabetic and Type II Diabetic Patients.",
+    "conditions": [
+      "Patients With Type 2 Diabetes (FSG: More Than 7.1 and Not Higher Than 15.8 mmol/L)"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Patients with type 2 diabetes at early stages of progression (Fasting serum glucose: 7.1 - 15.8 mmol/L)\n* Healthy individuals (Fasting serum glucose \\< 7 mmol/L)\n\nExclusion Criteria:\n\n* Subjects with renal\n* Subjects with hepatic disease\n* Pregnant women\n* Subjects under treatment with insulin and any other hormonal therapies\n* Smoking 12 hours before the intervention\n* Antioxidant supplements 12 hours before the intervention\n* Drugs administration: Lipid lowering drugs, oral hypoglycemic agents such as metformin or sulfonylureas 12 hours before the intervention.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Patients with type 2 diabetes at early stages of progression (Fasting serum glucose: 7.1 - 15.8 mmol/L)\n* Healthy individuals (Fasting serum glucose \\< 7 mmol/L)",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Subjects with renal\n* Subjects with hepatic disease\n* Pregnant women\n* Subjects under treatment with insulin and any other hormonal therapies\n* Smoking 12 hours before the intervention\n* Antioxidant supplements 12 hours before the intervention\n* Drugs administration: Lipid lowering drugs, oral hypoglycemic agents such as metformin or sulfonylureas 12 hours before the intervention."
+    }
+  },
+  {
+    "trial_id": "NCT00318461",
+    "title": "To Compare the Effect of Liraglutide When Given Together With Metformin With the Effect of Metformin Given Alone and With the Effect of Glimepiride and Metformin Given Together",
+    "conditions": [
+      "Diabetes",
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Subjects diagnosed with type 2 diabetes and treated with oral anti-diabetic drugs (OADs) for at least 3 months\n* HbA1c: 7.0-11.0 % (both incl.) in subjects on OAD monotherapy. 7.0-10.0 % (both incl.) in subjects on OAD combination therapy\n* Body Mass Index (BMI) less than or equal 40 kg/m2\n\nExclusion Criteria:\n\n* Subjects treated with insulin within the last three months\n* Subjects with any serious medical condition\n* Females of child bearing potential who are pregnant, breast-feeding or have the intention of becoming pregnant or not using adequate contraceptive methods\n* Subjects using any drug (except for OADs), which in the Investigator's opinion could interfere with the glucose level (e.g. systemic corticosteroids)",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 7.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Subjects diagnosed with type 2 diabetes and treated with oral anti-diabetic drugs (OADs) for at least 3 months\n* HbA1c: 7.0-11.0 % (both incl.) in subjects on OAD monotherapy. 7.0-10.0 % (both incl.) in subjects on OAD combination therapy\n* Body Mass Index (BMI) less than or equal 40 kg/m2",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Subjects treated with insulin within the last three months\n* Subjects with any serious medical condition\n* Females of child bearing potential who are pregnant, breast-feeding or have the intention of becoming pregnant or not using adequate contraceptive methods\n* Subjects using any drug (except for OADs), which in the Investigator's opinion could interfere with the glucose level (e.g. systemic corticosteroids)"
+    }
+  },
+  {
+    "trial_id": "NCT06317883",
+    "title": "Childhood Obesity Risk Assessment Longitudinal Study",
+    "conditions": [
+      "Child Obesity"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Children aged 3 to 6 years.\n* Compliance with the 3-day food consumption record, the free time physical activity questionnaire and attendance at the scheduled inclusion visit together with the delivery of the signed informed consent.\n\nExclusion Criteria:\n\n* Children from families with difficulties in participating or complying with the study protocol, as well as difficulties with comprehension, language, or unstable domicile.",
+    "criteria": {
+      "min_age": 3,
+      "max_age": 6,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Children aged 3 to 6 years.\n* Compliance with the 3-day food consumption record, the free time physical activity questionnaire and attendance at the scheduled inclusion visit together with the delivery of the signed informed consent.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Children from families with difficulties in participating or complying with the study protocol, as well as difficulties with comprehension, language, or unstable domicile."
+    }
+  },
+  {
+    "trial_id": "NCT02426294",
+    "title": "Comparison of Pioglitazone Versus Glimepiride in Type 2 Diabetes Inadequately Controlled With Metformin Plus Alogliptin",
+    "conditions": [
+      "Type 2 Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Subjects included in the study are regular type 2 diabetes outpatients of male and female with a level of 7.5%\u2264HbA1c\\<10%, despite metformin and alogliptin treatments more than 3months, between 19 and 80 years old.\n* Patients had to have a body weight of at least 55 kg and or a body mass index of 22-35 kg/m2\n\nExclusion Criteria:\n\n* the use of weight-lowering drugs, any investigational blood-glucose or lipid-lowering agent (other than statins or ezetimibe) within the past 3 months\n* previous treatment with systemic corticosteroids or a change in dosage of thyroid hormones in the previous 6 weeks\n* the use of insulin within the 3 months prior to screening\n* allergy or hypersensitivity to target medication or any of its components\n* history of type 1 diabetes; acute metabolic complications of diabetes (e.g. ketoacidosis or hyperosmolar state (coma or precoma)) within the preceding 6 months\n* haematological disorders\n* history of angioedema with angiotensin converting enzyme inhibitors or angiotensin receptor blockers, or treated diabetic gastric paresis\n* renal failure, moderate or severe renal impairment (creatinine clearance\\<50 \u3396/min; or estimated glomerular filtration rate\\<50 \u3396/min/1.73\u33a1) before screening\n* Serious heart failure or prior history of heart failure(NYHA Class \u2162 or \u2163 heart failure.\n* impaired hepatic function (defined as elevated serum levels of either alanine aminotransferase, aspartate aminotransferase or alkaline phosphatase 2.5-fold the upper limit of the normal range \\[ULN\\] or elevated serum total bilirubin levels 2.5-fold ULN)\n* hereditary complications (limited to lactose containing medicines) such as galactose intolerance, deficiency of Lapp lactase, glucose-galactose malabsorption syndrome, etc\n* cardiovascular disease, myocardial infarction, or in the previous 6 months; coronary angioplasty, coronary stent placement\n* serious cerebrovascular, stroke, transient ischemic attack in the previous 6 months\n* laser treatment for proliferative diabetic retinopathy\n* history of alcohol or drug abuse in the previous 3 months\n* history of all of cancers not in remission for 5 years\n* Active bladder cancer\n* experience of a major operation\n* premenopausal women who were nursing or pregnant were also ineligible for trial participation\n* external injury, acute infections, a history/presence of any other severe disease, or severe trauma\n* fasting plasma glucose (FPG) level of \\>239.6mg/dL\n* systolic or diastolic blood pressure \\>160 mmHg or \\>100 mmHg, respectively\n* serum creatinine level of \\>1.5mg/dL for men or 1.3mg/dL for women\n* fasting cholesterol \\>250mg/dL\n* thyroid-stimulating hormone higher than the upper limit of normal\n* hemoglobin level is below 12 g/dL for men and below 10 g/dL for women\n* fasting triglyceride levels\\> 5.1 mmol/l (452 mg/dL)",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": "all",
+      "requires_t2d": true,
+      "hba1c_min": 10.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Subjects included in the study are regular type 2 diabetes outpatients of male and female with a level of 7.5%\u2264HbA1c\\<10%, despite metformin and alogliptin treatments more than 3months, between 19 and 80 years old.\n* Patients had to have a body weight of at least 55 kg and or a body mass index of 22-35 kg/m2",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* the use of weight-lowering drugs, any investigational blood-glucose or lipid-lowering agent (other than statins or ezetimibe) within the past 3 months\n* previous treatment with systemic corticosteroids or a change in dosage of thyroid hormones in the previous 6 weeks\n* the use of insulin within the 3 months prior to screening\n* allergy or hypersensitivity to target medication or any of its components\n* history of type 1 diabetes; acute metabolic complications of diabetes (e.g. ketoacidosis or hyperosmolar state (coma or precoma)) within the preceding 6 months\n* haematological disorders\n* history of angioedema with angiotensin converting enzyme inhibitors or angiotensin receptor blockers, or treated diabetic gastric paresis\n* renal failure, moderate or severe renal impairment (creatinine clearance\\<50 \u3396/min; or estimated glomerular filtration rate\\<50 \u3396/min/1.73\u33a1) before screening\n* Serious heart failure or prior history of heart failure(NYHA Class \u2162 or \u2163 heart failure.\n* impaired hepatic function (defined as elevated serum levels of either alanine aminotransferase, aspartate aminotransferase or alkaline phosphatase 2.5-fold the upper limit of the normal range \\[ULN\\] or elevated serum total bilirubin levels 2.5-fold ULN)\n* hereditary complications (limited to lactose containing medicines) such as galactose intolerance, deficiency of Lapp lactase, glucose-galactose malabsorption syndrome, etc\n* cardiovascular disease, myocardial infarction, or in the previous 6 months; coronary angioplasty, coronary stent placement\n* serious cerebrovascular, stroke, transient ischemic attack in the previous 6 months\n* laser treatment for proliferative diabetic retinopathy\n* history of alcohol or drug abuse in the previous 3 months\n* history of all of cancers not in remission for 5 years\n* Active bladder cancer\n* experience of a major operation\n* premenopausal women who were nursing or pregnant were also ineligible for trial participation\n* external injury, acute infections, a history/presence of any other severe disease, or severe trauma\n* fasting plasma glucose (FPG) level of \\>239.6mg/dL\n* systolic or diastolic blood pressure \\>160 mmHg or \\>100 mmHg, respectively\n* serum creatinine level of \\>1.5mg/dL for men or 1.3mg/dL for women\n* fasting cholesterol \\>250mg/dL\n* thyroid-stimulating hormone higher than the upper limit of normal\n* hemoglobin level is below 12 g/dL for men and below 10 g/dL for women\n* fasting triglyceride levels\\> 5.1 mmol/l (452 mg/dL)"
+    }
+  },
+  {
+    "trial_id": "NCT06549556",
+    "title": "The Value of Using Colostrum Supplements on the Physical Performance and Cognitive Function in Healthy Subjects and Type 2 Diabetes",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Apperantly Healthy patients for control\n* Patients diagnosed with T2DM\n* Age between 18-70\n\nExclusion Criteria:\n\n* Patients with T1DM\n* Patients with a drug history of anabolic substances for more than 14 days duration.\n* Patients with co-morbidities (e.g. CVS, renal, hepatic, and endocrine disorders)\n* Pregnancy, lactation, or female patient willing for conception.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": "female",
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Apperantly Healthy patients for control\n* Patients diagnosed with T2DM\n* Age between 18-70",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Patients with T1DM\n* Patients with a drug history of anabolic substances for more than 14 days duration.\n* Patients with co-morbidities (e.g. CVS, renal, hepatic, and endocrine disorders)\n* Pregnancy, lactation, or female patient willing for conception."
+    }
+  },
+  {
+    "trial_id": "NCT00523913",
+    "title": "A Study Of BRL49653C For The Treatment Of Type 2 Diabetes",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n\\- Patients with type 2 diabetes mellitus managed by diet therapy or one antidiabetic agent (sulfonylurea or alpha glucosidase inhibitor) will be candidates for this study. These candidates will be checked up on their clinical laboratory data, and must have adequate blood, liver and kidney function.\n\nExclusion Criteria:\n\n\\- Patient with serious cardiovascular disease or serious hepatic disease will not be eligible.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n\\- Patients with type 2 diabetes mellitus managed by diet therapy or one antidiabetic agent (sulfonylurea or alpha glucosidase inhibitor) will be candidates for this study. These candidates will be checked up on their clinical laboratory data, and must have adequate blood, liver and kidney function.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n\\- Patient with serious cardiovascular disease or serious hepatic disease will not be eligible."
+    }
+  },
+  {
+    "trial_id": "NCT00736879",
+    "title": "Safety and Efficacy of Dapagliflozin as Monotherapy in Subjects With Type 2 Diabetes",
+    "conditions": [
+      "Type 2 Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Male and females, \u226518 to \u226477 years old, with type 2 diabetes mellitus\n* Subjects must have central laboratory pre-randomization A1C \u22657.0 and \u2264 10.0%\n* C-peptide \u2265 1.0 ng/mL (0.34 nmol/L)\n* Body Mass Index \u2264 45 kg/m\u00b2\n* Must be able to perform self monitoring of blood glucose\n\nExclusion Criteria:\n\n* aspartate aminotransferase (AST) and/or alanine aminotransferase (ALT) \\>3\\* upper limit of normal (ULN)\n* Serum Total bilirubin \\>2 mg/dL (34.2 \u00b5mol/L)\n* Creatinine kinase \\>3\\* ULN\n* Serum creatinine \u22651.50 mg/dL (133 \u00b5mol/L) for male subjects, \u22651.40 mg/dL (124 \u00b5mol/L) for female subjects\n* Currently unstable or serious cardiovascular, renal, hepatic, hematological, oncological, endocrine, psychiatric, or rheumatic diseases",
+    "criteria": {
+      "min_age": null,
+      "max_age": 77,
+      "sex_allowed": "all",
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Male and females, \u226518 to \u226477 years old, with type 2 diabetes mellitus\n* Subjects must have central laboratory pre-randomization A1C \u22657.0 and \u2264 10.0%\n* C-peptide \u2265 1.0 ng/mL (0.34 nmol/L)\n* Body Mass Index \u2264 45 kg/m\u00b2\n* Must be able to perform self monitoring of blood glucose",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* aspartate aminotransferase (AST) and/or alanine aminotransferase (ALT) \\>3\\* upper limit of normal (ULN)\n* Serum Total bilirubin \\>2 mg/dL (34.2 \u00b5mol/L)\n* Creatinine kinase \\>3\\* ULN\n* Serum creatinine \u22651.50 mg/dL (133 \u00b5mol/L) for male subjects, \u22651.40 mg/dL (124 \u00b5mol/L) for female subjects\n* Currently unstable or serious cardiovascular, renal, hepatic, hematological, oncological, endocrine, psychiatric, or rheumatic diseases"
+    }
+  },
+  {
+    "trial_id": "NCT07447362",
+    "title": "Clinical Management of Cardiovascular Risk Factors in Adult Patients: A Before-and-After Interventional Study",
+    "conditions": [
+      "Cardiovascular Risk Factors",
+      "Hypertension",
+      "Dyslipidemia",
+      "Type 2 Diabetes Mellitus",
+      "Obesity",
+      "Overweight",
+      "Tobacco Use"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Age \u226518 years\n* Presence of at least one cardiovascular risk factor (hypertension, diabetes, dyslipidemia, obesity, or smoking)\n* Receiving outpatient clinical follow-up\n* Ability to provide informed consent\n\nExclusion Criteria:\n\n* Severe clinical instability requiring hospitalization\n* Pregnancy\n* End-stage renal disease or dialysis\n* Inability to complete follow-up visits\n* Refusal to participate",
+    "criteria": {
+      "min_age": 18,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Age \u226518 years\n* Presence of at least one cardiovascular risk factor (hypertension, diabetes, dyslipidemia, obesity, or smoking)\n* Receiving outpatient clinical follow-up\n* Ability to provide informed consent",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Severe clinical instability requiring hospitalization\n* Pregnancy\n* End-stage renal disease or dialysis\n* Inability to complete follow-up visits\n* Refusal to participate"
+    }
+  },
+  {
+    "trial_id": "NCT02729246",
+    "title": "Bariatric Surgery for the Treatment of Type 2 Diabetes - Clinical Effects and Underlying Mechanisms",
+    "conditions": [
+      "Type 2 Diabetes Mellitus",
+      "Obesity"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Males and females aged 18-60 years\n* Type 2 Diabetes Mellitus with duration of no more than 10 years, treated with 0-3 oral anti-diabetic drugs or Glucagon-like peptide-1 (GLP-1) analog.\n\nExclusion Criteria:\n\n* Pregnant or planning to be pregnant during the study.\n* Known or suspected history of significant drug abuse.\n* History of alcohol abuse or excessive intake of alcohol as judged by investigator.\n* History of severe allergy/hypersensitivity or ongoing allergy/hypersensitivity, as judged by the investigator\n* Sleep apnea\n* Any previous serious cardiovascular event, stroke , acute myocardial infarction.\n* Diabetes complications : proliferative retinopathy, maculopathy, chronic renal failure stadium 3 with an Estimated Glomerular Filtration Rate (eGFR) \\<60, foot ulcers, symptomatic neuropathy\n* Medications within 3 months : Insulin, Thiazolidinediones\n* Any other condition with in the opinion of the investigator would render the patient unsuitable for inclusion in the study and /or for the patients safety\n* Judgment by the investigator that the subject should not participate in the study if considers subject unlikely to comply with study procedures, restrictions and requirements.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 60,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Males and females aged 18-60 years\n* Type 2 Diabetes Mellitus with duration of no more than 10 years, treated with 0-3 oral anti-diabetic drugs or Glucagon-like peptide-1 (GLP-1) analog.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Pregnant or planning to be pregnant during the study.\n* Known or suspected history of significant drug abuse.\n* History of alcohol abuse or excessive intake of alcohol as judged by investigator.\n* History of severe allergy/hypersensitivity or ongoing allergy/hypersensitivity, as judged by the investigator\n* Sleep apnea\n* Any previous serious cardiovascular event, stroke , acute myocardial infarction.\n* Diabetes complications : proliferative retinopathy, maculopathy, chronic renal failure stadium 3 with an Estimated Glomerular Filtration Rate (eGFR) \\<60, foot ulcers, symptomatic neuropathy\n* Medications within 3 months : Insulin, Thiazolidinediones\n* Any other condition with in the opinion of the investigator would render the patient unsuitable for inclusion in the study and /or for the patients safety\n* Judgment by the investigator that the subject should not participate in the study if considers subject unlikely to comply with study procedures, restrictions and requirements."
+    }
+  },
+  {
+    "trial_id": "NCT00320970",
+    "title": "Angiotensin II Antagonism of TGF-Beta 1",
+    "conditions": [
+      "Diabetic Nephropathy",
+      "Hypertension"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Type 2 diabetes\n* Nephropathy (proteinuria \\>500 mg/day)\n* Chronic Hypertension (as determined by current antihypertensive therapy and/or an average of diastolic blood pressure greater than 90 mmHg or greater or systolic blood pressure of 140 mmHg confirmed on at least two subsequent visits over one week or more).\n\nExclusion Criteria:\n\n* Conditions associated with elevated TGF-Beta (e.g. rheumatoid arthritis, cancer, etc.).\n* Conditions associated with alterations in serum levels of PIP and/or CITP (liver cirrhosis, osteoporosis, hyperthyroidism, multiple myeloma, osteolytic metastases, and systemic glucocorticoid treatment\n* History of Stage III hypertension (diastolic BP \\> 110 mmHg or systolic BP \\> 180 mmHg) or a history of hypertensive urgency or emergency.\n* NYHA Class III or IV heart failure\n* Calculated creatinine clearance of less than 30 ml/min or serum creatinine \\> 3 mg/dL\n* HbA1c \\> 10%\n* Patients unable to be withdrawn for 2 weeks from AT-II antagonist or ACE- inhibitor therapy\n* Blood Pressure \\<140/90 is unachievable in the absence of an AT-II antagonist or ACE-inhibitor",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 10.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Type 2 diabetes\n* Nephropathy (proteinuria \\>500 mg/day)\n* Chronic Hypertension (as determined by current antihypertensive therapy and/or an average of diastolic blood pressure greater than 90 mmHg or greater or systolic blood pressure of 140 mmHg confirmed on at least two subsequent visits over one week or more).",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Conditions associated with elevated TGF-Beta (e.g. rheumatoid arthritis, cancer, etc.).\n* Conditions associated with alterations in serum levels of PIP and/or CITP (liver cirrhosis, osteoporosis, hyperthyroidism, multiple myeloma, osteolytic metastases, and systemic glucocorticoid treatment\n* History of Stage III hypertension (diastolic BP \\> 110 mmHg or systolic BP \\> 180 mmHg) or a history of hypertensive urgency or emergency.\n* NYHA Class III or IV heart failure\n* Calculated creatinine clearance of less than 30 ml/min or serum creatinine \\> 3 mg/dL\n* HbA1c \\> 10%\n* Patients unable to be withdrawn for 2 weeks from AT-II antagonist or ACE- inhibitor therapy\n* Blood Pressure \\<140/90 is unachievable in the absence of an AT-II antagonist or ACE-inhibitor"
+    }
+  },
+  {
+    "trial_id": "NCT03010956",
+    "title": "Changes in Arterial Stiffness and Endothelial Glycocalyx in Patients With Poorly Controlled Diabetes Mellitus Type 1 or Type 2 After Optimization of Antidiabetic Medication.",
+    "conditions": [
+      "Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Patients with uncontrolled diabetes mellitus\n\nExclusion Criteria:\n\n* valvular heart disease\n* congestive heart failure\n* peripheral vascular disease\n* liver or kidney failure\n* history of alcohol or drug abuse\n* treatment with statins, beta- blockers, ACE inhibitors or sartans",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Patients with uncontrolled diabetes mellitus",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* valvular heart disease\n* congestive heart failure\n* peripheral vascular disease\n* liver or kidney failure\n* history of alcohol or drug abuse\n* treatment with statins, beta- blockers, ACE inhibitors or sartans"
+    }
+  },
+  {
+    "trial_id": "NCT02251431",
+    "title": "Extended Release Exenatide Versus Placebo In Diabetic Patients With Type 4 Cardiorenal Syndrome",
+    "conditions": [
+      "Type 2 Diabetes Mellitus",
+      "Chronic Kidney Disease",
+      "Left Ventricular Diastolic Dysfunction"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Age \u2265 18\n* Type 2 diabetes mellitus with hemoglobin A1C 6.6-9.9% with or without the use of insulin\n* Estimated glomerular filtration rate (eGFR) between 50 and 90 ml/min/1.73 m2\n\nExclusion Criteria:\n\n* Allergy or intolerance to gadolinium\n* Implanted cardiac pacemaker, defibrillator, loop recorder, or other implanted metallic device\n* Any other metallic implanted device that is a contra-indication to MRI scanning\n* eGFR \\< 50 ml/min/1.73 m2\n* eGFR \\> 90 ml/min/1.73 m2\n* Patient has ever been treated with an approved or investigational GLP-1 receptor agonist e.g. BYETTA\u2122 (exenatide), BYDUREON\u2122 (Exenatide extended-release), VICTOZA\u2122 (liraglutide), or taspoglutide\n* Patient is enrolled in another experimental protocol which involves the use of an investigational drug or device, or an intervention that would interfere with the conduct of the trial.\n* Disorders of iron metabolism\n* Collagen vascular diseases\n* Myocardial infarction\n* Use of DDP4 inhibitors, and PPAR gamma agonists\n* Pregnancy or planned pregnancy during the trial period\n* Hemoglobin A1C of \u2265 10.0% or \\<6.6%\n* Fasting glucose \u2265 260 mg/dl\n* Clinically significant abnormal baseline laboratories\n* Morbid obesity or body girth that prohibits the ability to undergo echocardiography or MRI scanning with high-quality image results\n* Renal transplantation\n* Severe gastrointestinal, liver, or neurodegenerative disease\n* Decompensated liver cirrhosis (Child-Pugh score \\>7)\n* New York Heart Association Class III or IV heart failure\n* Patients have alanine aminotransaminase (ALT) greater than 5 times the upper limit of the reference range.\n* Prior pancreatitis\n* Personal or family history of medullary thyroid adenoma or carcinoma (MTC)\n* Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).\n* History of severe hypoglycemia\n* Prior bariatric surgery",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Age \u2265 18\n* Type 2 diabetes mellitus with hemoglobin A1C 6.6-9.9% with or without the use of insulin\n* Estimated glomerular filtration rate (eGFR) between 50 and 90 ml/min/1.73 m2",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Allergy or intolerance to gadolinium\n* Implanted cardiac pacemaker, defibrillator, loop recorder, or other implanted metallic device\n* Any other metallic implanted device that is a contra-indication to MRI scanning\n* eGFR \\< 50 ml/min/1.73 m2\n* eGFR \\> 90 ml/min/1.73 m2\n* Patient has ever been treated with an approved or investigational GLP-1 receptor agonist e.g. BYETTA\u2122 (exenatide), BYDUREON\u2122 (Exenatide extended-release), VICTOZA\u2122 (liraglutide), or taspoglutide\n* Patient is enrolled in another experimental protocol which involves the use of an investigational drug or device, or an intervention that would interfere with the conduct of the trial.\n* Disorders of iron metabolism\n* Collagen vascular diseases\n* Myocardial infarction\n* Use of DDP4 inhibitors, and PPAR gamma agonists\n* Pregnancy or planned pregnancy during the trial period\n* Hemoglobin A1C of \u2265 10.0% or \\<6.6%\n* Fasting glucose \u2265 260 mg/dl\n* Clinically significant abnormal baseline laboratories\n* Morbid obesity or body girth that prohibits the ability to undergo echocardiography or MRI scanning with high-quality image results\n* Renal transplantation\n* Severe gastrointestinal, liver, or neurodegenerative disease\n* Decompensated liver cirrhosis (Child-Pugh score \\>7)\n* New York Heart Association Class III or IV heart failure\n* Patients have alanine aminotransaminase (ALT) greater than 5 times the upper limit of the reference range.\n* Prior pancreatitis\n* Personal or family history of medullary thyroid adenoma or carcinoma (MTC)\n* Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).\n* History of severe hypoglycemia\n* Prior bariatric surgery"
+    }
+  },
+  {
+    "trial_id": "NCT00422253",
+    "title": "Dietary Advanced Glycation End-products and Insulin Resistance in Overweight and Obese Humans",
+    "conditions": [
+      "Type 2 Diabetes",
+      "Insulin Resistance",
+      "Obesity"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* weight stable overweight and obese (BMI \u2265 25kg/m2) non-diabetic individuals, aged 18-50 years and healthy according to medical history, blood biochemistry and physical examination.\n\nExclusion Criteria:\n\n* Participants will be excluded if they:\n\n  * are aged \\<18 years or \\> 50 years;\n  * currently smoke, have high alcohol use; or a positive urine drug screening test;\n  * have a history of: diabetes, cardiovascular and hematological disease, respiratory, gastrointestinal, endocrine, renal or central nervous system disease, psychosis or psychiatric disorder, active cancer within last 5 years.\n  * are actively seeking to lose weight, or if their weight has changed by more than 10 kilograms in the previous 12 months.\n  * have been taking medication within one month prior to commencing the study;\n  * have acute inflammation (by history, physical or laboratory examination)\n  * are on hormonal contraceptives, or pregnant (by HCG urine pregnancy screening test) or lactating\n  * have highly unusual dietary habits or follow vegan diets (because of the difficulty in complying with the assigned diet).\n  * have current diabetes (determined by history and/or 75g glucose OGTT)\n  * are unable to provide informed consent",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 50,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* weight stable overweight and obese (BMI \u2265 25kg/m2) non-diabetic individuals, aged 18-50 years and healthy according to medical history, blood biochemistry and physical examination.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Participants will be excluded if they:\n\n  * are aged \\<18 years or \\> 50 years;\n  * currently smoke, have high alcohol use; or a positive urine drug screening test;\n  * have a history of: diabetes, cardiovascular and hematological disease, respiratory, gastrointestinal, endocrine, renal or central nervous system disease, psychosis or psychiatric disorder, active cancer within last 5 years.\n  * are actively seeking to lose weight, or if their weight has changed by more than 10 kilograms in the previous 12 months.\n  * have been taking medication within one month prior to commencing the study;\n  * have acute inflammation (by history, physical or laboratory examination)\n  * are on hormonal contraceptives, or pregnant (by HCG urine pregnancy screening test) or lactating\n  * have highly unusual dietary habits or follow vegan diets (because of the difficulty in complying with the assigned diet).\n  * have current diabetes (determined by history and/or 75g glucose OGTT)\n  * are unable to provide informed consent"
+    }
+  },
+  {
+    "trial_id": "NCT00449553",
+    "title": "Observational Study to Assess Glycosylated Hemoglobin Changes After 6 Months of Treatment With Pioglitazone.",
+    "conditions": [
+      "Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Fulfills all requirements for treatment with pioglitazone.\n* Willing to start treatment with pioglitazone.\n\nExclusion Criteria:\n\n* Has previously participated in this study.\n* Is currently taking or have taken oral antidiabetic medications other than sulfonylurea or metformin within the last 30 days.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Fulfills all requirements for treatment with pioglitazone.\n* Willing to start treatment with pioglitazone.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Has previously participated in this study.\n* Is currently taking or have taken oral antidiabetic medications other than sulfonylurea or metformin within the last 30 days."
+    }
+  },
+  {
+    "trial_id": "NCT01713023",
+    "title": "Fructose and Glucose and TAS1R2 in Type 1 Diabetes",
+    "conditions": [
+      "Type 1 Diabetes"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Type 1 diabetes ( \u2265 three years after diagnosis)\n* Adults\n* Normal-weight (BMI between 18.5 e 25.0 kg/m2)\n* Using basal-bolus regimen with insulin infusion pump or insulin analogs (basal: detemir or glargine; bolus: lispro, glulisine or aspart).\n\nExclusion Criteria:\n\n* Smokers;\n* Drinkers;\n* Use of exogenous hormone (with the exception of insulin);\n* Use of antibiotics, anti-inflammatories or oral antidiabetics pharmacotherapy;\n* Diagnosis of nephropathy;\n* Diagnosis of liver diseases;\n* With other types of diabetes family history;\n* Visual disturbances.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Type 1 diabetes ( \u2265 three years after diagnosis)\n* Adults\n* Normal-weight (BMI between 18.5 e 25.0 kg/m2)\n* Using basal-bolus regimen with insulin infusion pump or insulin analogs (basal: detemir or glargine; bolus: lispro, glulisine or aspart).",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Smokers;\n* Drinkers;\n* Use of exogenous hormone (with the exception of insulin);\n* Use of antibiotics, anti-inflammatories or oral antidiabetics pharmacotherapy;\n* Diagnosis of nephropathy;\n* Diagnosis of liver diseases;\n* With other types of diabetes family history;\n* Visual disturbances."
+    }
+  },
+  {
+    "trial_id": "NCT00845559",
+    "title": "The Effects of Exenatide on Post-Meal Sugar Peaks and Vascular Health in Obese/Pre-Diabetic Young Adults",
+    "conditions": [
+      "Obesity",
+      "Insulin Resistance",
+      "Impaired Glucose Tolerance",
+      "Cardiovascular Disease"
+    ],
+    "eligibility_text": "Obese subjects:\n\nMajor Inclusion Criteria:\n\n* Obesity (BMI \\> 97%tile for age and sex matched normative data)\n* Insulin resistance: fasting insulin\\> 25 mIU/ml\n* Good general health, taking no medication on a chronic basis\n* Age 16-25 yrs, late pubertal stage (girls: breast: Tanner stage IV to V, boys: testicular volume \\> 15 ml) or age 13-15 yrs (with a family history of type 2 diabetes, whom have completed or reached tanner stage III and have impaired oral glucose tolerance with a 2-hour glucose of 180-199 mg/dl)\n* Girls who are sexually active must use adequate birth control methods (such as barrier method or oral contraception) and must have a negative pregnancy test\n* Normal liver function tests\n\nMajor Exclusion Criteria:\n\n* Hx of gallstones\n* Elevated triglycerides \\>400 mg/dl\n* Hx of alcohol use/ binge drinking\n* Raynaud's syndrome\n* Pregnancy or breastfeeding mothers\n* Cigarette smokers\n* Anemia (Hct \\< 35)\n* Baseline creatinine \\> 1.0 mg\n* Abnormal liver transaminases \\> 2.0 X the upper limit of normal\n* Presence of endocrinopathies except for adequately treated hypothyroidism\n* Presence or history of gastrointestinal disorders (inflammatory bowl disease, irritable bowl disease, hernia, ileus)\n* Presence of significant chronic illness of any kind.\n* Use of any drugs that might be expected to affect glucose tolerance, insulin resistance or weight gain, cardiovascular health.\n* Psychiatric disorders\n* History of substance abuse\n\nLean Control Subjects (only for cardiovascular studies and CGMS):\n\nInclusion Criteria:\n\n* Lean (BMI \\< 85%tile for age and sex matched normative data)\n* Fasting insulin \\<15 mIU/m\n* Fasting glucose \\<100 mg/dll\n* Excellent general health, having no acute or chronic health problems and taking no current medications\n* Age 13-25 yrs, in puberty (age matched with obese subjects)\n* Girls who are sexually active must use adequate birth control methods (such as barrier method or oral contraception) and must have a negative pregnancy test\n\nExclusion Criteria:\n\n* Raynaud's syndrome\n* Pregnancy or breastfeeding mothers\n* Cigarette smokers\n* Psychiatric disorders\n* History of substance abuse\n* First degree relative with either T1DM or T2DM\n* Presence of acanthosis nigricans",
+    "criteria": {
+      "min_age": 16,
+      "max_age": 25,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Obese subjects:\n\nMajor Inclusion Criteria:\n\n* Obesity (BMI \\> 97%tile for age and sex matched normative data)\n* Insulin resistance: fasting insulin\\> 25 mIU/ml\n* Good general health, taking no medication on a chronic basis\n* Age 16-25 yrs, late pubertal stage (girls: breast: Tanner stage IV to V, boys: testicular volume \\> 15 ml) or age 13-15 yrs (with a family history of type 2 diabetes, whom have completed or reached tanner stage III and have impaired oral glucose tolerance with a 2-hour glucose of 180-199 mg/dl)\n* Girls who are sexually active must use adequate birth control methods (such as barrier method or oral contraception) and must have a negative pregnancy test\n* Normal liver function tests\n\nMajor",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Hx of gallstones\n* Elevated triglycerides \\>400 mg/dl\n* Hx of alcohol use/ binge drinking\n* Raynaud's syndrome\n* Pregnancy or breastfeeding mothers\n* Cigarette smokers\n* Anemia (Hct \\< 35)\n* Baseline creatinine \\> 1.0 mg\n* Abnormal liver transaminases \\> 2.0 X the upper limit of normal\n* Presence of endocrinopathies except for adequately treated hypothyroidism\n* Presence or history of gastrointestinal disorders (inflammatory bowl disease, irritable bowl disease, hernia, ileus)\n* Presence of significant chronic illness of any kind.\n* Use of any drugs that might be expected to affect glucose tolerance, insulin resistance or weight gain, cardiovascular health.\n* Psychiatric disorders\n* History of substance abuse\n\nLean Control Subjects (only for cardiovascular studies and CGMS):\n\nInclusion Criteria:\n\n* Lean (BMI \\< 85%tile for age and sex matched normative data)\n* Fasting insulin \\<15 mIU/m\n* Fasting glucose \\<100 mg/dll\n* Excellent general health, having no acute or chronic health problems and taking no current medications\n* Age 13-25 yrs, in puberty (age matched with obese subjects)\n* Girls who are sexually active must use adequate birth control methods (such as barrier method or oral contraception) and must have a negative pregnancy test\n\nExclusion Criteria:\n\n* Raynaud's syndrome\n* Pregnancy or breastfeeding mothers\n* Cigarette smokers\n* Psychiatric disorders\n* History of substance abuse\n* First degree relative with either T1DM or T2DM\n* Presence of acanthosis nigricans"
+    }
+  },
+  {
+    "trial_id": "NCT01865279",
+    "title": "Safety, Tolerability, Pharmacokinetics and Pharmacodynamics of Explorative Formulation of Insulin Degludec",
+    "conditions": [
+      "Diabetes",
+      "Diabetes Mellitus, Type 1",
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* HEALTHY SUBJECTS:\n* Subjects will be healthy male subjects, who are considered to be generally healthy based on an assessment of medical history, physical examination and clinical laboratory data, as judged by the Investigator\n* Body mass index (BMI) between 18.0-27.0 kg/m\\^2 (both inclusive)\n* SUBJECTS WITH TYPE 1 AND TYPE 2 DIABETES:\n* Subjects will be male volunteers, who are considered to be generally healthy, except for the underlying diabetes mellitus, based on an assessment of medical history, physical examination and clinical laboratory data, as judged by the Investigator\n* Diagnosed with type 1 diabetes mellitus and treated with insulin for at least 12 months or diagnosed with type 2 diabetes mellitus for at least 12 months\n* Body Mass Index (BMI) between 18.0-27.0 kg/m\\^2 (both inclusive) for subjects with type 1 diabetes or 25.0-35.0 kg/m\\^2 (both inclusive) for subjects with type 2 diabetes\n* Glycogylated haemoglobin (HbA1c) maximum 8.5 % based on central laboratory results\n* Subjects with type 2 diabetes must have been treated with insulin for the past 3 months prior to screening\n\nExclusion Criteria:\n\n* Participation in any other trials involving investigational products within 3 months preceding the start of dosing\n* History of significant multiple drug allergies or with a known allergy to the trial product or any medicine chemically related to the trial product, as judged by the investigator\n* Hepatitis or carrier of the Hepatitis B surface antigen (HBsAg) or Hepatitis C antibodies or a positive result to the test for human immunodeficiency (HIV) antibodies\n* Any clinically significant abnormal haematology or biochemistry screening tests, as judged by the investigator\n* Subjects who have donated any blood or plasma in the past month or in excess of 1000 ml within the 12 weeks preceding screening",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": "male",
+      "requires_t2d": true,
+      "hba1c_min": 8.5,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* HEALTHY SUBJECTS:\n* Subjects will be healthy male subjects, who are considered to be generally healthy based on an assessment of medical history, physical examination and clinical laboratory data, as judged by the Investigator\n* Body mass index (BMI) between 18.0-27.0 kg/m\\^2 (both inclusive)\n* SUBJECTS WITH TYPE 1 AND TYPE 2 DIABETES:\n* Subjects will be male volunteers, who are considered to be generally healthy, except for the underlying diabetes mellitus, based on an assessment of medical history, physical examination and clinical laboratory data, as judged by the Investigator\n* Diagnosed with type 1 diabetes mellitus and treated with insulin for at least 12 months or diagnosed with type 2 diabetes mellitus for at least 12 months\n* Body Mass Index (BMI) between 18.0-27.0 kg/m\\^2 (both inclusive) for subjects with type 1 diabetes or 25.0-35.0 kg/m\\^2 (both inclusive) for subjects with type 2 diabetes\n* Glycogylated haemoglobin (HbA1c) maximum 8.5 % based on central laboratory results\n* Subjects with type 2 diabetes must have been treated with insulin for the past 3 months prior to screening",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Participation in any other trials involving investigational products within 3 months preceding the start of dosing\n* History of significant multiple drug allergies or with a known allergy to the trial product or any medicine chemically related to the trial product, as judged by the investigator\n* Hepatitis or carrier of the Hepatitis B surface antigen (HBsAg) or Hepatitis C antibodies or a positive result to the test for human immunodeficiency (HIV) antibodies\n* Any clinically significant abnormal haematology or biochemistry screening tests, as judged by the investigator\n* Subjects who have donated any blood or plasma in the past month or in excess of 1000 ml within the 12 weeks preceding screening"
+    }
+  },
+  {
+    "trial_id": "NCT02947503",
+    "title": "Pregnancy Outcomes: Effects of Metformin Study (POEM Study)",
+    "conditions": [
+      "Gestational Diabetes",
+      "Insulin Resistance"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Pregnant women with GDM defined as a Fasting Plasma Glucose (FPG) \\> 5,3 mMol and/or an Oral Glucose Tolerance test (OGTT) with a Plasma glucose (PG) \\> 7,8 mMol, two hours after the oral intake of 75 gram glucose\n* Written informed consent\n* Age 18-45 years\n* Gestational age at inclusion 16-32 weeks\n* Glycohemoglobin test (HbA1c) at inclusion \u2264 48 mmol/mol (6.5% Hb)\n\nExclusion Criteria:\n\n* Diabetes mellitus before pregnancy, except previous GDM\n* Proteinuria: Urine Albumin-to-Creatinine Ratio (UACR) \\> 35 mg/mmol at screening\n* Malignancy during the last 5 years before inclusion, except non-melanoma skin cancer\n* Psychiatric and/or mood disorder potentially affecting compliance of treatment\n* Chronic liver disease and/or Alanine aminotransferase aspartate transaminase (ASAT) and/or Alanine aminotransferase (ALAT) \\> 3x Upper Limit of Normal (ULN).\n* Chronic renal failure with a Glomerular filtration rate (GFR) \\< 45 ml/min/1.73m2\n* Chronic pulmonary failure with hypoxia\n* Significantly uncontrolled hypertension - Systolic blood pressure (SBP) \\> 160 mm Hg despite medical treatment\n* Chronic treatment with corticosteroids\n* Intolerance for metformin and/or earlier use of metformin in this pregnancy\n* Membership of the POEM study group\n* Severe foetal anomaly at inclusion - like major neural tube and/or cardiac malformation\n* Ruptured membranes\n* Multiple pregnancy\n* Inability to understand or read the Dutch language\n* Bariatric surgery in medical history\n* Hyperemesis gravidarum",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 45,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": 48.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Pregnant women with GDM defined as a Fasting Plasma Glucose (FPG) \\> 5,3 mMol and/or an Oral Glucose Tolerance test (OGTT) with a Plasma glucose (PG) \\> 7,8 mMol, two hours after the oral intake of 75 gram glucose\n* Written informed consent\n* Age 18-45 years\n* Gestational age at inclusion 16-32 weeks\n* Glycohemoglobin test (HbA1c) at inclusion \u2264 48 mmol/mol (6.5% Hb)",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Diabetes mellitus before pregnancy, except previous GDM\n* Proteinuria: Urine Albumin-to-Creatinine Ratio (UACR) \\> 35 mg/mmol at screening\n* Malignancy during the last 5 years before inclusion, except non-melanoma skin cancer\n* Psychiatric and/or mood disorder potentially affecting compliance of treatment\n* Chronic liver disease and/or Alanine aminotransferase aspartate transaminase (ASAT) and/or Alanine aminotransferase (ALAT) \\> 3x Upper Limit of Normal (ULN).\n* Chronic renal failure with a Glomerular filtration rate (GFR) \\< 45 ml/min/1.73m2\n* Chronic pulmonary failure with hypoxia\n* Significantly uncontrolled hypertension - Systolic blood pressure (SBP) \\> 160 mm Hg despite medical treatment\n* Chronic treatment with corticosteroids\n* Intolerance for metformin and/or earlier use of metformin in this pregnancy\n* Membership of the POEM study group\n* Severe foetal anomaly at inclusion - like major neural tube and/or cardiac malformation\n* Ruptured membranes\n* Multiple pregnancy\n* Inability to understand or read the Dutch language\n* Bariatric surgery in medical history\n* Hyperemesis gravidarum"
+    }
+  },
+  {
+    "trial_id": "NCT06737042",
+    "title": "Efficacy and Safety of GZR18 Every 2 Weeks Versus Tirzepatide and Placebo in Obese or Overweight Participants",
+    "conditions": [
+      "Obesity and Overweight"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. 18 to 75 years of age (both inclusive) at the time of signing the informed consent form (ICF).\n2. History of failing to lose sufficient weight with lifestyle/dietary modification.\n\nBMI \u226530.0 kg/m2, or\n\nBMI \u226527.0 kg/m2 with at least 1 of the following:\n\n* Hypertension: defined as taking blood pressure (BP) lowering medication or have a systolic blood pressure (SBP) of \u2265130 mmHg or a diastolic blood pressure (DBP) of \u226580 mmHg at screening.\n* Dyslipidemia: defined as taking lipid-lowering medication or have LDL \u2265160 mg/dL (4.1 mmol/L) or triglycerides \u2265150 mg/dL (1.7 mmol/L), or high-density lipoprotein (HDL) \\<40 mg/dL (1.0 mmol/L) for men or HDL \\<50 mg/dL (1.3 mmol/L) for women at screening.\n* Obstructive sleep apnea.\n* Cardiovascular disease: defined as having eg, ischemic cardiovascular disease or New York Heart Association (NYHA) Functional Classification Class I to II heart failure.\n\n  4\\. In the investigator's opinion, are well motivated, capable, and willing to:\n* Learn how to self-inject the IP as required for this protocol (visually impaired persons who are not able to perform the injections must have the assistance of a sighted individual trained to inject the IP; persons with physical limitations who are not able to perform the injections must have the assistance of an individual trained to inject the IP).\n* Inject the IP (or receive an injection from a trained individual if visually impaired or with physical limitations).\n* Follow study procedures for the duration of the study, including, but not limited to, lifestyle advice (eg, dietary changes and physical activity plan), complete the electronic diary (eDiary), and complete required questionnaires.\n* Identify the biological sex for the study stratification. 5.Capable of giving signed informed consent, which includes compliance with the requirements and restrictions listed in the ICF and in this protocol.\n\nExclusion Medical Conditions Related to Obesity\n\n1. A self-reported change (increase or decrease) in body weight \\>5 kg within 3 months prior to screening.\n2. Prior or planned surgical treatment for obesity (excluding liposuction or abdominoplasty, if performed \\>1 year prior to screening).\n3. Have or plan to have endoscopic and/or device-based therapy for obesity or have had device removal within the last 6 months prior to screening, including but not limited to:\n\n   * Mucosal ablation\n   * Gastric artery embolization\n   * Intragastric balloon\n   * Duodenal-jejunal endoluminal liner Related to Diabetes\n4. History of type 1 or T2DM, history of ketoacidosis, or hyperosmolar state/coma.\n5. At least 1 laboratory value suggestive of diabetes during screening, including 1 or more of HbA1c \u22656.5% (48 mmol/mol), fasting serum glucose \u2265126 mg/dL (7.0 mmol/L), or random glucose \u2265200 mg/dL (11.1 mmol/L).\n\n   Other Medical Conditions\n6. Renal impairment measured as estimated glomerular filtration rate (eGFR) \\<60 mL/min/1.73 m2, calculated by chronic kidney disease-epidemiology collaboration (CKD-EPI) as determined by central laboratory during screening.\n7. Known clinically significant gastric emptying abnormality (eg, severe gastroparesis or gastric outlet obstruction) or chronically take drugs that directly affect GI motility.\n8. History of acute or chronic pancreatitis. A participant with a history of acute pancreatitis caused by gallstones may be included in the study if the participant has a cholecystectomy to resolve the problem.\n9. Thyroid-stimulating hormone (TSH) outside of the range of 0.4 to 6.0 mIU/L at screening.\n\n   Note: Participants receiving treatment for hypothyroidism may be included, provided their thyroid hormone replacement dose has been stable for at least 6 months.\n\n   Note: TSH values above the normal range can, in some participant, suggest subclinical hypothyroidism. If, in the investigator's opinion, the participant has subclinical hypothyroidism and may require initiation of thyroid hormone replacement during the study, the participant should be excluded from the study.\n10. Obesity induced by other endocrinologic disorders (eg, Cushing's syndrome) or diagnosed monogenetic or syndromic forms of obesity (eg, melanocortin 4 receptor deficiency or Prader-Willi syndrome).\n11. History of significant active or unstable major depressive disorder (MDD) or other severe psychiatric disorder (eg, schizophrenia, bipolar disorder, or other serious mood or anxiety disorder) within the last 2 years.\n\n    Note: Participants with MDD or generalized anxiety disorder whose disease state is considered stable for the past 2 years and expected to remain stable throughout the course of the study, in the opinion of the investigator, may be considered for inclusion if they are not on excluded medications.\n12. A history of suicide attempt.\n13. Patient health questionnaire-9 (PHQ-9) score of 15 or more at screening.\n14. On the Columbia Suicide Severity Rating Scale (C-SSRS) prior to randomization:\n\n    * a \"yes\" answer to Question 4 (active suicidal ideation with some intent to act, without specific plan) on the \"suicidal ideation\" portion of the C-SSRS or\n    * a \"yes\" answer to Question 5 (active suicidal ideation with specific plan and intent) on the \"suicidal ideation\" portion of the C-SSRS or\n    * a \"yes\" answer to any of the suicide-related behaviors (actual attempt, interrupted attempt, aborted attempt, preparatory act, or behavior) on the \"suicidal behavior\" portion of the C-SSRS and\n    * the ideation or behavior occurred within the past month\n15. Uncontrolled hypertension (SBP \u2265160 mmHg and/or DBP \u2265100 mmHg). If a participant is on antihypertensive therapies, doses must be stable for 30 days prior to screening. For participants with uncontrolled hypertension at screening, antihypertensive medication may be started or adjusted. BP must meet the protocol criterion for hypertension control with stable treatment for at least 30 days before re-screening.\n16. An elevated resting pulse rate \\>100 bpm at baseline.\n17. Any of the following cardiovascular conditions within 3 months prior to screening:\n\n    * Acute myocardial infarction\n    * Cerebrovascular accident (stroke)\n    * Unstable angina\n    * Hospitalization due to congestive heart failure (CHF)\n18. Ongoing or history of frequent intermittent or chronic tachyarrhythmia syndromes (eg, atrial fibrillation, supraventricular tachycardia, and positional orthostatic tachycardia syndrome).\n\n    Note: Participants with a history of premature atrial contractions or premature ventricular contractions may be included.\n19. NYHA Functional Classification III or IV CHF.\n20. An electrocardiogram (ECG) considered by the investigator indicative of active cardiac disease or with abnormalities that may interfere with the interpretation of changes in ECG intervals at screening.\n21. Acute or chronic hepatitis, or signs and symptoms of any other liver disease other liver disease except nonalcoholic fatty liver disease (NAFLD) (ie, participants with NAFLD are eligible for participation), or any of the following at screening:\n\n    * alanine aminotransferase (ALT) \\>3 \u00d7 the upper limit of normal (ULN)\n    * alkaline phosphatase (ALP) \\>1.5 \u00d7 ULN\n    * total bilirubin level \\>1.5 \u00d7 ULN (except for cases of known Gilbert's Syndrome)\n22. Serum calcitonin level of:\n\n    * 20 ng/L, if eGFR \u226560 mL/min/1.73 m2\n    * 35 ng/L, if eGFR \u226460 mL/min/1.73 m2\n23. A family or personal history of medullary thyroid carcinoma (MTC) or multiple endocrine neoplasia syndrome type 2 (MEN2).\n24. A history of an active or untreated malignancy or are in remission from a clinically significant malignancy (other than basal or squamous cell skin cancer, in situ carcinomas of the cervix, or in situ prostate cancer) for \\<5 years.\n25. Any other condition not listed in this section (eg, hypersensitivity or intolerance) that is a contraindication to GLP-1R agonists.\n26. A history of any other condition (such as known drug or alcohol abuse, diagnosed eating disorder, or other psychiatric disorder) that, in the opinion of the investigator, may preclude the participant from following and completing the protocol.\n27. Alcohol consumption \\>14 units/week for women and \\>21 units/week for men.\n28. A history of use of marijuana or tetrahydrocannabinol (THC)-containing products within 3 months of enrollment or unwillingness to abstain from marijuana or THC-containing product use during the study.\n\n    Note: If a participant has used cannabidiol oil during the past 3 months but agrees to refrain from use for the duration of the study, the participant may be enrolled.\n29. Have had an organ transplant (corneal transplants \\[keratoplasty\\] are allowed) or are awaiting an organ transplant.\n30. Any hematological condition that may interfere with HbA1c measurements (eg,\n31. A blood donation of \u2265500 mL within the previous 8 weeks of screening or a blood transfusion or severe blood loss within the prior 3 months, or have known hemoglobinopathy, hemolytic anemia, sickle cell anemia, or a hemoglobin value \\<11 g/dL (men) or \\<10 g/dL (women), or any other condition known to interfere with HbA1c methodology.\n32. A history of atopy (severe or multiple allergic manifestations) or clinically significant multiple or severe drug allergies, intolerance to topical corticosteroids, or severe posttreatment hypersensitivity reactions (including, but not limited to, erythema multiforme major, linear immunoglobulin A dermatosis, toxic epidermal necrolysis, anaphylaxis, angioedema, or exfoliative dermatitis).\n33. A fasting serum triglyceride level of \\>500 mg/dL at screening. If a participant is on lipid-lowering therapies, doses must be stable for 30 days prior to screening.\n\n    Prior/Concomitant Therapy\n34. Are receiving or have received within 3 months prior to screening chronic (\\>2 weeks) systemic glucocorticoid therapy (excluding topical, intraocular, intranasal, single intraarticular injection, or inhaled preparations) or have evidence of a significant, active autoimmune abnormality (eg, lupus or rheumatoid arthritis) that has required (within the last 3 months) or is likely to require, in the opinion of the investigator, concurrent treatment with systemic glucocorticoids (excluding topical, intraocular, intranasal, intraarticular, or inhaled preparations) during the course of the study.\n35. Receiving treatment with or have a history of treatment with (within 3 months prior to screening) medications that may cause significant weight gain including, but not limited to, tricyclic antidepressants, atypical antipsychotics, and mood stabilizers:\n\n    Examples:\n    * imipramine\n    * amitriptyline\n    * mirtazapine\n    * paroxetine\n    * phenelzine\n    * chlorpromazine\n    * thioridazine\n    * clozapine\n    * olanzapine valproic acid and its derivatives\n    * lithium Note: Selective serotonin reuptake inhibitors other than paroxetine are permitted.\n36. Have taken within 3 months prior to screening medications (prescribed or over thecounter) or alternative remedies intended to promote weight loss.\n\n    Examples include, but are not limited to:\n    * Saxenda\u00ae (liraglutide 3.0 mg) or other GLP-1R agonists\n    * Xenical\u00ae/Alli\u00ae (orlistat)\n    * Meridia\u00ae (sibutramine)\n    * Acutrim\u00ae (phenylpropanolamine)\n    * Sanorex\u00ae (mazindol)\n    * Adipex\u00ae or LomairaTM (phentermine)\n    * QsymiaTM (phentermine/topiramate combination)\n    * Contrave\u00ae (naltrexone/bupropion)\n37. Use of metformin or any other glucose-lowering medication, whether prescribed for polycystic ovarian syndrome or diabetes prevention is not permitted.\n38. Have started implantable or injectable contraceptives (such as Depo Provera\u00ae) within 18 months prior to screening.\n\n    Prior/Concurrent Clinical Study Experience\n39. Have known allergies to GLP-1R agonists or GZR18.\n40. Are currently enrolled in any other clinical study involving an IP or any other type of medical research judged not to be scientifically or medically compatible with this study.\n41. Within the last 30 days, participated in a clinical study and received treatment, whether active or placebo. If the study involved an IP, 5 half-lives or 30 days, whichever is longer, should have passed.\n42. Have previously completed or withdrawn from this study or any other study investigating GZR18 and have previously received GZR18.\n\n    Other Exclusions\n43. Women of childbearing potential (WOCBP) who:\n\n    * Are pregnant or intend to become pregnant (or have a positive pregnancy test at screening).\n    * Are lactating/breastfeeding (including the use of a breast pump).\n    * Are unwilling to remain abstinent or use acceptable birth control",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 75,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": 6.5,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. 18 to 75 years of age (both inclusive) at the time of signing the informed consent form (ICF).\n2. History of failing to lose sufficient weight with lifestyle/dietary modification.\n\nBMI \u226530.0 kg/m2, or\n\nBMI \u226527.0 kg/m2 with at least 1 of the following:\n\n* Hypertension: defined as taking blood pressure (BP) lowering medication or have a systolic blood pressure (SBP) of \u2265130 mmHg or a diastolic blood pressure (DBP) of \u226580 mmHg at screening.\n* Dyslipidemia: defined as taking lipid-lowering medication or have LDL \u2265160 mg/dL (4.1 mmol/L) or triglycerides \u2265150 mg/dL (1.7 mmol/L), or high-density lipoprotein (HDL) \\<40 mg/dL (1.0 mmol/L) for men or HDL \\<50 mg/dL (1.3 mmol/L) for women at screening.\n* Obstructive sleep apnea.\n* Cardiovascular disease: defined as having eg, ischemic cardiovascular disease or New York Heart Association (NYHA) Functional Classification Class I to II heart failure.\n\n  4\\. In the investigator's opinion, are well motivated, capable, and willing to:\n* Learn how to self-inject the IP as required for this protocol (visually impaired persons who are not able to perform the injections must have the assistance of a sighted individual trained to inject the IP; persons with physical limitations who are not able to perform the injections must have the assistance of an individual trained to inject the IP).\n* Inject the IP (or receive an injection from a trained individual if visually impaired or with physical limitations).\n* Follow study procedures for the duration of the study, including, but not limited to, lifestyle advice (eg, dietary changes and physical activity plan), complete the electronic diary (eDiary), and complete required questionnaires.\n* Identify the biological sex for the study stratification. 5.Capable of giving signed informed consent, which includes compliance with the requirements and restrictions listed in the ICF and in this protocol.",
+      "raw_exclusion_text": "Exclusion Medical Conditions Related to Obesity\n\n1. A self-reported change (increase or decrease) in body weight \\>5 kg within 3 months prior to screening.\n2. Prior or planned surgical treatment for obesity (excluding liposuction or abdominoplasty, if performed \\>1 year prior to screening).\n3. Have or plan to have endoscopic and/or device-based therapy for obesity or have had device removal within the last 6 months prior to screening, including but not limited to:\n\n   * Mucosal ablation\n   * Gastric artery embolization\n   * Intragastric balloon\n   * Duodenal-jejunal endoluminal liner Related to Diabetes\n4. History of type 1 or T2DM, history of ketoacidosis, or hyperosmolar state/coma.\n5. At least 1 laboratory value suggestive of diabetes during screening, including 1 or more of HbA1c \u22656.5% (48 mmol/mol), fasting serum glucose \u2265126 mg/dL (7.0 mmol/L), or random glucose \u2265200 mg/dL (11.1 mmol/L).\n\n   Other Medical Conditions\n6. Renal impairment measured as estimated glomerular filtration rate (eGFR) \\<60 mL/min/1.73 m2, calculated by chronic kidney disease-epidemiology collaboration (CKD-EPI) as determined by central laboratory during screening.\n7. Known clinically significant gastric emptying abnormality (eg, severe gastroparesis or gastric outlet obstruction) or chronically take drugs that directly affect GI motility.\n8. History of acute or chronic pancreatitis. A participant with a history of acute pancreatitis caused by gallstones may be included in the study if the participant has a cholecystectomy to resolve the problem.\n9. Thyroid-stimulating hormone (TSH) outside of the range of 0.4 to 6.0 mIU/L at screening.\n\n   Note: Participants receiving treatment for hypothyroidism may be included, provided their thyroid hormone replacement dose has been stable for at least 6 months.\n\n   Note: TSH values above the normal range can, in some participant, suggest subclinical hypothyroidism. If, in the investigator's opinion, the participant has subclinical hypothyroidism and may require initiation of thyroid hormone replacement during the study, the participant should be excluded from the study.\n10. Obesity induced by other endocrinologic disorders (eg, Cushing's syndrome) or diagnosed monogenetic or syndromic forms of obesity (eg, melanocortin 4 receptor deficiency or Prader-Willi syndrome).\n11. History of significant active or unstable major depressive disorder (MDD) or other severe psychiatric disorder (eg, schizophrenia, bipolar disorder, or other serious mood or anxiety disorder) within the last 2 years.\n\n    Note: Participants with MDD or generalized anxiety disorder whose disease state is considered stable for the past 2 years and expected to remain stable throughout the course of the study, in the opinion of the investigator, may be considered for inclusion if they are not on excluded medications.\n12. A history of suicide attempt.\n13. Patient health questionnaire-9 (PHQ-9) score of 15 or more at screening.\n14. On the Columbia Suicide Severity Rating Scale (C-SSRS) prior to randomization:\n\n    * a \"yes\" answer to Question 4 (active suicidal ideation with some intent to act, without specific plan) on the \"suicidal ideation\" portion of the C-SSRS or\n    * a \"yes\" answer to Question 5 (active suicidal ideation with specific plan and intent) on the \"suicidal ideation\" portion of the C-SSRS or\n    * a \"yes\" answer to any of the suicide-related behaviors (actual attempt, interrupted attempt, aborted attempt, preparatory act, or behavior) on the \"suicidal behavior\" portion of the C-SSRS and\n    * the ideation or behavior occurred within the past month\n15. Uncontrolled hypertension (SBP \u2265160 mmHg and/or DBP \u2265100 mmHg). If a participant is on antihypertensive therapies, doses must be stable for 30 days prior to screening. For participants with uncontrolled hypertension at screening, antihypertensive medication may be started or adjusted. BP must meet the protocol criterion for hypertension control with stable treatment for at least 30 days before re-screening.\n16. An elevated resting pulse rate \\>100 bpm at baseline.\n17. Any of the following cardiovascular conditions within 3 months prior to screening:\n\n    * Acute myocardial infarction\n    * Cerebrovascular accident (stroke)\n    * Unstable angina\n    * Hospitalization due to congestive heart failure (CHF)\n18. Ongoing or history of frequent intermittent or chronic tachyarrhythmia syndromes (eg, atrial fibrillation, supraventricular tachycardia, and positional orthostatic tachycardia syndrome).\n\n    Note: Participants with a history of premature atrial contractions or premature ventricular contractions may be included.\n19. NYHA Functional Classification III or IV CHF.\n20. An electrocardiogram (ECG) considered by the investigator indicative of active cardiac disease or with abnormalities that may interfere with the interpretation of changes in ECG intervals at screening.\n21. Acute or chronic hepatitis, or signs and symptoms of any other liver disease other liver disease except nonalcoholic fatty liver disease (NAFLD) (ie, participants with NAFLD are eligible for participation), or any of the following at screening:\n\n    * alanine aminotransferase (ALT) \\>3 \u00d7 the upper limit of normal (ULN)\n    * alkaline phosphatase (ALP) \\>1.5 \u00d7 ULN\n    * total bilirubin level \\>1.5 \u00d7 ULN (except for cases of known Gilbert's Syndrome)\n22. Serum calcitonin level of:\n\n    * 20 ng/L, if eGFR \u226560 mL/min/1.73 m2\n    * 35 ng/L, if eGFR \u226460 mL/min/1.73 m2\n23. A family or personal history of medullary thyroid carcinoma (MTC) or multiple endocrine neoplasia syndrome type 2 (MEN2).\n24. A history of an active or untreated malignancy or are in remission from a clinically significant malignancy (other than basal or squamous cell skin cancer, in situ carcinomas of the cervix, or in situ prostate cancer) for \\<5 years.\n25. Any other condition not listed in this section (eg, hypersensitivity or intolerance) that is a contraindication to GLP-1R agonists.\n26. A history of any other condition (such as known drug or alcohol abuse, diagnosed eating disorder, or other psychiatric disorder) that, in the opinion of the investigator, may preclude the participant from following and completing the protocol.\n27. Alcohol consumption \\>14 units/week for women and \\>21 units/week for men.\n28. A history of use of marijuana or tetrahydrocannabinol (THC)-containing products within 3 months of enrollment or unwillingness to abstain from marijuana or THC-containing product use during the study.\n\n    Note: If a participant has used cannabidiol oil during the past 3 months but agrees to refrain from use for the duration of the study, the participant may be enrolled.\n29. Have had an organ transplant (corneal transplants \\[keratoplasty\\] are allowed) or are awaiting an organ transplant.\n30. Any hematological condition that may interfere with HbA1c measurements (eg,\n31. A blood donation of \u2265500 mL within the previous 8 weeks of screening or a blood transfusion or severe blood loss within the prior 3 months, or have known hemoglobinopathy, hemolytic anemia, sickle cell anemia, or a hemoglobin value \\<11 g/dL (men) or \\<10 g/dL (women), or any other condition known to interfere with HbA1c methodology.\n32. A history of atopy (severe or multiple allergic manifestations) or clinically significant multiple or severe drug allergies, intolerance to topical corticosteroids, or severe posttreatment hypersensitivity reactions (including, but not limited to, erythema multiforme major, linear immunoglobulin A dermatosis, toxic epidermal necrolysis, anaphylaxis, angioedema, or exfoliative dermatitis).\n33. A fasting serum triglyceride level of \\>500 mg/dL at screening. If a participant is on lipid-lowering therapies, doses must be stable for 30 days prior to screening.\n\n    Prior/Concomitant Therapy\n34. Are receiving or have received within 3 months prior to screening chronic (\\>2 weeks) systemic glucocorticoid therapy (excluding topical, intraocular, intranasal, single intraarticular injection, or inhaled preparations) or have evidence of a significant, active autoimmune abnormality (eg, lupus or rheumatoid arthritis) that has required (within the last 3 months) or is likely to require, in the opinion of the investigator, concurrent treatment with systemic glucocorticoids (excluding topical, intraocular, intranasal, intraarticular, or inhaled preparations) during the course of the study.\n35. Receiving treatment with or have a history of treatment with (within 3 months prior to screening) medications that may cause significant weight gain including, but not limited to, tricyclic antidepressants, atypical antipsychotics, and mood stabilizers:\n\n    Examples:\n    * imipramine\n    * amitriptyline\n    * mirtazapine\n    * paroxetine\n    * phenelzine\n    * chlorpromazine\n    * thioridazine\n    * clozapine\n    * olanzapine valproic acid and its derivatives\n    * lithium Note: Selective serotonin reuptake inhibitors other than paroxetine are permitted.\n36. Have taken within 3 months prior to screening medications (prescribed or over thecounter) or alternative remedies intended to promote weight loss.\n\n    Examples include, but are not limited to:\n    * Saxenda\u00ae (liraglutide 3.0 mg) or other GLP-1R agonists\n    * Xenical\u00ae/Alli\u00ae (orlistat)\n    * Meridia\u00ae (sibutramine)\n    * Acutrim\u00ae (phenylpropanolamine)\n    * Sanorex\u00ae (mazindol)\n    * Adipex\u00ae or LomairaTM (phentermine)\n    * QsymiaTM (phentermine/topiramate combination)\n    * Contrave\u00ae (naltrexone/bupropion)\n37. Use of metformin or any other glucose-lowering medication, whether prescribed for polycystic ovarian syndrome or diabetes prevention is not permitted.\n38. Have started implantable or injectable contraceptives (such as Depo Provera\u00ae) within 18 months prior to screening.\n\n    Prior/Concurrent Clinical Study Experience\n39. Have known allergies to GLP-1R agonists or GZR18.\n40. Are currently enrolled in any other clinical study involving an IP or any other type of medical research judged not to be scientifically or medically compatible with this study.\n41. Within the last 30 days, participated in a clinical study and received treatment, whether active or placebo. If the study involved an IP, 5 half-lives or 30 days, whichever is longer, should have passed.\n42. Have previously completed or withdrawn from this study or any other study investigating GZR18 and have previously received GZR18.\n\n    Other Exclusions\n43. Women of childbearing potential (WOCBP) who:\n\n    * Are pregnant or intend to become pregnant (or have a positive pregnancy test at screening).\n    * Are lactating/breastfeeding (including the use of a breast pump).\n    * Are unwilling to remain abstinent or use acceptable birth control"
+    }
+  },
+  {
+    "trial_id": "NCT03654586",
+    "title": "Effects of Sugary Drink Warning Labels",
+    "conditions": [
+      "Obesity",
+      "Diabetes",
+      "Weight Gain"
+    ],
+    "eligibility_text": "Inclusion Criteria: Participants must:\n\n* be a primary caregiver of a child under 12 years old;\n* be \u226518 years old;\n* read and speak English;\n* drink sugary drinks at least twelve times per month (\\~three times per week) and have a child who does the same\n* be the primary grocery shopper for their family;\n* have regular internet access.\n\nExclusion Criteria:\n\n* not a primary caregiver of a child under 12 years old\n* \\<18 years old\n* cannot read and speak English\n* does not drink sugary drinks at least 12 times per month and have a child who does the same\n* is not the primary grocery shopper for their family\n* does not have regular internet access",
+    "criteria": {
+      "min_age": 18,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria: Participants must:\n\n* be a primary caregiver of a child under 12 years old;\n* be \u226518 years old;\n* read and speak English;\n* drink sugary drinks at least twelve times per month (\\~three times per week) and have a child who does the same\n* be the primary grocery shopper for their family;\n* have regular internet access.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* not a primary caregiver of a child under 12 years old\n* \\<18 years old\n* cannot read and speak English\n* does not drink sugary drinks at least 12 times per month and have a child who does the same\n* is not the primary grocery shopper for their family\n* does not have regular internet access"
+    }
+  },
+  {
+    "trial_id": "NCT03672994",
+    "title": "Exhaled Breath Metabolomic Biomarkers in the Acutely Breathless Patient",
+    "conditions": [
+      "Asthma",
+      "COPD",
+      "Heart Failure",
+      "Community-acquired Pneumonia",
+      "Healthy",
+      "Breathlessness"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n(i) Able to give informed consent for participation in the study. (ii) Male or Female, aged 16 years or above (adult cohort) and 5-15 years for paediatric patients attending the acute care paediatric pathway.\n\n(iii) Capable (in the opinion of the EMBER clinical research investigator(s) of providing serial breath samples.\n\n(iv) Diagnosed with acute breathlessness as one of the primary indicator reasons by the clinical acute care team. This is not a requirement for healthy subjects or matched controls.\n\n(v) One of the indicator provisional diagnoses identified in section 7.1 following senior review by the clinical acute care team. This is not a requirement for healthy subjects or matched controls (vi) Able (in the Investigators opinion) and willing to comply with all study requirements.\n\n(vii) Willing to allow his or her General Practitioner and consultant, if appropriate, to be notified of participation in the study.\n\n(viii) Ability to understand English.\n\nExclusion Criteria:\n\n(i) Female participants who are known to be pregnant, lactating or planning pregnancy during the course of the study.\n\n(ii) Current participation in a clinical trial of an investigative medicinal product or within 3 months or 5.5 half-lives of the IMP whichever is longer.\n\n(iii) Active or clinically suspected pulmonary tuberculosis (iv) In the opinion of the treating physician, breath sampling during the acute admission would be clinically unsafe or inappropriate due to the patient's condition or poor prognosis. Examples include malignancy or autoimmune disease with anticipated survival of under 1 year, and chronic renal replacement therapy.\n\n(v) Unable or unwilling to give informed consent by visit 1b. (vi) Any other significant disease or disorder which, in the opinion of the Investigator, may either put the participants at risk because of participation in the study, or may influence the result of the study, or the participant's ability to participate in the study.",
+    "criteria": {
+      "min_age": 5,
+      "max_age": 15,
+      "sex_allowed": "all",
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n(i) Able to give informed consent for participation in the study. (ii) Male or Female, aged 16 years or above (adult cohort) and 5-15 years for paediatric patients attending the acute care paediatric pathway.\n\n(iii) Capable (in the opinion of the EMBER clinical research investigator(s) of providing serial breath samples.\n\n(iv) Diagnosed with acute breathlessness as one of the primary indicator reasons by the clinical acute care team. This is not a requirement for healthy subjects or matched controls.\n\n(v) One of the indicator provisional diagnoses identified in section 7.1 following senior review by the clinical acute care team. This is not a requirement for healthy subjects or matched controls (vi) Able (in the Investigators opinion) and willing to comply with all study requirements.\n\n(vii) Willing to allow his or her General Practitioner and consultant, if appropriate, to be notified of participation in the study.\n\n(viii) Ability to understand English.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n(i) Female participants who are known to be pregnant, lactating or planning pregnancy during the course of the study.\n\n(ii) Current participation in a clinical trial of an investigative medicinal product or within 3 months or 5.5 half-lives of the IMP whichever is longer.\n\n(iii) Active or clinically suspected pulmonary tuberculosis (iv) In the opinion of the treating physician, breath sampling during the acute admission would be clinically unsafe or inappropriate due to the patient's condition or poor prognosis. Examples include malignancy or autoimmune disease with anticipated survival of under 1 year, and chronic renal replacement therapy.\n\n(v) Unable or unwilling to give informed consent by visit 1b. (vi) Any other significant disease or disorder which, in the opinion of the Investigator, may either put the participants at risk because of participation in the study, or may influence the result of the study, or the participant's ability to participate in the study."
+    }
+  },
+  {
+    "trial_id": "NCT05963022",
+    "title": "A Study of Tirzepatide (LY3298176) in Chinese Participants With Type 2 Diabetes (SURPASS-CN-MONO)",
+    "conditions": [
+      "Type 2 Diabetes"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Have Type 2 Diabetes\n* Have HbA1c \u22657.0% (\u226553 mmol/mol) to \u22649.5% (\u226480 mmol/mol) despite diet and exercise treatment\n* Are of stable weight 5%) during the 90 days preceding screening and agree not to initiate a diet and/or exercise program during the study with the intent of reducing body weight other than the lifestyle and dietary measures for diabetes treatment\n* Have Body Mass Index (BMI) \u226523.0 kilogram per square meter (kg/m\u00b2)\n\nExclusion Criteria:\n\n* Have Type 1 Diabetes\n* Have a history of chronic or acute pancreatitis any time prior to study entry\n* Are currently receiving treatment for diabetic retinopathy and/or macular edema\n* Have a history of ketoacidosis or hyperosmolar state/coma\n* Have a history of New York Heart Association Functional Classification IV congestive heart failure (CHF)\n* Have acute or chronic hepatitis including a history of autoimmune hepatitis\n* Use of insulin 1-year preceding screening and between screening and baseline; use of any antihyperglycemic medication 90 days preceding screening and between screening and baseline.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": 7.0,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Have Type 2 Diabetes\n* Have HbA1c \u22657.0% (\u226553 mmol/mol) to \u22649.5% (\u226480 mmol/mol) despite diet and exercise treatment\n* Are of stable weight 5%) during the 90 days preceding screening and agree not to initiate a diet and/or exercise program during the study with the intent of reducing body weight other than the lifestyle and dietary measures for diabetes treatment\n* Have Body Mass Index (BMI) \u226523.0 kilogram per square meter (kg/m\u00b2)",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Have Type 1 Diabetes\n* Have a history of chronic or acute pancreatitis any time prior to study entry\n* Are currently receiving treatment for diabetic retinopathy and/or macular edema\n* Have a history of ketoacidosis or hyperosmolar state/coma\n* Have a history of New York Heart Association Functional Classification IV congestive heart failure (CHF)\n* Have acute or chronic hepatitis including a history of autoimmune hepatitis\n* Use of insulin 1-year preceding screening and between screening and baseline; use of any antihyperglycemic medication 90 days preceding screening and between screening and baseline."
+    }
+  },
+  {
+    "trial_id": "NCT02557022",
+    "title": "Meta Analysis of the Effect of a Low Glycemic Index Diet and Glycemic Load on Body Weight",
+    "conditions": [
+      "Body Weight",
+      "Obesity",
+      "Cardiovascular Diseases",
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Dietary trials in humans\n* Randomized trials\n* Trials more or equals to 12 weeks duration\n* Suitable control group\n* Body weight data\n\nExclusion Criteria:\n\n* Did not look at glycemic index or glycemic load\n* Co-intervention (i.e. the study is designed in such a way that the effect of glycemic index or glycemic load can not be isolated)\n* Trials looked at glycemic index of specific foods instead of diet as a whole\n* Trials including pregnant or breast feeding women\n* Trials including children\n* Non-human studies\n* Non-randomized trials\n* Trials less than 12 weeks duration\n* Lack of a suitable control group\n* No viable endpoint data",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Dietary trials in humans\n* Randomized trials\n* Trials more or equals to 12 weeks duration\n* Suitable control group\n* Body weight data",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Did not look at glycemic index or glycemic load\n* Co-intervention (i.e. the study is designed in such a way that the effect of glycemic index or glycemic load can not be isolated)\n* Trials looked at glycemic index of specific foods instead of diet as a whole\n* Trials including pregnant or breast feeding women\n* Trials including children\n* Non-human studies\n* Non-randomized trials\n* Trials less than 12 weeks duration\n* Lack of a suitable control group\n* No viable endpoint data"
+    }
+  },
+  {
+    "trial_id": "NCT02294929",
+    "title": "Cryoballoon Ablation in Patients With Longstanding Persistent Atrial Fibrillation",
+    "conditions": [
+      "Atrial Fibrillation"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Patients with longstanding persistent AF, with continuous AF of greater than one year, as verified by ECG or telemetry strip at least one year ago, and at inclusion but with no documentation of sinus rhythm in between.\n2. Atrial fibrillation should be confirmed on at least 2 consecutive ECG supporting the presence of AF for at least one year.\n3. Patients with symptoms corresponding to at least EHRA score 2.\n4. Patients, who have not previously undergone an AF ablation procedure, should have failed at least a betablocker or class I or III antiarrhythmic drug.\n\nExclusion Criteria:\n\n1. Sinus rhythm cannot be maintained for at least 1 minute after an electrical cardioversion.\n2. Congestive heart failure with NYHA class 3 or more.\n3. LVEF \\< 35% which is not secondary to AF with inadequate rate control, according to the judgement of the investigator.\n4. LA diameter \u2265 55 mm by echocardiography.\n5. Prior AF ablation procedure of any kind.\n6. AF secondary to a transient or correctable abnormality including electrolyte imbalance, trauma, recent surgery, infection, toxic ingestion, and uncontrolled thyroid disease as well as AF triggered by other uniform supraventricular tachycardia.\n7. Contraindication to treatment with Warfarin or other anticoagulants.\n8. Significant valvular disease or planned cardiac intervention.\n9. Hypertrophic cardiomyopathy.\n10. Recent cardiac disease states within the last 6 months; unstable angina, acute myocardial infarction, revascularisation procedures, valve disease\n11. Implantable cardioverter-defibrillator (ICD), biventricular pacing device, or Dual chamber- or single chamber pacemaker patients who are dependent on ventricular pacing\n12. Patients with intra-atrial thrombus, tumor, pulmonary embolism or another abnormality in whom transseptal catheterization or appropriate vascular access is precluded.\n13. Renal failure requiring dialysis or abnormalities of liver function tests.\n14. Participant in investigational clinical or device trial.\n15. Unwilling or unable to give informed consent or inaccessible for follow-up and psychological problem that might limit compliance.\n16. Active abuse of alcohol or other substance which may be causative of AF and/or might affect compliance.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Patients with longstanding persistent AF, with continuous AF of greater than one year, as verified by ECG or telemetry strip at least one year ago, and at inclusion but with no documentation of sinus rhythm in between.\n2. Atrial fibrillation should be confirmed on at least 2 consecutive ECG supporting the presence of AF for at least one year.\n3. Patients with symptoms corresponding to at least EHRA score 2.\n4. Patients, who have not previously undergone an AF ablation procedure, should have failed at least a betablocker or class I or III antiarrhythmic drug.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Sinus rhythm cannot be maintained for at least 1 minute after an electrical cardioversion.\n2. Congestive heart failure with NYHA class 3 or more.\n3. LVEF \\< 35% which is not secondary to AF with inadequate rate control, according to the judgement of the investigator.\n4. LA diameter \u2265 55 mm by echocardiography.\n5. Prior AF ablation procedure of any kind.\n6. AF secondary to a transient or correctable abnormality including electrolyte imbalance, trauma, recent surgery, infection, toxic ingestion, and uncontrolled thyroid disease as well as AF triggered by other uniform supraventricular tachycardia.\n7. Contraindication to treatment with Warfarin or other anticoagulants.\n8. Significant valvular disease or planned cardiac intervention.\n9. Hypertrophic cardiomyopathy.\n10. Recent cardiac disease states within the last 6 months; unstable angina, acute myocardial infarction, revascularisation procedures, valve disease\n11. Implantable cardioverter-defibrillator (ICD), biventricular pacing device, or Dual chamber- or single chamber pacemaker patients who are dependent on ventricular pacing\n12. Patients with intra-atrial thrombus, tumor, pulmonary embolism or another abnormality in whom transseptal catheterization or appropriate vascular access is precluded.\n13. Renal failure requiring dialysis or abnormalities of liver function tests.\n14. Participant in investigational clinical or device trial.\n15. Unwilling or unable to give informed consent or inaccessible for follow-up and psychological problem that might limit compliance.\n16. Active abuse of alcohol or other substance which may be causative of AF and/or might affect compliance."
+    }
+  },
+  {
+    "trial_id": "NCT00232362",
+    "title": "Effect of Pioglitazone on Left Ventricular Diastolic Function in Type 2 Diabetes Mellitus",
+    "conditions": [
+      "Type 2 Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Patients with type 2 diabetes mellitus (DM)\n2. Ages 18 to 65 years old\n3. Patients with left ventricular diastolic dysfunction (LVDD) and ejection fraction (EF) \\> 50%\n\nExclusion Criteria:\n\n1. Patients with uncontrolled hypertension\n2. Patients with active myocardial ischemia with Canadian Cardiovascular Society (CCS) \\> II or known coronary artery disease (CAD)\n3. Patients with atrial fibrillation\n4. Patients with systolic heart failure\n5. Patients with mitral regurgitation grade 2 or more\n6. Patients with restrictive cardiomyopathy\n7. Patients with constrictive pericarditis\n8. Pregnant female patients\n9. Recent stroke\n10. Sepsis\n11. Liver enzymes more than 2.5 times the normal\n12. Hemoglobin \\< 11g/dl or hematocrit \\< 30%\n13. Terminal cancer\n14. Patients on fibrates group of lipid lowering agents\n15. Patients already on pioglitazone or rosiglitazone\n16. Patients who are placed in the control group may not be currently taking a medication in the glitazones drug class.\n17. Current or prior use of Pioglitazone or Rosiglitazone within the preceding 6 months.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 65,
+      "sex_allowed": "female",
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": true,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Patients with type 2 diabetes mellitus (DM)\n2. Ages 18 to 65 years old\n3. Patients with left ventricular diastolic dysfunction (LVDD) and ejection fraction (EF) \\> 50%",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Patients with uncontrolled hypertension\n2. Patients with active myocardial ischemia with Canadian Cardiovascular Society (CCS) \\> II or known coronary artery disease (CAD)\n3. Patients with atrial fibrillation\n4. Patients with systolic heart failure\n5. Patients with mitral regurgitation grade 2 or more\n6. Patients with restrictive cardiomyopathy\n7. Patients with constrictive pericarditis\n8. Pregnant female patients\n9. Recent stroke\n10. Sepsis\n11. Liver enzymes more than 2.5 times the normal\n12. Hemoglobin \\< 11g/dl or hematocrit \\< 30%\n13. Terminal cancer\n14. Patients on fibrates group of lipid lowering agents\n15. Patients already on pioglitazone or rosiglitazone\n16. Patients who are placed in the control group may not be currently taking a medication in the glitazones drug class.\n17. Current or prior use of Pioglitazone or Rosiglitazone within the preceding 6 months."
+    }
+  },
+  {
+    "trial_id": "NCT01375686",
+    "title": "Noninvasive Screening for Early Evidence of Diabetes With SCOUT DS",
+    "conditions": [
+      "Type 2 Diabetes"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Age greater than or equal to 45 years;\n\n   OR\n2. Age 18 to 44 years and a BMI \\> 25 with one or more of the following diabetes risk factors:\n\n   * Habitually physically inactive (less than 30 minutes of moderate physical activity most, if not all, days of the week)\n   * Has a first-degree relative with type 2 diabetes\n   * African American, Latino, Native American, Asian American, Pacific Islander\n   * Has delivered a baby weighing \\> 9 lb or previously diagnosed with gestational diabetes\n   * Hypertension (\u2265140/\u2265 90 mmHg) or being treated for hypertension\n   * HDL cholesterol level \\< 35 mg/dL and/or a fasting triglyceride level \u2265 250 mg/dL or being treated for dyslipidemia with medication\n   * Has been previously diagnosed with Polycystic Ovary Syndrome (PCOS)\n   * Had impaired glucose tolerance or impaired fasting glucose on previous testing within the last 3 years\n   * Conditions associated with insulin resistance such as severe obesity or acanthosis nigricans\n   * History of vascular disease including heart attack, stroke, angina, coronary heart disease, atherosclerosis, congestive heart failure or peripheral arterial disease\n\nExclusion Criteria:\n\n* Prior participation in VeraLight studies: VL-2701, VL-2710, VL-2711, VL-2712 , or VL-2718\n* Diagnosed with any type of diabetes, including type 1 or 2\n* Known to have, or at risk for, photosensitivity reactions ( e.g., sensitive to ultraviolet light, or taking medication known to cause photosensitivity)\n* Receiving any investigational treatment in the past 14 days\n* Psychosocial issues that interfere with an ability to follow study procedures\n* Conditions that cause secondary diabetes including Cushing's syndrome, acromegaly, hemochromatosis, pancreatitis, or cystic fibrosis\n* Taking glucose lowering medications\\*\n* Known to be pregnant (self reported)\n* Receiving dialysis or having known renal compromise\n* Scars, tattoos, rashes or other disruption/discoloration on the left volar forearm.\n* Recent (within past month) or current oral steroid therapy or topical steroids applied to the left forearm; inhaled steroid therapy is not excluded\n* Current chemotherapy, or chemotherapy within the past 12 months\n* Receiving medications that fluoresce \\*\n* Prior bariatric surgery",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 44,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Age greater than or equal to 45 years;\n\n   OR\n2. Age 18 to 44 years and a BMI \\> 25 with one or more of the following diabetes risk factors:\n\n   * Habitually physically inactive (less than 30 minutes of moderate physical activity most, if not all, days of the week)\n   * Has a first-degree relative with type 2 diabetes\n   * African American, Latino, Native American, Asian American, Pacific Islander\n   * Has delivered a baby weighing \\> 9 lb or previously diagnosed with gestational diabetes\n   * Hypertension (\u2265140/\u2265 90 mmHg) or being treated for hypertension\n   * HDL cholesterol level \\< 35 mg/dL and/or a fasting triglyceride level \u2265 250 mg/dL or being treated for dyslipidemia with medication\n   * Has been previously diagnosed with Polycystic Ovary Syndrome (PCOS)\n   * Had impaired glucose tolerance or impaired fasting glucose on previous testing within the last 3 years\n   * Conditions associated with insulin resistance such as severe obesity or acanthosis nigricans\n   * History of vascular disease including heart attack, stroke, angina, coronary heart disease, atherosclerosis, congestive heart failure or peripheral arterial disease",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Prior participation in VeraLight studies: VL-2701, VL-2710, VL-2711, VL-2712 , or VL-2718\n* Diagnosed with any type of diabetes, including type 1 or 2\n* Known to have, or at risk for, photosensitivity reactions ( e.g., sensitive to ultraviolet light, or taking medication known to cause photosensitivity)\n* Receiving any investigational treatment in the past 14 days\n* Psychosocial issues that interfere with an ability to follow study procedures\n* Conditions that cause secondary diabetes including Cushing's syndrome, acromegaly, hemochromatosis, pancreatitis, or cystic fibrosis\n* Taking glucose lowering medications\\*\n* Known to be pregnant (self reported)\n* Receiving dialysis or having known renal compromise\n* Scars, tattoos, rashes or other disruption/discoloration on the left volar forearm.\n* Recent (within past month) or current oral steroid therapy or topical steroids applied to the left forearm; inhaled steroid therapy is not excluded\n* Current chemotherapy, or chemotherapy within the past 12 months\n* Receiving medications that fluoresce \\*\n* Prior bariatric surgery"
+    }
+  },
+  {
+    "trial_id": "NCT05376969",
+    "title": "Evaluate the Long Term Safety and Efficacy of DWP16001 add-on to Metformin in Patients With T2DM Inadequately Controlled on Metformin",
+    "conditions": [
+      "T2DM (Type 2 Diabetes Mellitus)"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Participated in the prior phase 3 study (Protocol No: DW\\_DWP16001302) for meeting the inclusion criteria and completed the study\n* Voluntarily decided to participate in the extension study and provided a written consent on the consent form\n\nExclusion Criteria:\n\n* Withdrawn from the prior phase 3 study (Protocol No: DW\\_DWP16001302) or expected of having safety issue if taking part in the study in the judgment of the investigator\n* Subjects with the following diseases or signs:\n\n  * Diabetic ketoacidosis\n  * Moderate to severe renal impairment (estimated glomerular filtration rate \\[eGFR\\] \\< 60 mL/min/1.73 m2\n* Females who are pregnant or breast-feeding, or subjects who do not agree to the use of appropriate contraceptive methods throughout the study\n\nSubjects must agree to one of the following appropriate contraceptive methods for subjects or their partners:\n\n\u2460 Either surgical sterilization (vasectomy, etc.) or insertion of an intrauterine device (copper loop, intrauterine hormone-containing system), or\n\n\u2461 A physical barrier method combined with either systemic hormonal contraceptives or spermicide, or\n\n\u2462 Use of male condom combined with either cervical cap or diaphragm Determined to be ineligible for the study by the investigator, besides the above",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": "male",
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Participated in the prior phase 3 study (Protocol No: DW\\_DWP16001302) for meeting the inclusion criteria and completed the study\n* Voluntarily decided to participate in the extension study and provided a written consent on the consent form",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Withdrawn from the prior phase 3 study (Protocol No: DW\\_DWP16001302) or expected of having safety issue if taking part in the study in the judgment of the investigator\n* Subjects with the following diseases or signs:\n\n  * Diabetic ketoacidosis\n  * Moderate to severe renal impairment (estimated glomerular filtration rate \\[eGFR\\] \\< 60 mL/min/1.73 m2\n* Females who are pregnant or breast-feeding, or subjects who do not agree to the use of appropriate contraceptive methods throughout the study\n\nSubjects must agree to one of the following appropriate contraceptive methods for subjects or their partners:\n\n\u2460 Either surgical sterilization (vasectomy, etc.) or insertion of an intrauterine device (copper loop, intrauterine hormone-containing system), or\n\n\u2461 A physical barrier method combined with either systemic hormonal contraceptives or spermicide, or\n\n\u2462 Use of male condom combined with either cervical cap or diaphragm Determined to be ineligible for the study by the investigator, besides the above"
+    }
+  },
+  {
+    "trial_id": "NCT05872269",
+    "title": "A Study to Evaluate the Safety and Effectiveness of Saroglitazar 4 mg in Patients With NAFLD With Comorbidities",
+    "conditions": [
+      "NAFLD",
+      "Obesity",
+      "Type 2 Diabetes",
+      "Dyslipidemias",
+      "Metabolic Syndrome"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Male and female patients aged \u226518 years\n2. Patients who have been prescribed Saroglitazar for NAFLD will be included in this Phase 4 study (patients who use Saroglitazar for the first time)\n3. Patients able to and willing to provide written informed consent and comply with the requirements of the study protocol\n\n   .\n4. Patients with a prior documented diagnosis of NAFLD based on the AASLD criteria. NAFLD is defined either by previous histology or clinical imaging in individuals who consume little or no alcohol and do not have a cause for secondary hepatic steatosis or another cause of chronic liver disease. In addition, patients must have one of the following criteria to indicate ongoing NAFLD at screening:\n\n   1. Liver stiffness through transient elastography, an LSM \u22658 kPa OR\n   2. Serum ALT \u226545 U/L\n\nExclusion Criteria:\n\n1. Consumption of alcohol for at least 90 consecutive days in last one year: \\>2 units of alcohol per day (\\>14 units per week) for males and \\>1 unit of alcohol per day (\\>7 units per week) for females. Note: 1 unit = 360 mL of beer, or 120 mL of wine, or 30 mL of spirits/hard liquor\n2. History of other chronic liver disease (Viral hepatitis B or C, autoimmune hepatitis, cholestatic and metabolic liver diseases) and haemochromatosis.\n3. Patient has known documented cirrhosis, either based on clinical criteria or liver histology or imaging.\n4. Contraindications to Saroglitazar or any disease conditions affecting the ability to evaluate the effects of Saroglitazar.\n5. History or other evidences of severe illness or any other conditions that would make patient, in the opinion of the investigator, unsuitable for the study.\n6. Any previous history of ascites, hepatic encephalopathy, oesophageal varices or admission/emergency department visit for hepatic decompensation.\n7. Women of child bearing potential: inability or unwillingness to practice contraception for the duration of the study.\n8. Pregnant or breast feeding females",
+    "criteria": {
+      "min_age": 18,
+      "max_age": null,
+      "sex_allowed": "all",
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Male and female patients aged \u226518 years\n2. Patients who have been prescribed Saroglitazar for NAFLD will be included in this Phase 4 study (patients who use Saroglitazar for the first time)\n3. Patients able to and willing to provide written informed consent and comply with the requirements of the study protocol\n\n   .\n4. Patients with a prior documented diagnosis of NAFLD based on the AASLD criteria. NAFLD is defined either by previous histology or clinical imaging in individuals who consume little or no alcohol and do not have a cause for secondary hepatic steatosis or another cause of chronic liver disease. In addition, patients must have one of the following criteria to indicate ongoing NAFLD at screening:\n\n   1. Liver stiffness through transient elastography, an LSM \u22658 kPa OR\n   2. Serum ALT \u226545 U/L",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Consumption of alcohol for at least 90 consecutive days in last one year: \\>2 units of alcohol per day (\\>14 units per week) for males and \\>1 unit of alcohol per day (\\>7 units per week) for females. Note: 1 unit = 360 mL of beer, or 120 mL of wine, or 30 mL of spirits/hard liquor\n2. History of other chronic liver disease (Viral hepatitis B or C, autoimmune hepatitis, cholestatic and metabolic liver diseases) and haemochromatosis.\n3. Patient has known documented cirrhosis, either based on clinical criteria or liver histology or imaging.\n4. Contraindications to Saroglitazar or any disease conditions affecting the ability to evaluate the effects of Saroglitazar.\n5. History or other evidences of severe illness or any other conditions that would make patient, in the opinion of the investigator, unsuitable for the study.\n6. Any previous history of ascites, hepatic encephalopathy, oesophageal varices or admission/emergency department visit for hepatic decompensation.\n7. Women of child bearing potential: inability or unwillingness to practice contraception for the duration of the study.\n8. Pregnant or breast feeding females"
+    }
+  },
+  {
+    "trial_id": "NCT02144441",
+    "title": "Pilot Study of Clinician-supported Patient Self-management of Hospital Insulin Therapy",
+    "conditions": [
+      "Diabetes Mellitus"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Admitted to the Hospital of the University of Pennsylvania (HUP) in the past 72 hours.\n* Current HUP locations are Founders 12, Founders 14, Silverstein 11, and Rhoads 1.\n* Age 18 years or older.\n* Type-1 or type-2 diabetes mellitus requiring home basal-bolus insulin therapy administered via subcutaneous injection (not pump).\n* Patient manages own basal-bolus insulin therapy at home without assistance, including measuring own blood glucose (at least at mealtimes) and administering own subcutaneous insulin.\n* Patient is willing to use the following insulin products: rapid-acting insulin aspart via insulin pen (NovoLog) and long-acting insulin glargine via vial and syringe (Lantus).\n* Most recent hemoglobin A1c was measured within past 6 months and was \\<7.5%.\n* Active order for in-hospital basal-bolus or sliding-scale insulin.\n* Patient is willing and able to record their self-measured blood glucose results, doses of insulin that they self-administer, a food journal, and exercise log.\n* Clinical care team agrees with study inclusion.\n\nExclusion Criteria:\n\n* Inpatient order for insulin via subcutaneous infusion (i.e., pump) or intravenous infusion (i.e., drip).\n* Inability to perform the activities required by the trial.\n* Primary reason for admission was hyperglycemia, hypoglycemia, diabetic ketoacidosis, hyperglycemic hyperosmolar nonketotic coma, a psychiatric condition, acute alcohol poisoning, or acute drug ingestion.\n* Order for a newly-prescribed or increased dose of a previously-prescribed corticosteroid.\n* Enteral or parenteral nutrition.\n* Expected length of stay \\<48h, as determined by treating physician.\n* At risk for self-harm, as determined by 1-to-1 status placement.\n* Pregnant, as recorded on medical record.\n* Cannot understand, speak, and read English.\n* Patient does not wish to utilize Novolog and Lantus while in the hospital.\n* Prior enrollment in this trial.\n* Do not resuscitate status.\n* Inability to give written informed consent.\n* Clinical care team disagrees with study inclusion.\n* Patient has limited mobility such that they cannot safely access the bedside medication lockbox.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Admitted to the Hospital of the University of Pennsylvania (HUP) in the past 72 hours.\n* Current HUP locations are Founders 12, Founders 14, Silverstein 11, and Rhoads 1.\n* Age 18 years or older.\n* Type-1 or type-2 diabetes mellitus requiring home basal-bolus insulin therapy administered via subcutaneous injection (not pump).\n* Patient manages own basal-bolus insulin therapy at home without assistance, including measuring own blood glucose (at least at mealtimes) and administering own subcutaneous insulin.\n* Patient is willing to use the following insulin products: rapid-acting insulin aspart via insulin pen (NovoLog) and long-acting insulin glargine via vial and syringe (Lantus).\n* Most recent hemoglobin A1c was measured within past 6 months and was \\<7.5%.\n* Active order for in-hospital basal-bolus or sliding-scale insulin.\n* Patient is willing and able to record their self-measured blood glucose results, doses of insulin that they self-administer, a food journal, and exercise log.\n* Clinical care team agrees with study inclusion.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Inpatient order for insulin via subcutaneous infusion (i.e., pump) or intravenous infusion (i.e., drip).\n* Inability to perform the activities required by the trial.\n* Primary reason for admission was hyperglycemia, hypoglycemia, diabetic ketoacidosis, hyperglycemic hyperosmolar nonketotic coma, a psychiatric condition, acute alcohol poisoning, or acute drug ingestion.\n* Order for a newly-prescribed or increased dose of a previously-prescribed corticosteroid.\n* Enteral or parenteral nutrition.\n* Expected length of stay \\<48h, as determined by treating physician.\n* At risk for self-harm, as determined by 1-to-1 status placement.\n* Pregnant, as recorded on medical record.\n* Cannot understand, speak, and read English.\n* Patient does not wish to utilize Novolog and Lantus while in the hospital.\n* Prior enrollment in this trial.\n* Do not resuscitate status.\n* Inability to give written informed consent.\n* Clinical care team disagrees with study inclusion.\n* Patient has limited mobility such that they cannot safely access the bedside medication lockbox."
+    }
+  },
+  {
+    "trial_id": "NCT01186354",
+    "title": "Understanding of Genetic Risk Information for Type 2 Diabetes",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Ages 18 or older\n* Speak fluent English\n* Have an email address and access to the internet\n* Not diagnosed with type 2 diabetes\n\nExclusion Criteria:\n\n\\-",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Ages 18 or older\n* Speak fluent English\n* Have an email address and access to the internet\n* Not diagnosed with type 2 diabetes",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n\\-"
+    }
+  },
+  {
+    "trial_id": "NCT02041494",
+    "title": "Complex Ventral Hernia Repair Using Biologic or Synthetic Mesh",
+    "conditions": [
+      "Hernia, Ventral"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Clinical evidence of a midline, ventral hernia, regardless of degree of wound contamination, with the exception of class IV wounds due to the presence/discovery of fecal peritonitis. Specifically, the repair will or will not involve a compromised surgical field in which gastrointestinal, biliary and/or genitourinary procedures will be performed. The surgical wound class may be classified as clean, or it may be classified as clean-contaminated, contaminated, or dirty-infected, due to the repair of an enterocutaneous fistula, takedown of an intestinal stoma and/or removal of infected mesh\n* Age \\>21\n* Negative pregnancy test\n* No allergic, religious or ethical objections to either polypropylene or porcine prosthetics\n* Signed, witnessed informed consent to take part in the study\n\nExclusion Criteria:\n\n* Lactating women\n* Patients who are unable to commit to the follow evaluations over 24 months\n* Severe malnutrition (serum albumin \\<2.0 in the setting of a normal CRP)\n* Use of an investigational agent within 1 month prior to study enrollment and/or planned during this study\n* Presence of pre-existing parenchymal liver disease characterized by the presence of Child's Class C liver dysfunction (including all of the following: bilirubin \u2265 3.0 mg/dL; albumin \u2264 3.0 mg/dL; refractory ascites; encephalopathy or coma; and poor nutritional status)\n* Immunocompromised patients, as evidenced by: administration of high doses of corticosteroids (i.e. doses \u2265 1.5 mg/kg/day of prednisone or equivalent) within 72 hours before study enrollment; status post solid organ transplant or bone marrow transplant and experiencing acute organ rejection or bone marrow failure or rejection; evidence of neutropenia (absolute neutrophil count \u2264 500 cells/mm3 (\u2264 500 x 106 cells/L); chemotherapy or radiation therapy within 90 days before study enrollment; known AIDS; any disease sufficiently advanced to suppress resistance to infection (including, but not limited to leukemia, lymphoma or hypogammaglobulinemia); administration of immunoglobulin of G-CSF within 90 days before study enrollment\n* Ascites refractory to medical management\n* Presence of an underlying disease/injury with life expectancy less than two years and/or severe underlying disease that would preclude study entry (e.g. known malignancy)\n* Wound Classification IV due to the presence/discovery of fecal peritonitis. Other cases of wound class IV including presence of purulent inflammation, soft tissue/mesh infection, or visceral perforation resulting in a contained fistula (e.g. enterocutaneous fistula) are still considered eligible for enrollment.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Clinical evidence of a midline, ventral hernia, regardless of degree of wound contamination, with the exception of class IV wounds due to the presence/discovery of fecal peritonitis. Specifically, the repair will or will not involve a compromised surgical field in which gastrointestinal, biliary and/or genitourinary procedures will be performed. The surgical wound class may be classified as clean, or it may be classified as clean-contaminated, contaminated, or dirty-infected, due to the repair of an enterocutaneous fistula, takedown of an intestinal stoma and/or removal of infected mesh\n* Age \\>21\n* Negative pregnancy test\n* No allergic, religious or ethical objections to either polypropylene or porcine prosthetics\n* Signed, witnessed informed consent to take part in the study",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Lactating women\n* Patients who are unable to commit to the follow evaluations over 24 months\n* Severe malnutrition (serum albumin \\<2.0 in the setting of a normal CRP)\n* Use of an investigational agent within 1 month prior to study enrollment and/or planned during this study\n* Presence of pre-existing parenchymal liver disease characterized by the presence of Child's Class C liver dysfunction (including all of the following: bilirubin \u2265 3.0 mg/dL; albumin \u2264 3.0 mg/dL; refractory ascites; encephalopathy or coma; and poor nutritional status)\n* Immunocompromised patients, as evidenced by: administration of high doses of corticosteroids (i.e. doses \u2265 1.5 mg/kg/day of prednisone or equivalent) within 72 hours before study enrollment; status post solid organ transplant or bone marrow transplant and experiencing acute organ rejection or bone marrow failure or rejection; evidence of neutropenia (absolute neutrophil count \u2264 500 cells/mm3 (\u2264 500 x 106 cells/L); chemotherapy or radiation therapy within 90 days before study enrollment; known AIDS; any disease sufficiently advanced to suppress resistance to infection (including, but not limited to leukemia, lymphoma or hypogammaglobulinemia); administration of immunoglobulin of G-CSF within 90 days before study enrollment\n* Ascites refractory to medical management\n* Presence of an underlying disease/injury with life expectancy less than two years and/or severe underlying disease that would preclude study entry (e.g. known malignancy)\n* Wound Classification IV due to the presence/discovery of fecal peritonitis. Other cases of wound class IV including presence of purulent inflammation, soft tissue/mesh infection, or visceral perforation resulting in a contained fistula (e.g. enterocutaneous fistula) are still considered eligible for enrollment."
+    }
+  },
+  {
+    "trial_id": "NCT07293156",
+    "title": "Impact of Pilates Exercises on Diabetic Erectile Dysfunction.",
+    "conditions": [
+      "Diabete Mellitus",
+      "Erectile Dysfunction Associated With Type 2 Diabetes Mellitus",
+      "Pilates Exercise",
+      "Pelvic Floor Muscle Exercise"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Men aged 40-60 years.\n2. Diagnosed diabetes mellitus (type 2) \u2265 1 year.\n3. Clinical diagnosis of erectile dysfunction for \u2265 6 months, confirmed by IIEF5 score.\n4. Stable antidiabetic medications for \u2265 3 months prior to randomization.\n5. HbA1c between 6.5% and 10.0%.\n6. Sexually active or attempting sexual activity at least occasionally (at least once monthly) and willing to attempt intercourse during study.\n7. Able and willing to participate in the exercise program (physically capable and available for scheduled sessions) and provide written informed consent.\n\nExclusion Criteria:\n\n1. Severe cardiovascular disease within past 6 months (e.g., recent myocardial infarction, unstable angina, decompensated heart failure, uncontrolled arrhythmia) that contraindicates exercise.\n2. Uncontrolled hypertension (e.g., systolic \u2265 180 mmHg or diastolic \u2265 110 mmHg) despite treatment.\n3. Severe peripheral vascular disease or other conditions preventing safe exercise (severe claudication, severe orthopedic limitations).\n4. History of pelvic surgery or pelvic radiation within the last 12 months that could acutely affect erectile function.\n5. Primary neurogenic causes of ED unrelated to diabetes (spinal cord injury, multiple sclerosis).\n6. Major psychiatric illness or severe cognitive impairment interfering with consent/compliance .\n7. Current substance abuse or heavy alcohol use that could affect sexual function or compliance.\n8. Severe hypogonadism requiring imminent testosterone therapy (total testosterone \\< 8 nmol/L with symptoms).\n9. Active genitourinary infection or untreated severe sexual dysfunction disorders other than ED.\n10. Use of medications known to cause ED that cannot be discontinued or stabilized.\n11. Current participation in structured pelvic floor or sexual-function exercise program similar to the intervention.\n12. Recent (within 4 weeks) or planned changes in PDE5i therapy.\n13. Any medical condition making participation unsafe or likely to confound outcomes per investigator judgment.",
+    "criteria": {
+      "min_age": 40,
+      "max_age": 60,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": 6.5,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n1. Men aged 40-60 years.\n2. Diagnosed diabetes mellitus (type 2) \u2265 1 year.\n3. Clinical diagnosis of erectile dysfunction for \u2265 6 months, confirmed by IIEF5 score.\n4. Stable antidiabetic medications for \u2265 3 months prior to randomization.\n5. HbA1c between 6.5% and 10.0%.\n6. Sexually active or attempting sexual activity at least occasionally (at least once monthly) and willing to attempt intercourse during study.\n7. Able and willing to participate in the exercise program (physically capable and available for scheduled sessions) and provide written informed consent.",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n1. Severe cardiovascular disease within past 6 months (e.g., recent myocardial infarction, unstable angina, decompensated heart failure, uncontrolled arrhythmia) that contraindicates exercise.\n2. Uncontrolled hypertension (e.g., systolic \u2265 180 mmHg or diastolic \u2265 110 mmHg) despite treatment.\n3. Severe peripheral vascular disease or other conditions preventing safe exercise (severe claudication, severe orthopedic limitations).\n4. History of pelvic surgery or pelvic radiation within the last 12 months that could acutely affect erectile function.\n5. Primary neurogenic causes of ED unrelated to diabetes (spinal cord injury, multiple sclerosis).\n6. Major psychiatric illness or severe cognitive impairment interfering with consent/compliance .\n7. Current substance abuse or heavy alcohol use that could affect sexual function or compliance.\n8. Severe hypogonadism requiring imminent testosterone therapy (total testosterone \\< 8 nmol/L with symptoms).\n9. Active genitourinary infection or untreated severe sexual dysfunction disorders other than ED.\n10. Use of medications known to cause ED that cannot be discontinued or stabilized.\n11. Current participation in structured pelvic floor or sexual-function exercise program similar to the intervention.\n12. Recent (within 4 weeks) or planned changes in PDE5i therapy.\n13. Any medical condition making participation unsafe or likely to confound outcomes per investigator judgment."
+    }
+  },
+  {
+    "trial_id": "NCT00313313",
+    "title": "A Study of Saxagliptin in Subjects With Type 2 Diabetes Who Have Inadequate Blood Sugar Control With Sulfonylureas",
+    "conditions": [
+      "Diabetes"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Type 2 Diabetes.\n* Treated with a sulfonylurea for at least 2 months.\n* Inadequate blood sugar control.\n* Are not on any other medications to lower blood sugar.\n* No major heart, liver or kidney problems.\n* Women not pregnant or breast feeding.",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Type 2 Diabetes.\n* Treated with a sulfonylurea for at least 2 months.\n* Inadequate blood sugar control.\n* Are not on any other medications to lower blood sugar.\n* No major heart, liver or kidney problems.\n* Women not pregnant or breast feeding.",
+      "raw_exclusion_text": null
+    }
+  },
+  {
+    "trial_id": "NCT06761820",
+    "title": "Effect the Glycemic Control on Cardiac Function",
+    "conditions": [
+      "Cardiac Function",
+      "Glycemic Control"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* type 2 diabetic patients with heart diseases\n\nExclusion Criteria:\n\n* patients with type 1 diabetes mellitus\n* gestational DM\n* CKD patients requiring haemodialysis\n* Immune system disorder",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": true,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* type 2 diabetic patients with heart diseases",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* patients with type 1 diabetes mellitus\n* gestational DM\n* CKD patients requiring haemodialysis\n* Immune system disorder"
+    }
+  },
+  {
+    "trial_id": "NCT00663260",
+    "title": "Glycemic Efficacy and Renal Safety Study of Dapagliflozin in Subjects With Type 2 Diabetes Mellitus and Moderate Renal Impairment",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Males and females, \u226518 years old, with type 2 diabetes and with inadequate glycemic control\n* Clinical diagnosis of moderate renal impairment\n\nExclusion Criteria:\n\n* AST and /or ALT \\> 3.0 times the upper limit of normal\n* Serum total bilirubin \\> 1.5 times ULN\n* Symptoms of severely uncontrolled diabetes\n* Currently unstable or serious cardiovascular, hepatic, hematological, oncological, endocrine, psychiatric, or rheumatic diseases",
+    "criteria": {
+      "min_age": 18,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Males and females, \u226518 years old, with type 2 diabetes and with inadequate glycemic control\n* Clinical diagnosis of moderate renal impairment",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* AST and /or ALT \\> 3.0 times the upper limit of normal\n* Serum total bilirubin \\> 1.5 times ULN\n* Symptoms of severely uncontrolled diabetes\n* Currently unstable or serious cardiovascular, hepatic, hematological, oncological, endocrine, psychiatric, or rheumatic diseases"
+    }
+  },
+  {
+    "trial_id": "NCT07039123",
+    "title": "Polygenic Risk Score for Optimizing Primary Prevention in Intermediate-Risk Populations",
+    "conditions": [
+      "Primary Prevention of Cardiovascular Disease"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* 40-69 years old\n* Intermediate cardiovascular risk based on SCORE2 or SCORE2-Diabetes\n* Able to give informed consent (understanding German or French or with an interpreter)\n* Written Informed Consent\n\nExclusion Criteria:\n\n* Patient treated under lipid-lowering therapy (defined as statin, ezetimib, bempedo\u00efc acid, PCSK-9 inhibitors)\n* History of previous cardiovascular disease: coronary artery disease (CAD), peripheral artery disease and ischemic stroke (including transitory ischemic stroke).\n* Chronic kidney disease (CKD) define as an estimated glomerular filtration rate (eGFR) of less than 30 ml/min or less than 60 ml/min with albuminuria patients with diabetes and end organ damage (classified as very high risk according to ESC guidelines).\n* Other participation in a clinical study related to CV risk or lifestyle interventions (e.g. diet, smoking cessation...)\n* Life expectancy of less than one year",
+    "criteria": {
+      "min_age": 40,
+      "max_age": 69,
+      "sex_allowed": null,
+      "requires_t2d": false,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": null,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* 40-69 years old\n* Intermediate cardiovascular risk based on SCORE2 or SCORE2-Diabetes\n* Able to give informed consent (understanding German or French or with an interpreter)\n* Written Informed Consent",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Patient treated under lipid-lowering therapy (defined as statin, ezetimib, bempedo\u00efc acid, PCSK-9 inhibitors)\n* History of previous cardiovascular disease: coronary artery disease (CAD), peripheral artery disease and ischemic stroke (including transitory ischemic stroke).\n* Chronic kidney disease (CKD) define as an estimated glomerular filtration rate (eGFR) of less than 30 ml/min or less than 60 ml/min with albuminuria patients with diabetes and end organ damage (classified as very high risk according to ESC guidelines).\n* Other participation in a clinical study related to CV risk or lifestyle interventions (e.g. diet, smoking cessation...)\n* Life expectancy of less than one year"
+    }
+  },
+  {
+    "trial_id": "NCT05902546",
+    "title": "Effect of HIIT Vs Moderate Intensity Aerobic Exercise on Insulin Resistance in Type 2 DM",
+    "conditions": [
+      "Diabetes Mellitus",
+      "Insulin Resistance"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n* Type 2 Diabetes Mellitus Patients.\n* Diagnosed for more than 1 years at the time of the study.\n* Patients with fair control of blood glucose using hypoglycemic drugs\n\nExclusion Criteria:\n\n* Type 1 (Insulin Dependant) Diabetes Mellitus patients.\n* Patients with disability that can't perform exercises.\n* Patient with known Cardiovascular diseases.\n* Patients with kidney/liver diseases",
+    "criteria": {
+      "min_age": null,
+      "max_age": null,
+      "sex_allowed": null,
+      "requires_t2d": true,
+      "hba1c_min": null,
+      "hba1c_max": null,
+      "excludes_renal_failure": false,
+      "excludes_recent_stroke": false,
+      "excludes_insulin_pump": false,
+      "allows_insulin": true,
+      "entities": [],
+      "raw_inclusion_text": "Inclusion Criteria:\n\n* Type 2 Diabetes Mellitus Patients.\n* Diagnosed for more than 1 years at the time of the study.\n* Patients with fair control of blood glucose using hypoglycemic drugs",
+      "raw_exclusion_text": "Exclusion Criteria:\n\n* Type 1 (Insulin Dependant) Diabetes Mellitus patients.\n* Patients with disability that can't perform exercises.\n* Patient with known Cardiovascular diseases.\n* Patients with kidney/liver diseases"
+    }
+  }
+]

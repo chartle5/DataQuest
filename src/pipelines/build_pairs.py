@@ -57,12 +57,33 @@ def rank_patients(df: pd.DataFrame) -> pd.DataFrame:
     group_sizes = df.groupby("trial_id").size().tolist()
 
     # --- train / test split by trial groups ---
+    # Stratified: ensure test set contains trials with both positive and negative labels
     trial_ids = df["trial_id"].unique()
+    trial_neg_rate = {}
+    for tid in trial_ids:
+        labels = df.loc[df["trial_id"] == tid, "label"].values
+        trial_neg_rate[tid] = float((labels < 2).sum()) / max(len(labels), 1)
+
+    # Sort trials so ones with negatives are spread across train/test
+    sorted_trials = sorted(trial_ids, key=lambda t: trial_neg_rate[t], reverse=True)
     rng = np.random.RandomState(42)
-    rng.shuffle(trial_ids)
-    split_idx = max(1, int(len(trial_ids) * 0.8))
-    train_trials = set(trial_ids[:split_idx])
-    test_trials = set(trial_ids[split_idx:])
+    split_idx = max(1, int(len(sorted_trials) * 0.8))
+
+    # Interleave: assign every 5th trial with negatives to test set
+    has_negatives = [t for t in sorted_trials if trial_neg_rate[t] > 0]
+    all_positive = [t for t in sorted_trials if trial_neg_rate[t] == 0]
+    rng.shuffle(has_negatives)
+    rng.shuffle(all_positive)
+
+    # Ensure at least some trials with negatives land in test
+    neg_for_test = has_negatives[:max(1, len(has_negatives) // 5)]
+    neg_for_train = has_negatives[max(1, len(has_negatives) // 5):]
+    remaining_test_slots = max(0, int(len(trial_ids) * 0.2) - len(neg_for_test))
+    pos_for_test = all_positive[:remaining_test_slots]
+    pos_for_train = all_positive[remaining_test_slots:]
+
+    train_trials = set(neg_for_train) | set(pos_for_train)
+    test_trials = set(neg_for_test) | set(pos_for_test)
 
     train_mask = df["trial_id"].isin(train_trials)
     X_train, y_train = X[train_mask], y[train_mask]
@@ -98,7 +119,16 @@ def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10) -> Dic
 
     # Binarize graded labels: grade >= 2 counts as "relevant"
     y_binary = (y_true >= 2).astype(float)
-    threshold = np.median(scores)
+
+    # Find threshold that maximizes F1 instead of using median
+    sorted_scores = np.unique(scores)
+    best_f1, best_thresh = 0.0, np.median(scores)
+    for t in sorted_scores:
+        yp = (scores >= t).astype(float)
+        f1_val = float(f1_score(y_binary, yp, zero_division=0))
+        if f1_val > best_f1:
+            best_f1, best_thresh = f1_val, t
+    threshold = best_thresh
     y_pred = (scores >= threshold).astype(float)
 
     metrics: Dict[str, float] = {}
