@@ -3,11 +3,11 @@
   "trial_title": "mHealth Skill Enhancement Plus Phone CBT for Type 2 Diabetes Distress Medication Nonadherence: Pilot Study",
   "candidates": [
     {
-      "patient_id": "a1193eaf-af48-75fe-1696-516274a17272",
-      "first_name": "Ashley",
-      "last_name": "Cremin",
+      "patient_id": "804619f6-b2e5-7669-75d6-f86274375d9a",
+      "first_name": "Jesse",
+      "last_name": "Hagenes",
       "status": "high",
-      "confidence_score": 86.54,
+      "confidence_score": 90.7,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -17,11 +17,11 @@
       ]
     },
     {
-      "patient_id": "0e78fd74-30d9-215f-bce0-8ece0cf856f6",
-      "first_name": "Isaac",
+      "patient_id": "0a87ceaa-cff4-b0de-3738-eabd0293b524",
+      "first_name": "Paris",
       "last_name": "Barrows",
       "status": "high",
-      "confidence_score": 86.54,
+      "confidence_score": 90.7,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -31,11 +31,11 @@
       ]
     },
     {
-      "patient_id": "59afae86-cdb2-751b-5de3-a0360a7d289c",
-      "first_name": "Bert",
-      "last_name": "Russel",
+      "patient_id": "2c18829b-58b7-7233-d9fa-7baaa616ae86",
+      "first_name": "Richie",
+      "last_name": "Schiller",
       "status": "high",
-      "confidence_score": 86.54,
+      "confidence_score": 90.7,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -45,11 +45,11 @@
       ]
     },
     {
-      "patient_id": "7f7d1671-9b86-d896-0282-8f56ea6fd54c",
-      "first_name": "Justin",
-      "last_name": "Kovacek",
+      "patient_id": "97309261-961a-50e4-ef11-7181dfabdb63",
+      "first_name": "Mariano",
+      "last_name": "Hickle",
       "status": "high",
-      "confidence_score": 86.53,
+      "confidence_score": 90.7,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -59,11 +59,11 @@
       ]
     },
     {
-      "patient_id": "e607c7f5-6500-c710-12b4-791812ba08a2",
-      "first_name": "Dean",
-      "last_name": "Upton",
+      "patient_id": "c766027c-9881-bc24-1e1b-4e8d50669624",
+      "first_name": "Eldridge",
+      "last_name": "Krajcik",
       "status": "high",
-      "confidence_score": 86.53,
+      "confidence_score": 90.7,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",

@@ -293,6 +293,29 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     # Map to confidence range: top candidate ~85-92%, not 100%
     confidence = 20.0 + scaled * 72.0  # range: 20% to 92%
 
+    # --- Cancer-specific feature bonuses for differentiation ---
+    # These continuous adjustments create meaningful spread among
+    # candidates who pass the same binary eligibility checks.
+    if feat.get("key_condition_present", 0.0) == 1.0:
+        # Metastatic disease: strong indicator of advanced-stage eligibility
+        if feat.get("has_metastatic_disease", 0.0) == 1.0:
+            confidence += 3.0
+        # Prior radiation treatment
+        if feat.get("has_prior_radiation", 0.0) == 1.0:
+            confidence += 1.5
+        # Tumor condition count (scaled 0-1, multiply to real count ~0-10)
+        tumor_ct = feat.get("tumor_condition_count", 0.0)
+        confidence += tumor_ct * 4.0  # e.g. 0.3 -> +1.2
+        # Cancer medication count (scaled 0-1)
+        chemo_ct = feat.get("cancer_medication_count", 0.0)
+        confidence += chemo_ct * 3.0  # e.g. 0.2 -> +0.6
+        # Diagnosis overlap with trial conditions
+        diag_overlap = feat.get("diagnosis_overlap_score", 0.0)
+        confidence += diag_overlap * 2.5
+        # Lab completeness bonus
+        lab = feat.get("lab_completeness", 0.0)
+        confidence += lab * 2.0
+
     # Penalize missing data
     missing = feat.get("unknown_field_count", 0)
     confidence -= missing * 10.0
@@ -509,6 +532,9 @@ def api_rank():
             "confidence_score": confidence,
             "reasons": _build_reasons(feat, mode=mode),
         })
+
+    # Sort candidates by confidence score descending
+    candidates.sort(key=lambda c: c["confidence_score"], reverse=True)
 
     # --- write output file ---
     output_path = config.OUTPUT_DIR / f"ranked_{condition.replace(' ', '_')}_top{top_n}.json"

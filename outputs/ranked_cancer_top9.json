@@ -3,108 +3,150 @@
   "trial_title": "KRAS-Specific Autologous TCR-T Cell Therapy for KRAS Mutation in Advanced Solid Tumors",
   "candidates": [
     {
-      "patient_id": "67b55427-130a-d691-7736-95631165d1de",
-      "first_name": "Quyen",
-      "last_name": "Kuhlman",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "e19bfcb2-bc5a-a507-449b-6dca195374bb",
+      "first_name": "Denae",
+      "last_name": "Schiller",
+      "status": "high",
+      "confidence_score": 94.87,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record"
-      ]
-    },
-    {
-      "patient_id": "5cd0397a-7237-0f96-f64d-ba5695f064fe",
-      "first_name": "Viviana",
-      "last_name": "Goodwin",
-      "status": "ineligible",
-      "confidence_score": 0.0,
-      "reasons": [
-        "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "Metastatic disease present",
+        "3 cancer-related condition(s) found",
+        "1 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "3d10d060-04bc-20fd-8358-32d6f68ae42d",
-      "first_name": "Alfreda",
-      "last_name": "Harvey",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "0af5399a-815a-df2a-ef6f-88c7fcbcf9d5",
+      "first_name": "Miguelina",
+      "last_name": "Kunze",
+      "status": "high",
+      "confidence_score": 92.0,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record"
-      ]
-    },
-    {
-      "patient_id": "5b8fd393-abef-93ec-3266-f7b221c0ab3d",
-      "first_name": "Porfirio",
-      "last_name": "Stoltenberg",
-      "status": "ineligible",
-      "confidence_score": 0.0,
-      "reasons": [
-        "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "3 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "9af9265a-e30c-de11-1e5d-0933ac480ad2",
-      "first_name": "Shayne",
-      "last_name": "Kertzmann",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "a6b2d3b1-c611-047c-66c6-114f1aefc5e0",
+      "first_name": "Latashia",
+      "last_name": "Cormier",
+      "status": "high",
+      "confidence_score": 91.7,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "2 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "585dbd8f-a0d4-12ec-c799-aeaf4c6dadaa",
-      "first_name": "Hunter",
-      "last_name": "Bartell",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "d6dc3125-470e-d0eb-f8bb-bd8a2e2607cc",
+      "first_name": "Selena",
+      "last_name": "McKenzie",
+      "status": "high",
+      "confidence_score": 91.67,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "3 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "31f9bdf8-5de4-c2bd-6408-889f5d61c9da",
-      "first_name": "Gordon",
-      "last_name": "Cassin",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "e694b6ad-e4e9-5994-98a4-f54cba23c76e",
+      "first_name": "Rubye",
+      "last_name": "Dach",
+      "status": "high",
+      "confidence_score": 91.37,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "2 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "8b08d245-0030-77e3-5bc1-ecd258ec4f6e",
-      "first_name": "Rachael",
-      "last_name": "Batz",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "2d43ab78-21ef-2c26-361b-42923ce91661",
+      "first_name": "Beverley",
+      "last_name": "Wunsch",
+      "status": "high",
+      "confidence_score": 91.07,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "1 chemo/targeted-therapy medication(s) found",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "cb52f9b4-ddf8-7730-b918-e90c4829fb46",
-      "first_name": "Foster",
-      "last_name": "Aufderhar",
-      "status": "ineligible",
-      "confidence_score": 0.0,
+      "patient_id": "cf95cd58-4ff7-8f03-e89b-ffa6e3b5b5db",
+      "first_name": "Cynthia",
+      "last_name": "Marquardt",
+      "status": "high",
+      "confidence_score": 87.07,
       "reasons": [
         "Age within required range",
-        "No cancer-related condition found in patient record"
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "1 chemo/targeted-therapy medication(s) found",
+        "Mild comorbidity burden (0.2)",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "08d2df8d-8f89-c5df-9388-1b1270700a2f",
+      "first_name": "Machelle",
+      "last_name": "McCullough",
+      "status": "high",
+      "confidence_score": 74.0,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "3 chemo/targeted-therapy medication(s) found",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "aba844fc-17a0-2280-be3e-3115f5785d6d",
+      "first_name": "Caridad",
+      "last_name": "O'Conner",
+      "status": "moderate",
+      "confidence_score": 69.4,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "1 chemo/targeted-therapy medication(s) found",
+        "Mild comorbidity burden (0.2)",
+        "Good lab data completeness"
       ]
     }
   ]
