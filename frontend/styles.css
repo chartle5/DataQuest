@@ -22,14 +22,15 @@ body{
   align-items:center;
 }
 .site-header{display:flex;flex-direction:column;align-items:center;margin:40px 0 18px}
-.brand{font-size:18px;margin:10px 0 0;font-weight:700;letter-spacing:0.6px;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center}
+.logo{width:72px;height:72px;margin-bottom:12px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.45)}
+.brand{font-size:24px;margin:10px 0 0;font-weight:700;letter-spacing:0.6px;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center}
 .brand-sub{font-size:12px;display:block;margin-top:2px;color:var(--muted);font-weight:600;letter-spacing:0.2px}
 .tagline{font-size:13px;color:var(--muted);margin:6px 0 0;letter-spacing:0.3px}
 .main{width:100%;display:flex;justify-content:center;padding:24px}
 .card{width:100%;max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;box-shadow:0 10px 40px rgba(2,6,23,0.6);padding:30px;border:1px solid rgba(255,255,255,0.03)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:flex;flex-direction:column}
-.actions{grid-column:1/-1;display:flex;gap:12px;justify-content:flex-end;margin-top:6px}
+.actions{grid-column:1/-1;display:flex;gap:12px;justify-content:center;align-items:center;margin-top:6px}
 label{font-size:13px;color:var(--muted);margin-bottom:8px}
 select,input[type=number]{padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);font-size:15px;background:rgba(255,255,255,0.02);color:var(--text);outline:none}
 select:focus,input[type=number]:focus{box-shadow:0 6px 18px rgba(6,182,212,0.07);border-color:rgba(6,182,212,0.35)}
