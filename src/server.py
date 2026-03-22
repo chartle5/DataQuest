@@ -293,28 +293,38 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     # Map to confidence range: top candidate ~85-92%, not 100%
     confidence = 20.0 + scaled * 72.0  # range: 20% to 92%
 
-    # --- Cancer-specific feature bonuses for differentiation ---
-    # These continuous adjustments create meaningful spread among
-    # candidates who pass the same binary eligibility checks.
+    # --- Feature bonuses for differentiation among eligible candidates ---
     if feat.get("key_condition_present", 0.0) == 1.0:
-        # Metastatic disease: strong indicator of advanced-stage eligibility
+        # Cancer-specific bonuses
         if feat.get("has_metastatic_disease", 0.0) == 1.0:
             confidence += 3.0
-        # Prior radiation treatment
         if feat.get("has_prior_radiation", 0.0) == 1.0:
             confidence += 1.5
-        # Tumor condition count (scaled 0-1, multiply to real count ~0-10)
         tumor_ct = feat.get("tumor_condition_count", 0.0)
-        confidence += tumor_ct * 4.0  # e.g. 0.3 -> +1.2
-        # Cancer medication count (scaled 0-1)
+        confidence += tumor_ct * 4.0
         chemo_ct = feat.get("cancer_medication_count", 0.0)
-        confidence += chemo_ct * 3.0  # e.g. 0.2 -> +0.6
-        # Diagnosis overlap with trial conditions
+        confidence += chemo_ct * 3.0
+
+        # Diabetes-specific bonuses
+        hba1c_val = feat.get("hba1c_value", 0.0)  # scaled 0-1
+        if hba1c_val > 0:
+            confidence += hba1c_val * 3.0  # higher HbA1c = stronger T2D signal
+        if feat.get("hba1c_above_min", 0.0) == 1.0:
+            confidence += 1.5
+        if feat.get("insulin_on_med", 0.0) == 1.0:
+            confidence += 1.0
+
+        # Shared continuous bonuses
         diag_overlap = feat.get("diagnosis_overlap_score", 0.0)
         confidence += diag_overlap * 2.5
-        # Lab completeness bonus
         lab = feat.get("lab_completeness", 0.0)
         confidence += lab * 2.0
+        cond_ct = feat.get("condition_count", 0.0)
+        confidence += cond_ct * 1.5
+        med_ct = feat.get("medication_count", 0.0)
+        confidence += med_ct * 1.5
+        age_norm = feat.get("age_normalized", 0.0)
+        confidence += age_norm * 1.0
 
     # Penalize missing data
     missing = feat.get("unknown_field_count", 0)

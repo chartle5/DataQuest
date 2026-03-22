@@ -3,41 +3,39 @@
   "trial_title": "mHealth Skill Enhancement Plus Phone CBT for Type 2 Diabetes Distress Medication Nonadherence: Pilot Study",
   "candidates": [
     {
-      "patient_id": "b2241b82-3678-2b6f-211d-0c5913693d5f",
-      "first_name": "Cristine",
-      "last_name": "Kozey",
+      "patient_id": "804619f6-b2e5-7669-75d6-f86274375d9a",
+      "first_name": "Jesse",
+      "last_name": "Hagenes",
       "status": "high",
-      "confidence_score": 99.42,
+      "confidence_score": 94.52,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
         "Key condition (T2D) present",
-        "HbA1c above minimum threshold",
         "HbA1c within maximum threshold",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "6703fd63-bf4e-7b60-0357-61c06b958c75",
-      "first_name": "Xenia",
-      "last_name": "Sauer",
+      "patient_id": "2c18829b-58b7-7233-d9fa-7baaa616ae86",
+      "first_name": "Richie",
+      "last_name": "Schiller",
       "status": "high",
-      "confidence_score": 99.41,
+      "confidence_score": 93.44,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
         "Key condition (T2D) present",
-        "HbA1c above minimum threshold",
         "HbA1c within maximum threshold",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "121ae2d7-a1af-18fb-c5c4-c33cc679a590",
-      "first_name": "Lynwood",
-      "last_name": "Howe",
+      "patient_id": "0a87ceaa-cff4-b0de-3738-eabd0293b524",
+      "first_name": "Paris",
+      "last_name": "Barrows",
       "status": "high",
-      "confidence_score": 98.21,
+      "confidence_score": 93.22,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
