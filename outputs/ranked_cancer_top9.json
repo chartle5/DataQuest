@@ -1,0 +1,111 @@
+{
+  "trial_id": "NCT06767046",
+  "trial_title": "KRAS-Specific Autologous TCR-T Cell Therapy for KRAS Mutation in Advanced Solid Tumors",
+  "candidates": [
+    {
+      "patient_id": "67b55427-130a-d691-7736-95631165d1de",
+      "first_name": "Quyen",
+      "last_name": "Kuhlman",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record"
+      ]
+    },
+    {
+      "patient_id": "5cd0397a-7237-0f96-f64d-ba5695f064fe",
+      "first_name": "Viviana",
+      "last_name": "Goodwin",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "3d10d060-04bc-20fd-8358-32d6f68ae42d",
+      "first_name": "Alfreda",
+      "last_name": "Harvey",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record"
+      ]
+    },
+    {
+      "patient_id": "5b8fd393-abef-93ec-3266-f7b221c0ab3d",
+      "first_name": "Porfirio",
+      "last_name": "Stoltenberg",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "9af9265a-e30c-de11-1e5d-0933ac480ad2",
+      "first_name": "Shayne",
+      "last_name": "Kertzmann",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "585dbd8f-a0d4-12ec-c799-aeaf4c6dadaa",
+      "first_name": "Hunter",
+      "last_name": "Bartell",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "31f9bdf8-5de4-c2bd-6408-889f5d61c9da",
+      "first_name": "Gordon",
+      "last_name": "Cassin",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "8b08d245-0030-77e3-5bc1-ecd258ec4f6e",
+      "first_name": "Rachael",
+      "last_name": "Batz",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "cb52f9b4-ddf8-7730-b918-e90c4829fb46",
+      "first_name": "Foster",
+      "last_name": "Aufderhar",
+      "status": "ineligible",
+      "confidence_score": 0.0,
+      "reasons": [
+        "Age within required range",
+        "No cancer-related condition found in patient record"
+      ]
+    }
+  ]
+}

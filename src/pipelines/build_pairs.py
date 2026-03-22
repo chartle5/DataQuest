@@ -17,6 +17,8 @@ LABEL_FEATURES = {
     "renal_exclusion_hit", "stroke_exclusion_hit", "insulin_pump_conflict",
     "missing_hba1c", "missing_renal_lab",
     "age_match", "sex_match",
+    "has_cancer_exclusion_condition",
+    "has_prior_chemo", "has_metastatic_disease",
 }
 
 
@@ -46,7 +48,7 @@ def build_patient_trial_pairs(trials_limit: int = 50, condition: str = "type 2 d
             features = build_match_features(patient, trial.criteria,
                                             condition_keywords=condition_keywords, mode=mode)
             rag_features = trial_rag.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
-            label = _rule_label(features)
+            label = _rule_label(features, mode=mode)
             rows.append(
                 {
                     "trial_id": trial.trial_id,
@@ -118,7 +120,8 @@ def rank_patients(df: pd.DataFrame) -> pd.DataFrame:
         test_mask = df["trial_id"].isin(test_trials)
         y_test = y[test_mask]
         scores_test = df.loc[test_mask, "score"].values
-        metrics = _compute_metrics(y_test, scores_test)
+        test_trial_ids = df.loc[test_mask, "trial_id"].values
+        metrics = _compute_metrics(y_test, scores_test, trial_ids=test_trial_ids)
         metrics_path = OUTPUT_DIR / "evaluation_metrics.json"
         import json
         metrics_path.parent.mkdir(parents=True, exist_ok=True)
@@ -131,22 +134,25 @@ def rank_patients(df: pd.DataFrame) -> pd.DataFrame:
     return ranked
 
 
-def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10) -> Dict[str, float]:
-    """Compute evaluation metrics for the ranking model."""
-    from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
+def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10,
+                     trial_ids: Optional[np.ndarray] = None) -> Dict[str, float]:
+    """Compute evaluation metrics for the ranking model.
+
+    When trial_ids is provided, precision_at_k and ndcg_at_k are computed
+    per-trial (macro-averaged) for a more realistic ranking evaluation.
+    """
+    from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, ndcg_score
 
     # Binarize graded labels: grade >= 2 counts as "relevant"
     y_binary = (y_true >= 2).astype(float)
 
-    # Find threshold that maximizes F1 instead of using median
-    sorted_scores = np.unique(scores)
-    best_f1, best_thresh = 0.0, np.median(scores)
-    for t in sorted_scores:
-        yp = (scores >= t).astype(float)
-        f1_val = float(f1_score(y_binary, yp, zero_division=0))
-        if f1_val > best_f1:
-            best_f1, best_thresh = f1_val, t
-    threshold = best_thresh
+    # Use the positive-rate-calibrated threshold: predict positive for top P%
+    # where P is the actual positive rate in the test set
+    pos_rate = float(y_binary.mean())
+    if 0 < pos_rate < 1:
+        threshold = float(np.percentile(scores, (1.0 - pos_rate) * 100))
+    else:
+        threshold = float(np.median(scores))
     y_pred = (scores >= threshold).astype(float)
 
     metrics: Dict[str, float] = {}
@@ -162,20 +168,68 @@ def _compute_metrics(y_true: np.ndarray, scores: np.ndarray, k: int = 10) -> Dic
     metrics["recall"] = float(recall_score(y_binary, y_pred, zero_division=0))
     metrics["f1"] = float(f1_score(y_binary, y_pred, zero_division=0))
 
-    # precision@k: fraction of top-k scored patients that are relevant (grade >= 2)
-    top_k_idx = np.argsort(scores)[::-1][:k]
-    if len(top_k_idx) > 0:
-        metrics[f"precision_at_{k}"] = float(y_binary[top_k_idx].sum() / len(top_k_idx))
+    # --- per-trial ranking metrics (macro-averaged) ---
+    if trial_ids is not None:
+        unique_trials = np.unique(trial_ids)
+        trial_pk = []
+        trial_ndcg = []
+        trial_ndcg_k = []
+        for tid in unique_trials:
+            mask = trial_ids == tid
+            t_scores = scores[mask]
+            t_labels = y_true[mask]
+            t_binary = y_binary[mask]
+
+            # precision@k among candidates with at least some relevance (grade >= 1)
+            # This tests within-cohort ranking quality, not just cohort identification
+            cohort_mask = t_labels >= 1
+            if cohort_mask.sum() >= k:
+                cohort_scores = t_scores[cohort_mask]
+                cohort_binary = t_binary[cohort_mask]
+                top_k_idx = np.argsort(cohort_scores)[::-1][:k]
+                trial_pk.append(float(cohort_binary[top_k_idx].sum() / len(top_k_idx)))
+            elif t_binary.sum() > 0:
+                top_k_idx = np.argsort(t_scores)[::-1][:k]
+                trial_pk.append(float(t_binary[top_k_idx].sum() / len(top_k_idx)))
+
+            # ndcg per trial
+            if len(t_labels) > 1 and t_labels.max() > 0:
+                try:
+                    trial_ndcg.append(float(ndcg_score([t_labels], [t_scores])))
+                    trial_ndcg_k.append(float(ndcg_score([t_labels], [t_scores], k=k)))
+                except ValueError:
+                    pass
+        metrics["ndcg"] = float(np.mean(trial_ndcg)) if trial_ndcg else 0.0
+        metrics[f"ndcg_at_{k}"] = float(np.mean(trial_ndcg_k)) if trial_ndcg_k else 0.0
+        metrics[f"precision_at_{k}"] = float(np.mean(trial_pk)) if trial_pk else 0.0
     else:
-        metrics[f"precision_at_{k}"] = 0.0
+        # Fallback: global (non-per-trial) metrics
+        try:
+            metrics["ndcg"] = float(ndcg_score([y_true], [scores]))
+            metrics[f"ndcg_at_{k}"] = float(ndcg_score([y_true], [scores], k=k))
+        except ValueError:
+            metrics["ndcg"] = 0.0
+            metrics[f"ndcg_at_{k}"] = 0.0
+        top_k_idx = np.argsort(scores)[::-1][:k]
+        if len(top_k_idx) > 0:
+            metrics[f"precision_at_{k}"] = float(y_binary[top_k_idx].sum() / len(top_k_idx))
+        else:
+            metrics[f"precision_at_{k}"] = 0.0
+
+    # Label distribution for debugging
+    metrics["label_dist_grade_0"] = float((y_true == 0).mean())
+    metrics["label_dist_grade_1"] = float((y_true == 1).mean())
+    metrics["label_dist_grade_2"] = float((y_true == 2).mean())
+    metrics["label_dist_grade_3"] = float((y_true == 3).mean())
+    metrics["threshold_used"] = threshold
 
     return metrics
 
 
-def _rule_label(features: dict) -> int:
+def _rule_label(features: dict, mode: str = "diabetes") -> int:
     """Graded relevance label for lambdarank: 0=excluded, 1=poor, 2=partial, 3=good.
 
-    Higher values indicate better patient-trial match quality.
+    Mode-aware: uses HbA1c for diabetes, cancer-specific features for cancer.
     """
     # Hard demographic exclusions -> grade 0
     if features.get("age_match", 1.0) == 0.0:
@@ -191,17 +245,53 @@ def _rule_label(features: dict) -> int:
     if features.get("insulin_pump_conflict", 0.0) == 1.0:
         return 0
 
-    # Count how many inclusion criteria are satisfied
-    inc = features.get("inclusion_satisfied_count", 0.0)
-    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+    has_key_condition = features.get("key_condition_present", 0.0) == 1.0
 
-    # Good match: key condition present + most inclusions met + no missing data
-    if features.get("key_condition_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+    # No key condition -> grade 0
+    if not has_key_condition:
+        return 0
+
+    lab_complete = features.get("lab_completeness", 0.0) >= 0.5
+    good_overlap = features.get("diagnosis_overlap_score", 0.0) >= 0.3
+
+    if mode == "cancer":
+        has_chemo = features.get("has_prior_chemo", 0.0) == 1.0
+        has_metastatic = features.get("has_metastatic_disease", 0.0) == 1.0
+        tumor_count = features.get("tumor_condition_count", 0.0)
+        has_exclusion = features.get("has_cancer_exclusion_condition", 0.0) == 1.0
+        comorbidity = features.get("cancer_comorbidity_burden", 0.0)
+
+        # Hard cancer exclusion (transplant, autoimmune, etc.) -> grade 0
+        if has_exclusion:
+            return 0
+
+        # Grade 3: chemo + (metastatic or good overlap) + lab complete + low comorbidity
+        if has_chemo and (has_metastatic or good_overlap) and lab_complete and comorbidity < 0.4:
+            return 3
+        # Grade 2: at least one strong signal + low-moderate comorbidity
+        if (has_chemo or has_metastatic or (good_overlap and tumor_count >= 0.2)) and comorbidity < 0.6:
+            return 2
+        # Grade 1: key condition present but insufficient evidence or comorbidity concern
+        return 1
+
+    # --- Diabetes mode ---
+    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+    hba1c_ok = (features.get("hba1c_above_min", 0.0) == 1.0 or
+                features.get("hba1c_below_max", 0.0) == 1.0)
+
+    # Key condition but missing critical lab data and no HbA1c -> grade 1
+    if has_missing and not hba1c_ok:
+        return 1
+
+    # Grade 3: all criteria met
+    if hba1c_ok and not has_missing and lab_complete and good_overlap:
         return 3
-    # Partial match: key condition present or high inclusion count
-    if features.get("key_condition_present", 0.0) == 1.0 or inc >= 3:
+
+    # Grade 2: key condition + HbA1c ok but not all supporting data
+    if hba1c_ok and (not has_missing or lab_complete):
         return 2
-    # Poor match: few criteria met, no hard exclusion
+
+    # Grade 1: key condition but incomplete data
     return 1
 
 

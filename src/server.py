@@ -132,8 +132,18 @@ def _trial_richness(trial, mode: str = "diabetes") -> int:
     return score
 
 
+# Pinned trial IDs per mode — ensures consistent trial selection across requests.
+# When a pinned trial exists in the cached list, it is always selected.
+PINNED_TRIALS = {
+    "cancer": "NCT06767046",
+}
+
+
 def _select_best_trial(trials, mode: str = "diabetes", profiles=None):
     """Pick the trial with the richest structured criteria for ranking.
+
+    If a pinned trial ID is configured for the mode and present in the
+    trial list, always select it for consistency.
 
     When patient profiles are available, penalize trials whose age range
     has zero overlap with the actual patient population (avoids selecting
@@ -141,6 +151,13 @@ def _select_best_trial(trials, mode: str = "diabetes", profiles=None):
     """
     if not trials:
         return None
+
+    # Check for pinned trial first
+    pinned_id = PINNED_TRIALS.get(mode)
+    if pinned_id:
+        for trial in trials:
+            if trial.trial_id == pinned_id:
+                return trial
 
     if profiles:
         ages = [p.age for p in profiles.values()]
@@ -197,6 +214,13 @@ def _build_reasons(feat: Dict[str, float], mode: str = "diabetes") -> List[str]:
         chemo_ct = feat.get("cancer_medication_count", 0)
         if chemo_ct > 0:
             reasons.append(f"{int(chemo_ct * 10)} chemo/targeted-therapy medication(s) found")
+        if feat.get("has_cancer_exclusion_condition", 0) == 1.0:
+            reasons.append("EXCLUDED: comorbidity incompatible with immunotherapy (e.g. transplant, autoimmune)")
+        comorbidity = feat.get("cancer_comorbidity_burden", 0)
+        if comorbidity >= 0.4:
+            reasons.append(f"Significant comorbidity burden ({comorbidity:.1f})")
+        elif comorbidity > 0:
+            reasons.append(f"Mild comorbidity burden ({comorbidity:.1f})")
     else:
         # Diabetes mode
         if feat.get("key_condition_present") == 1.0:
@@ -226,10 +250,23 @@ def _build_reasons(feat: Dict[str, float], mode: str = "diabetes") -> List[str]:
     return reasons
 
 
+# Track score distribution per ranking call to normalize confidence
+_score_stats: Dict[str, float] = {}
+
+
+def _update_score_stats(scores: np.ndarray) -> None:
+    """Cache score distribution stats for confidence normalization."""
+    _score_stats["min"] = float(np.min(scores))
+    _score_stats["max"] = float(np.max(scores))
+    _score_stats["mean"] = float(np.mean(scores))
+    _score_stats["std"] = float(np.std(scores)) if len(scores) > 1 else 1.0
+
+
 def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     """Compute a numeric confidence score 0-100 from raw score + features.
 
-    Uses sigmoid scaling with adjustments for missing data and exclusions.
+    Uses percentile-based scaling relative to the current score distribution,
+    with adjustments for missing data, exclusions, and key conditions.
     Hard constraints: age/sex mismatch → 0% (ineligible).
     """
     # Hard fail: age outside range → ineligible
@@ -240,23 +277,47 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     if feat.get("sex_match", 1.0) == 0.0:
         return 0.0
 
-    # Sigmoid-scale the raw score into 0-100 range
-    # Raw heuristic scores typically fall in [-0.5, 1.0]
-    scaled = 1.0 / (1.0 + np.exp(-6.0 * (score - 0.3)))
-    confidence = scaled * 100.0
+    # Normalize score to [0, 1] using distribution stats, then scale to confidence
+    s_min = _score_stats.get("min", -1.0)
+    s_max = _score_stats.get("max", 1.0)
+    s_range = s_max - s_min
+    if s_range < 1e-9:
+        normalized = 0.5
+    else:
+        normalized = (score - s_min) / s_range  # 0.0 to 1.0
+
+    # Apply a mild sigmoid to create differentiation (centered at 0.5)
+    # This prevents the top candidates from all collapsing to 100%
+    scaled = 1.0 / (1.0 + np.exp(-5.0 * (normalized - 0.5)))
+
+    # Map to confidence range: top candidate ~85-92%, not 100%
+    confidence = 20.0 + scaled * 72.0  # range: 20% to 92%
 
     # Penalize missing data
     missing = feat.get("unknown_field_count", 0)
-    confidence -= missing * 8.0
+    confidence -= missing * 10.0
 
     # Hard exclusions cap confidence
     exclusions = feat.get("exclusion_conflict_count", 0)
     if exclusions > 0:
         confidence = min(confidence, 15.0)
 
-    # Missing key condition → soft cap (EHR under-coding)
+    # Missing key condition → soft cap
     if feat.get("key_condition_present", 0.0) == 0.0:
         confidence = min(confidence, 15.0)
+
+    # Cancer-specific exclusion condition → cap
+    if feat.get("has_cancer_exclusion_condition", 0.0) == 1.0:
+        confidence = min(confidence, 15.0)
+
+    # Cancer comorbidity burden penalty
+    comorbidity = feat.get("cancer_comorbidity_burden", 0.0)
+    if comorbidity > 0:
+        confidence -= comorbidity * 20.0
+
+    # Additional penalty for missing HbA1c in diabetes context
+    if feat.get("missing_hba1c", 0.0) == 1.0:
+        confidence -= 8.0
 
     return round(max(0.0, min(100.0, confidence)), 2)
 
@@ -301,6 +362,8 @@ def _heuristic_score(df, feature_cols, mode: str = "diabetes"):
         penalties = {
             "renal_exclusion_hit": -0.20,
             "stroke_exclusion_hit": -0.15,
+            "has_cancer_exclusion_condition": -0.30,
+            "cancer_comorbidity_burden": -0.15,
             "exclusion_conflict_count": -0.06,
             "age_gap": -0.30,
             "missing_renal_lab": -0.02,
@@ -410,15 +473,25 @@ def api_rank():
 
     model = _load_model(condition.replace(" ", "_"))
     if model is not None:
-        X = df[feature_cols].values.astype(float)
-        try:
-            scores = model.predict(X)
-        except Exception:
+        # Align features to the model's expected columns to avoid misalignment
+        _mf = getattr(model, 'feature_names_in_', None)
+        if _mf is None or len(_mf) == 0:
+            _mf = getattr(model, 'feature_name_', None)
+        model_features = list(_mf) if _mf is not None and len(_mf) > 0 else []
+        if model_features and all(f in df.columns for f in model_features):
+            X = df[model_features].values.astype(float)
+            try:
+                scores = model.predict(X)
+            except Exception:
+                scores = _heuristic_score(df, feature_cols, mode=mode)
+        else:
+            log.warning("Model features not aligned with data columns, using heuristic")
             scores = _heuristic_score(df, feature_cols, mode=mode)
     else:
         scores = _heuristic_score(df, feature_cols, mode=mode)
 
     df["score"] = scores
+    _update_score_stats(scores)
     df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
 
     candidates = []
@@ -464,6 +537,14 @@ def api_train():
 
 @APP.route("/api/metrics", methods=["GET"])
 def api_metrics():
+    mode = request.args.get("mode", "")
+    # Try mode-specific metrics first
+    if mode:
+        mode_path = config.OUTPUT_DIR / f"evaluation_metrics_{mode}.json"
+        if mode_path.exists():
+            with open(mode_path) as f:
+                return jsonify(json.load(f))
+    # Fallback to generic metrics
     metrics_path = config.OUTPUT_DIR / "evaluation_metrics.json"
     if metrics_path.exists():
         with open(metrics_path) as f:
@@ -585,17 +666,26 @@ def api_verify():
 
         model = _load_model(condition.replace(" ", "_"))
         if model is not None:
-            X = df[feature_cols].values.astype(float)
-            try:
-                scores = model.predict(X)
-            except Exception:
+            _mf = getattr(model, 'feature_names_in_', None)
+            if _mf is None or len(_mf) == 0:
+                _mf = getattr(model, 'feature_name_', None)
+            model_features = list(_mf) if _mf is not None and len(_mf) > 0 else []
+            if model_features and all(f in df.columns for f in model_features):
+                X = df[model_features].values.astype(float)
+                try:
+                    scores = model.predict(X)
+                except Exception:
+                    scores = _heuristic_score(df, feature_cols)
+            else:
                 scores = _heuristic_score(df, feature_cols)
         else:
             scores = _heuristic_score(df, feature_cols)
 
         df["score"] = scores
+        _update_score_stats(scores)
         df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
 
+        mode = _detect_mode(condition)
         candidates = []
         for _, row in df_sorted.iterrows():
             pid = row["patient_id"]
@@ -609,7 +699,7 @@ def api_verify():
                 "last_name": names["last"],
                 "status": _confidence_label(confidence),
                 "confidence_score": confidence,
-                "reasons": _build_reasons(feat),
+                "reasons": _build_reasons(feat, mode=mode),
             })
 
     # Select top N

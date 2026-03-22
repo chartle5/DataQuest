@@ -3,11 +3,41 @@
   "trial_title": "mHealth Skill Enhancement Plus Phone CBT for Type 2 Diabetes Distress Medication Nonadherence: Pilot Study",
   "candidates": [
     {
-      "patient_id": "29bb9b62-36b5-a44d-ad39-2ab8c5f8ffb2",
-      "first_name": "Cordell",
-      "last_name": "Harber",
+      "patient_id": "b2241b82-3678-2b6f-211d-0c5913693d5f",
+      "first_name": "Cristine",
+      "last_name": "Kozey",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 99.42,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "6703fd63-bf4e-7b60-0357-61c06b958c75",
+      "first_name": "Xenia",
+      "last_name": "Sauer",
+      "status": "high",
+      "confidence_score": 99.41,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "121ae2d7-a1af-18fb-c5c4-c33cc679a590",
+      "first_name": "Lynwood",
+      "last_name": "Howe",
+      "status": "high",
+      "confidence_score": 98.21,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -17,11 +47,11 @@
       ]
     },
     {
-      "patient_id": "67aebc4b-d7e6-9ed4-b1ea-62c32d86a772",
-      "first_name": "Earnest",
-      "last_name": "Quitzon",
+      "patient_id": "804619f6-b2e5-7669-75d6-f86274375d9a",
+      "first_name": "Jesse",
+      "last_name": "Hagenes",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.19,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -31,11 +61,11 @@
       ]
     },
     {
-      "patient_id": "2380932f-3a5b-b3a6-ea19-2914176d7317",
-      "first_name": "Sherlene",
-      "last_name": "McGlynn",
+      "patient_id": "7f7d1671-9b86-d896-0282-8f56ea6fd54c",
+      "first_name": "Justin",
+      "last_name": "Kovacek",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.18,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -45,11 +75,11 @@
       ]
     },
     {
-      "patient_id": "03549013-a874-1706-ae3a-525a9ff0b8b7",
-      "first_name": "Errol",
-      "last_name": "Leffler",
+      "patient_id": "0e78fd74-30d9-215f-bce0-8ece0cf856f6",
+      "first_name": "Isaac",
+      "last_name": "Barrows",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.17,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -59,11 +89,11 @@
       ]
     },
     {
-      "patient_id": "c766027c-9881-bc24-1e1b-4e8d50669624",
-      "first_name": "Eldridge",
-      "last_name": "Krajcik",
+      "patient_id": "15074f6f-241c-5534-777f-488c7b4bd725",
+      "first_name": "Tijuana",
+      "last_name": "Erdman",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.15,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -73,11 +103,11 @@
       ]
     },
     {
-      "patient_id": "d7f02510-13c0-9cd1-1966-f6c467d3ec3f",
-      "first_name": "Jeannie",
-      "last_name": "Klocko",
+      "patient_id": "6106b083-e2d5-b259-6137-5c7aca1570a6",
+      "first_name": "Corrina",
+      "last_name": "Wisoky",
       "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.14,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -87,53 +117,11 @@
       ]
     },
     {
-      "patient_id": "97309261-961a-50e4-ef11-7181dfabdb63",
-      "first_name": "Mariano",
-      "last_name": "Hickle",
+      "patient_id": "56a12745-a969-3a3c-e10a-3e035119173b",
+      "first_name": "Merilyn",
+      "last_name": "Bradtke",
       "status": "high",
-      "confidence_score": 100.0,
-      "reasons": [
-        "Age within required range",
-        "Sex matches trial requirement",
-        "Key condition (T2D) present",
-        "HbA1c within maximum threshold",
-        "Good lab data completeness"
-      ]
-    },
-    {
-      "patient_id": "89f97445-90f1-82e7-cfa7-09a6971a8d63",
-      "first_name": "Emmanuel",
-      "last_name": "Schmitt",
-      "status": "high",
-      "confidence_score": 100.0,
-      "reasons": [
-        "Age within required range",
-        "Sex matches trial requirement",
-        "Key condition (T2D) present",
-        "HbA1c within maximum threshold",
-        "Good lab data completeness"
-      ]
-    },
-    {
-      "patient_id": "45cb99d4-99fb-7ac1-64d2-42964be13a53",
-      "first_name": "Hildred",
-      "last_name": "Boyle",
-      "status": "high",
-      "confidence_score": 100.0,
-      "reasons": [
-        "Age within required range",
-        "Sex matches trial requirement",
-        "Key condition (T2D) present",
-        "HbA1c within maximum threshold",
-        "Good lab data completeness"
-      ]
-    },
-    {
-      "patient_id": "2c18829b-58b7-7233-d9fa-7baaa616ae86",
-      "first_name": "Richie",
-      "last_name": "Schiller",
-      "status": "high",
-      "confidence_score": 100.0,
+      "confidence_score": 98.14,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",

@@ -40,6 +40,22 @@ _CHEMO_KEYWORDS = [
     "trastuzumab", "bevacizumab", "rituximab", "cetuximab",
 ]
 
+# Conditions commonly excluded in cancer immunotherapy trials
+_CANCER_EXCLUSION_CONDITIONS = [
+    "transplant", "organ transplant", "renal transplant",
+    "heart failure", "congestive heart failure",
+    "autoimmune", "lupus", "inflammatory bowel",
+    "seizure", "epilepsy",
+]
+
+# Serious comorbidity keywords that reduce cancer trial suitability
+_CANCER_COMORBIDITY_KEYWORDS = [
+    "heart failure", "ischemic heart disease", "cardiac",
+    "diabetes mellitus", "chronic kidney", "renal",
+    "copd", "pulmonary fibrosis", "cirrhosis", "hepatitis",
+    "seizure", "epilepsy", "transplant",
+]
+
 
 def _detect_mode(condition: str) -> str:
     """Detect ranker mode from condition string."""
@@ -156,6 +172,20 @@ def build_match_features(
         )
         features["cancer_medication_count"] = min(chemo_meds, 10) / 10.0
 
+        # Cancer-specific exclusion / comorbidity features
+        features["has_cancer_exclusion_condition"] = (
+            1.0 if any(
+                any(kw in c for kw in _CANCER_EXCLUSION_CONDITIONS)
+                for c in patient.conditions
+            ) else 0.0
+        )
+        comorbidity_count = sum(
+            1 for c in patient.conditions
+            if any(kw in c for kw in _CANCER_COMORBIDITY_KEYWORDS)
+            and not any(kw in c for kw in RANKER_MODES["cancer"]["condition_keywords"])
+        )
+        features["cancer_comorbidity_burden"] = min(comorbidity_count, 5) / 5.0
+
     return features
 
 
@@ -191,10 +221,20 @@ def _normalized_lab_gap(patient: PatientProfile, keyword: str,
     return 0.0
 
 
+def _normalize_sex(sex: str) -> str:
+    """Map common sex abbreviations to canonical form."""
+    s = sex.strip().lower()
+    if s in ("m", "male"):
+        return "male"
+    if s in ("f", "female"):
+        return "female"
+    return s
+
+
 def _match_sex(sex: str, criteria: TrialCriteria) -> float:
     if criteria.sex_allowed in (None, "all"):
         return 1.0
-    return 1.0 if sex == criteria.sex_allowed else 0.0
+    return 1.0 if _normalize_sex(sex) == criteria.sex_allowed else 0.0
 
 
 def _has_condition(patient: PatientProfile, keyword: str) -> float:

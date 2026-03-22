@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         showMessage(`Found ${data.candidates.length} candidates`, 'success');
         renderResults(data.candidates);
-        fetchMetrics();
+        // Fetch mode-specific metrics based on selected condition
+        const selectedCondition = document.getElementById('conditionSelect').value;
+        const metricsMode = selectedCondition.toLowerCase().includes('cancer') ? 'cancer' : 'diabetes';
+        fetchMetrics(metricsMode);
       })
       .catch(err => {
         rankBtn.disabled = false;
@@ -83,8 +86,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 
-  function fetchMetrics() {
-    fetch('/api/metrics')
+  function fetchMetrics(mode) {
+    const url = mode ? `/api/metrics?mode=${mode}` : '/api/metrics';    
+    fetch(url)
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(data => {
         if (data.error) return;

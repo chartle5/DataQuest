@@ -72,6 +72,26 @@ def _parse_age(text: str) -> Tuple[Optional[int], Optional[int]]:
     return min_age, max_age
 
 
+# Reproductive / contraception context keywords — standard clinical trial
+# boilerplate that mentions "female" without restricting the trial to women.
+_REPRODUCTIVE_CONTEXT_KEYWORDS = [
+    "childbearing", "contracepti", "pregnan", "breastfeed",
+    "nursing", "fertile", "menstruat", "birth control",
+    "reproductive potential", "negative pregnancy",
+]
+
+
+def _female_only_in_reproductive_context(text: str) -> bool:
+    """Return True if every 'female' mention is near reproductive context words."""
+    for m in re.finditer(r"\bfemale\b", text):
+        start = max(0, m.start() - 120)
+        end = min(len(text), m.end() + 120)
+        window = text[start:end]
+        if not any(kw in window for kw in _REPRODUCTIVE_CONTEXT_KEYWORDS):
+            return False
+    return True
+
+
 def _parse_sex(text: str) -> Optional[str]:
     lower = text.lower()
     has_female = re.search(r"\bfemale\b", lower) is not None
@@ -79,6 +99,10 @@ def _parse_sex(text: str) -> Optional[str]:
     if has_female and has_male:
         return "all"
     if has_female:
+        # If "female" only appears near reproductive/contraception language,
+        # the trial is open to all sexes (standard boilerplate).
+        if _female_only_in_reproductive_context(lower):
+            return "all"
         return "female"
     if has_male:
         return "male"

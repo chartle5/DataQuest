@@ -16,13 +16,16 @@ LABEL_FEATURES = {
     "renal_exclusion_hit", "stroke_exclusion_hit", "insulin_pump_conflict",
     "missing_hba1c", "missing_renal_lab",
     "age_match", "sex_match",
+    "has_cancer_exclusion_condition",
+    "has_prior_chemo", "has_metastatic_disease",
 }
 
 
-def _rule_label(features: dict) -> int:
+def _rule_label(features: dict, mode: str = "diabetes") -> int:
     """Graded relevance label for lambdarank: 0=excluded, 1=poor, 2=partial, 3=good.
 
     Higher values indicate better patient-trial match quality.
+    Mode-aware: uses HbA1c for diabetes, cancer-specific features for cancer.
     """
     # Hard demographic exclusions -> grade 0
     if features.get("age_match", 1.0) == 0.0:
@@ -38,17 +41,53 @@ def _rule_label(features: dict) -> int:
     if features.get("insulin_pump_conflict", 0.0) == 1.0:
         return 0
 
-    # Count how many inclusion criteria are satisfied
-    inc = features.get("inclusion_satisfied_count", 0.0)
-    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+    has_key_condition = features.get("key_condition_present", 0.0) == 1.0
 
-    # Good match: key condition present + most inclusions met + no missing data
-    if features.get("key_condition_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+    # No key condition -> grade 0
+    if not has_key_condition:
+        return 0
+
+    lab_complete = features.get("lab_completeness", 0.0) >= 0.5
+    good_overlap = features.get("diagnosis_overlap_score", 0.0) >= 0.3
+
+    if mode == "cancer":
+        has_chemo = features.get("has_prior_chemo", 0.0) == 1.0
+        has_metastatic = features.get("has_metastatic_disease", 0.0) == 1.0
+        tumor_count = features.get("tumor_condition_count", 0.0)
+        has_exclusion = features.get("has_cancer_exclusion_condition", 0.0) == 1.0
+        comorbidity = features.get("cancer_comorbidity_burden", 0.0)
+
+        # Hard cancer exclusion (transplant, autoimmune, etc.) -> grade 0
+        if has_exclusion:
+            return 0
+
+        # Grade 3: chemo + (metastatic or good overlap) + lab complete + low comorbidity
+        if has_chemo and (has_metastatic or good_overlap) and lab_complete and comorbidity < 0.4:
+            return 3
+        # Grade 2: at least one strong signal + low-moderate comorbidity
+        if (has_chemo or has_metastatic or (good_overlap and tumor_count >= 0.2)) and comorbidity < 0.6:
+            return 2
+        # Grade 1: key condition present but insufficient evidence or comorbidity concern
+        return 1
+
+    # --- Diabetes mode ---
+    has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
+    hba1c_ok = (features.get("hba1c_above_min", 0.0) == 1.0 or
+                features.get("hba1c_below_max", 0.0) == 1.0)
+
+    # Key condition but missing critical lab data and no HbA1c -> grade 1
+    if has_missing and not hba1c_ok:
+        return 1
+
+    # Grade 3: all criteria met
+    if hba1c_ok and not has_missing and lab_complete and good_overlap:
         return 3
-    # Partial match: key condition present or high inclusion count
-    if features.get("key_condition_present", 0.0) == 1.0 or inc >= 3:
+
+    # Grade 2: key condition + HbA1c ok but not all supporting data
+    if hba1c_ok and (not has_missing or lab_complete):
         return 2
-    # Poor match: few criteria met, no hard exclusion
+
+    # Grade 1: key condition but incomplete data
     return 1
 
 
@@ -74,7 +113,7 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
         for patient in profiles.values():
             feat = build_match_features(patient, trial.criteria,
                                         condition_keywords=condition_keywords, mode=mode)
-            label = _rule_label(feat)
+            label = _rule_label(feat, mode=mode)
             rows.append({"trial_id": trial.trial_id, "patient_id": patient.patient_id, **feat, "label": label})
 
     df = pd.DataFrame(rows)
@@ -113,8 +152,9 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
     if test_mask.any():
         y_test = y[test_mask]
         scores_test = ranker.predict(X[test_mask])
+        test_trial_ids = df.loc[test_mask, "trial_id"].values
         from src.pipelines.build_pairs import _compute_metrics
-        metrics = _compute_metrics(y_test, scores_test)
+        metrics = _compute_metrics(y_test, scores_test, trial_ids=test_trial_ids)
         import json
         metrics_path = config.OUTPUT_DIR / f"evaluation_metrics_{mode}.json"
         with open(metrics_path, "w") as f:
