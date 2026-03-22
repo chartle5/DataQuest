@@ -7,8 +7,16 @@ import numpy as np
 from src import config
 from src.patients.features import build_patient_profiles
 from src.trials.api import fetch_trials
-from src.matching.features import build_match_features
+from src.matching.features import build_match_features, _detect_mode
 from src.matching.ranker import TrialRanker
+
+# Features used to define _rule_label() — must be excluded from training X
+LABEL_FEATURES = {
+    "key_condition_present", "inclusion_satisfied_count",
+    "renal_exclusion_hit", "stroke_exclusion_hit", "insulin_pump_conflict",
+    "missing_hba1c", "missing_renal_lab",
+    "age_match", "sex_match",
+}
 
 
 def _rule_label(features: dict) -> int:
@@ -16,7 +24,13 @@ def _rule_label(features: dict) -> int:
 
     Higher values indicate better patient-trial match quality.
     """
-    # Hard exclusions -> grade 0
+    # Hard demographic exclusions -> grade 0
+    if features.get("age_match", 1.0) == 0.0:
+        return 0
+    if features.get("sex_match", 1.0) == 0.0:
+        return 0
+
+    # Hard clinical exclusions -> grade 0
     if features.get("renal_exclusion_hit", 0.0) == 1.0:
         return 0
     if features.get("stroke_exclusion_hit", 0.0) == 1.0:
@@ -29,10 +43,10 @@ def _rule_label(features: dict) -> int:
     has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
 
     # Good match: key condition present + most inclusions met + no missing data
-    if features.get("t2d_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+    if features.get("key_condition_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
         return 3
     # Partial match: key condition present or high inclusion count
-    if features.get("t2d_present", 0.0) == 1.0 or inc >= 3:
+    if features.get("key_condition_present", 0.0) == 1.0 or inc >= 3:
         return 2
     # Poor match: few criteria met, no hard exclusion
     return 1
@@ -41,6 +55,7 @@ def _rule_label(features: dict) -> int:
 def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: Path = None):
     out_dir = out_dir or (config.OUTPUT_DIR / "models")
     out_dir.mkdir(parents=True, exist_ok=True)
+    mode = _detect_mode(condition_query)
 
     profiles = build_patient_profiles(
         patients_path=str(config.DATA_DIR / "patients.csv"),
@@ -50,17 +65,23 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
         encounters_path=str(config.DATA_DIR / "encounters.csv"),
     )
 
-    trials = fetch_trials(condition_query, limit=trials_limit, cache_path=(config.OUTPUT_DIR / f"trials_{condition_query.replace(' ', '_')}.json"))
+    cache_path = config.OUTPUT_DIR / f"trials_{condition_query.replace(' ', '_')}.json"
+    trials = fetch_trials(condition_query, limit=trials_limit, cache_path=cache_path, mode=mode)
 
     rows = []
     for trial in trials:
+        condition_keywords = [c.lower() for c in trial.conditions] if trial.conditions else None
         for patient in profiles.values():
-            feat = build_match_features(patient, trial.criteria)
+            feat = build_match_features(patient, trial.criteria,
+                                        condition_keywords=condition_keywords, mode=mode)
             label = _rule_label(feat)
             rows.append({"trial_id": trial.trial_id, "patient_id": patient.patient_id, **feat, "label": label})
 
     df = pd.DataFrame(rows)
-    feature_cols = [c for c in df.columns if c not in ("trial_id", "patient_id", "label")]
+    # Exclude label-defining features to prevent leakage
+    feature_cols = [c for c in df.columns
+                    if c not in ("trial_id", "patient_id", "label")
+                    and c not in LABEL_FEATURES]
     X = df[feature_cols].values.astype(float)
     y = df["label"].values.astype(float)
 
@@ -95,7 +116,7 @@ def train_for_condition(condition_query: str, trials_limit: int = 50, out_dir: P
         from src.pipelines.build_pairs import _compute_metrics
         metrics = _compute_metrics(y_test, scores_test)
         import json
-        metrics_path = config.OUTPUT_DIR / "evaluation_metrics.json"
+        metrics_path = config.OUTPUT_DIR / f"evaluation_metrics_{mode}.json"
         with open(metrics_path, "w") as f:
             json.dump(metrics, f, indent=2)
 

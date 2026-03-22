@@ -24,7 +24,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from src.patients.features import build_patient_profiles, PatientProfile
 from src.trials.api import fetch_trials
 from src.trials.rag import build_trial_rag_features
-from src.matching.features import build_match_features
+from src.matching.features import build_match_features, _detect_mode
 from src.matching.ranker import TrialRanker
 from src import config
 
@@ -33,7 +33,6 @@ log = logging.getLogger(__name__)
 
 FRONTEND_DIR = Path(__file__).resolve().parents[1] / "frontend"
 APP = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
-
 
 MODELS_DIR = config.OUTPUT_DIR / "models"
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
@@ -85,7 +84,6 @@ def _load_model(condition: str):
     if model_path.exists():
         try:
             import joblib
-
             return joblib.load(model_path)
         except Exception:
             return None
@@ -94,7 +92,7 @@ def _load_model(condition: str):
 
 # ---------- trial selection ----------
 
-def _trial_richness(trial) -> int:
+def _trial_richness(trial, mode: str = "diabetes") -> int:
     """Score a trial by how many structured criteria it defines.
 
     Trials with more non-null constraints are more useful for matching because
@@ -103,38 +101,69 @@ def _trial_richness(trial) -> int:
     c = trial.criteria
     score = 0
     if c.min_age is not None:
-        score += 1
+        score += 2 if mode == "cancer" else 1
     if c.max_age is not None:
-        score += 1
+        score += 2 if mode == "cancer" else 1
     if c.sex_allowed not in (None, "all"):
         score += 1
-    if getattr(c, "requires_t2d", False):
-        score += 2  # strong signal
-    if c.hba1c_min is not None:
-        score += 2
-    if c.hba1c_max is not None:
+    if mode == "diabetes":
+        if c.requires_t2d:
+            score += 2  # strong signal for diabetes
+        if c.hba1c_min is not None:
+            score += 2
+        if c.hba1c_max is not None:
+            score += 1
+    if mode == "cancer":
+        # Cancer trials: value entity and condition richness
+        if c.entities:
+            score += min(len(c.entities), 5)
+        # Conditions list contains cancer keywords
+        cond_text = " ".join(trial.conditions).lower()
+        if any(kw in cond_text for kw in ("cancer", "carcinoma", "neoplasm", "lymphoma", "melanoma", "leukemia")):
+            score += 3
+    if c.excludes_renal_failure:
         score += 1
-    if getattr(c, "excludes_renal_failure", False):
+    if c.excludes_recent_stroke:
         score += 1
-    if getattr(c, "excludes_recent_stroke", False):
+    if c.excludes_insulin_pump:
         score += 1
-    if getattr(c, "excludes_insulin_pump", False):
-        score += 1
-    if getattr(c, "entities", None):
+    if c.entities and mode == "diabetes":
         score += min(len(c.entities), 3)
     return score
 
 
-def _select_best_trial(trials):
-    """Pick the trial with the richest structured criteria for ranking."""
+def _select_best_trial(trials, mode: str = "diabetes", profiles=None):
+    """Pick the trial with the richest structured criteria for ranking.
+
+    When patient profiles are available, penalize trials whose age range
+    has zero overlap with the actual patient population (avoids selecting
+    a trial where every patient is ineligible).
+    """
     if not trials:
         return None
-    return max(trials, key=_trial_richness)
+
+    if profiles:
+        ages = [p.age for p in profiles.values()]
+        min_patient_age, max_patient_age = min(ages), max(ages)
+
+        def _score(trial):
+            base = _trial_richness(trial, mode)
+            c = trial.criteria
+            trial_min = c.min_age or 0
+            trial_max = c.max_age or 120
+            # Check if any patient could be in range
+            if trial_max < min_patient_age or trial_min > max_patient_age:
+                base -= 20  # heavy penalty — no patients can match
+            return base
+
+        return max(trials, key=_score)
+
+    return max(trials, key=lambda t: _trial_richness(t, mode))
 
 
 # ---------- reason / confidence helpers ----------
 
-def _build_reasons(feat: Dict[str, float]) -> List[str]:
+def _build_reasons(feat: Dict[str, float], mode: str = "diabetes") -> List[str]:
     """Human-readable reason codes per patient-trial pair."""
     reasons = []
     if feat.get("age_match") == 1.0:
@@ -151,17 +180,36 @@ def _build_reasons(feat: Dict[str, float]) -> List[str]:
     if feat.get("sex_match") == 1.0:
         reasons.append("Sex matches trial requirement")
 
-    if feat.get("t2d_present") == 1.0:
-        reasons.append("Key condition (T2D) present")
+    if mode == "cancer":
+        if feat.get("key_condition_present") == 1.0:
+            reasons.append("Cancer-related condition present in patient record")
+        else:
+            reasons.append("No cancer-related condition found in patient record")
+        if feat.get("has_prior_chemo", 0) == 1.0:
+            reasons.append("Patient has prior chemotherapy history")
+        if feat.get("has_prior_radiation", 0) == 1.0:
+            reasons.append("Patient has prior radiation treatment")
+        if feat.get("has_metastatic_disease", 0) == 1.0:
+            reasons.append("Metastatic disease present")
+        tumor_ct = feat.get("tumor_condition_count", 0)
+        if tumor_ct > 0:
+            reasons.append(f"{int(tumor_ct * 10)} cancer-related condition(s) found")
+        chemo_ct = feat.get("cancer_medication_count", 0)
+        if chemo_ct > 0:
+            reasons.append(f"{int(chemo_ct * 10)} chemo/targeted-therapy medication(s) found")
     else:
-        reasons.append("Key condition (T2D) not found")
+        # Diabetes mode
+        if feat.get("key_condition_present") == 1.0:
+            reasons.append("Key condition (T2D) present")
+        else:
+            reasons.append("Key condition (T2D) not found")
 
-    if feat.get("hba1c_above_min") == 1.0 and feat.get("missing_hba1c", 0) == 0:
-        reasons.append("HbA1c above minimum threshold")
-    if feat.get("hba1c_below_max") == 1.0 and feat.get("missing_hba1c", 0) == 0:
-        reasons.append("HbA1c within maximum threshold")
-    if feat.get("missing_hba1c") == 1.0:
-        reasons.append("HbA1c data unavailable")
+        if feat.get("hba1c_above_min") == 1.0 and feat.get("missing_hba1c", 0) == 0:
+            reasons.append("HbA1c above minimum threshold")
+        if feat.get("hba1c_below_max") == 1.0 and feat.get("missing_hba1c", 0) == 0:
+            reasons.append("HbA1c within maximum threshold")
+        if feat.get("missing_hba1c") == 1.0:
+            reasons.append("HbA1c data unavailable")
 
     if feat.get("renal_exclusion_hit") == 1.0:
         reasons.append("EXCLUDED: renal failure present")
@@ -182,21 +230,39 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     """Compute a numeric confidence score 0-100 from raw score + features.
 
     Uses sigmoid scaling with adjustments for missing data and exclusions.
+    Hard constraints: age/sex mismatch → 0% (ineligible).
     """
+    # Hard fail: age outside range → ineligible
+    if feat.get("age_match", 1.0) == 0.0:
+        return 0.0
+
+    # Hard fail: sex mismatch → ineligible
+    if feat.get("sex_match", 1.0) == 0.0:
+        return 0.0
+
+    # Sigmoid-scale the raw score into 0-100 range
+    # Raw heuristic scores typically fall in [-0.5, 1.0]
     scaled = 1.0 / (1.0 + np.exp(-6.0 * (score - 0.3)))
     confidence = scaled * 100.0
 
+    # Penalize missing data
     missing = feat.get("unknown_field_count", 0)
     confidence -= missing * 8.0
 
+    # Hard exclusions cap confidence
     exclusions = feat.get("exclusion_conflict_count", 0)
     if exclusions > 0:
+        confidence = min(confidence, 15.0)
+
+    # Missing key condition → soft cap (EHR under-coding)
+    if feat.get("key_condition_present", 0.0) == 0.0:
         confidence = min(confidence, 15.0)
 
     return round(max(0.0, min(100.0, confidence)), 2)
 
 
 def _confidence_label(confidence_score: float) -> str:
+    """Map numeric confidence to categorical label."""
     if confidence_score >= 70:
         return "high"
     if confidence_score >= 45:
@@ -208,39 +274,70 @@ def _confidence_label(confidence_score: float) -> str:
 
 # ---------- scoring ----------
 
-def _heuristic_score(df, feature_cols):
+def _heuristic_score(df, feature_cols, mode: str = "diabetes"):
+    """Weighted heuristic score with continuous features for differentiation."""
     score = np.zeros(len(df))
 
-    weights = {
-        "age_match": 0.20,
-        "sex_match": 0.04,
-        "t2d_present": 0.18,
-        "hba1c_above_min": 0.08,
-        "hba1c_below_max": 0.04,
-        "inclusion_satisfied_count": 0.06,
-        "diagnosis_overlap_score": 0.08,
-        "rag_sim_max": 0.04,
-        "rag_sim_mean": 0.02,
-    }
-    tiebreaker_weights = {
-        "lab_completeness": 0.06,
-        "condition_count": 0.03,
-        "medication_count": 0.02,
-        "age_normalized": 0.01,
-        "hba1c_value": 0.03,
-        "insulin_on_med": 0.02,
-    }
-    penalties = {
-        "renal_exclusion_hit": -0.30,
-        "stroke_exclusion_hit": -0.25,
-        "insulin_pump_conflict": -0.20,
-        "exclusion_conflict_count": -0.08,
-        "missing_hba1c": -0.04,
-        "missing_renal_lab": -0.02,
-        "age_gap": -0.25,
-        "hba1c_gap": -0.05,
-        "recent_hospitalization": -0.02,
-    }
+    if mode == "cancer":
+        weights = {
+            "age_match": 0.20,
+            "sex_match": 0.06,
+            "key_condition_present": 0.25,
+            "has_metastatic_disease": 0.10,
+            "has_prior_chemo": 0.08,
+            "cancer_medication_count": 0.06,
+            "tumor_condition_count": 0.05,
+            "diagnosis_overlap_score": 0.10,
+            "inclusion_satisfied_count": 0.04,
+            "rag_sim_max": 0.04,
+            "rag_sim_mean": 0.02,
+        }
+        tiebreaker_weights = {
+            "lab_completeness": 0.04,
+            "condition_count": 0.03,
+            "medication_count": 0.02,
+            "age_normalized": 0.01,
+        }
+        penalties = {
+            "renal_exclusion_hit": -0.20,
+            "stroke_exclusion_hit": -0.15,
+            "exclusion_conflict_count": -0.06,
+            "age_gap": -0.30,
+            "missing_renal_lab": -0.02,
+            "recent_hospitalization": -0.01,
+        }
+    else:
+        # Diabetes mode (default)
+        weights = {
+            "age_match": 0.25,
+            "sex_match": 0.04,
+            "key_condition_present": 0.20,
+            "hba1c_above_min": 0.12,
+            "hba1c_below_max": 0.04,
+            "inclusion_satisfied_count": 0.06,
+            "diagnosis_overlap_score": 0.08,
+            "rag_sim_max": 0.04,
+            "rag_sim_mean": 0.02,
+        }
+        tiebreaker_weights = {
+            "lab_completeness": 0.06,
+            "condition_count": 0.03,
+            "medication_count": 0.02,
+            "age_normalized": 0.01,
+            "hba1c_value": 0.03,
+            "insulin_on_med": 0.02,
+        }
+        penalties = {
+            "renal_exclusion_hit": -0.35,
+            "stroke_exclusion_hit": -0.25,
+            "insulin_pump_conflict": -0.20,
+            "exclusion_conflict_count": -0.08,
+            "missing_hba1c": -0.04,
+            "missing_renal_lab": -0.02,
+            "age_gap": -0.35,
+            "hba1c_gap": -0.05,
+            "recent_hospitalization": -0.02,
+        }
 
     for col, w in weights.items():
         if col in df.columns:
@@ -252,6 +349,15 @@ def _heuristic_score(df, feature_cols):
         if col in df.columns:
             score += df[col].fillna(0).values * w
 
+    # Hard floor: age or sex outside range → minimum score
+    if "age_match" in df.columns:
+        age_fail = df["age_match"].fillna(1).values == 0.0
+        score[age_fail] = -1.0
+    if "sex_match" in df.columns:
+        sex_fail = df["sex_match"].fillna(1).values == 0.0
+        score[sex_fail] = -1.0
+
+    # Deterministic micro-jitter for tie-breaking (hash-based, not random)
     if "patient_id" in df.columns:
         jitter = df["patient_id"].apply(
             lambda pid: int(hashlib.sha256(str(pid).encode()).hexdigest()[:8], 16) / (16**8) * 1e-6
@@ -261,19 +367,31 @@ def _heuristic_score(df, feature_cols):
     return score
 
 
-# ---------- core ranking helper ----------
+# ---------- routes ----------
 
-def _rank_for_condition(condition: str, top_n: int = 10) -> Dict[str, Any]:
+@APP.route("/api/rank", methods=["POST"])
+def api_rank():
+    payload = request.get_json() or {}
+    condition = payload.get("condition", "type 2 diabetes")
+    top_n = int(payload.get("top_n", 10))
+    mode = _detect_mode(condition)
+
     cache_path = config.OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
-    trials = fetch_trials(condition, limit=20, cache_path=cache_path)
+    trials = fetch_trials(condition, limit=20, cache_path=cache_path, mode=mode)
     if not trials:
-        return {"error": "no trials found for condition"}
-
-    trial = _select_best_trial(trials)
-    log.info("Selected trial %s (richness=%d) from %d candidates", trial.trial_id, _trial_richness(trial), len(trials))
+        return jsonify({"error": "no trials found for condition"}), 400
 
     profiles = _get_profiles()
 
+    # Select the trial with richest structured criteria
+    trial = _select_best_trial(trials, mode=mode, profiles=profiles)
+    log.info("Selected trial %s (richness=%d, mode=%s) from %d candidates",
+             trial.trial_id, _trial_richness(trial, mode), mode, len(trials))
+
+    # Derive condition keywords from the trial's conditions list
+    condition_keywords = [c.lower() for c in trial.conditions] if trial.conditions else None
+
+    # Compute RAG features for the selected trial
     try:
         rag_features = build_trial_rag_features([trial], config.DATA_DIR)
         trial_rag = rag_features.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
@@ -281,12 +399,11 @@ def _rank_for_condition(condition: str, top_n: int = 10) -> Dict[str, Any]:
         trial_rag = {"rag_sim_max": 0.0, "rag_sim_mean": 0.0}
 
     rows = []
-    pid_to_patient = {}
     for pid, patient in profiles.items():
-        feat = build_match_features(patient, trial.criteria)
+        feat = build_match_features(patient, trial.criteria,
+                                    condition_keywords=condition_keywords, mode=mode)
         feat.update(trial_rag)
         rows.append({"patient_id": pid, **feat})
-        pid_to_patient[pid] = patient
 
     df = pd.DataFrame(rows)
     feature_cols = [c for c in df.columns if c != "patient_id"]
@@ -297,9 +414,9 @@ def _rank_for_condition(condition: str, top_n: int = 10) -> Dict[str, Any]:
         try:
             scores = model.predict(X)
         except Exception:
-            scores = _heuristic_score(df, feature_cols)
+            scores = _heuristic_score(df, feature_cols, mode=mode)
     else:
-        scores = _heuristic_score(df, feature_cols)
+        scores = _heuristic_score(df, feature_cols, mode=mode)
 
     df["score"] = scores
     df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
@@ -311,65 +428,27 @@ def _rank_for_condition(condition: str, top_n: int = 10) -> Dict[str, Any]:
         names = _patient_names.get(pid, {"first": "", "last": ""})
         raw_score = float(row["score"])
         confidence = _compute_confidence(raw_score, feat)
-        patient = pid_to_patient.get(pid)
-        profile_data = None
-        if patient is not None:
-            profile_data = {
-                "age": int(patient.age),
-                "sex": patient.sex,
-                "conditions": sorted(list(patient.conditions))[:50],
-                "medications": sorted(list(patient.medications))[:50],
-                "labs": {k: v for k, v in patient.labs.items()},
-                "recent_hospitalization": bool(patient.recent_hospitalization),
-            }
-
         candidates.append({
             "patient_id": pid,
             "first_name": names["first"],
             "last_name": names["last"],
-            "profile": profile_data,
-            "features": feat,
             "status": _confidence_label(confidence),
             "confidence_score": confidence,
-            "reasons": _build_reasons(feat),
+            "reasons": _build_reasons(feat, mode=mode),
         })
 
+    # --- write output file ---
     output_path = config.OUTPUT_DIR / f"ranked_{condition.replace(' ', '_')}_top{top_n}.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump({"trial_id": trial.trial_id, "trial_title": trial.title, "candidates": candidates}, f, indent=2)
     log.info("Output written to %s", output_path)
 
-    return {"trial_id": trial.trial_id, "trial_title": trial.title, "candidates": candidates}
-
-
-# ---------- routes ----------
-
-@APP.route("/api/rank", methods=["POST"])
-def api_rank():
-    payload = request.get_json() or {}
-    condition = payload.get("condition", "type 2 diabetes")
-    try:
-        top_n = int(payload.get("top_n", 10))
-    except Exception:
-        top_n = 10
-    result = _rank_for_condition(condition, top_n)
-    if "error" in result:
-        return jsonify(result), 400
-    return jsonify(result)
-
-
-@APP.route("/api/rank", methods=["GET"])
-def api_rank_get():
-    condition = request.args.get("condition", "type 2 diabetes")
-    try:
-        top_n = int(request.args.get("top_n", "10"))
-    except ValueError:
-        top_n = 10
-    result = _rank_for_condition(condition, top_n)
-    if "error" in result:
-        return jsonify(result), 400
-    return jsonify(result)
+    return jsonify({
+        "trial_id": trial.trial_id,
+        "trial_title": trial.title,
+        "candidates": candidates,
+    })
 
 
 @APP.route("/api/train", methods=["POST"])
@@ -377,7 +456,6 @@ def api_train():
     payload = request.get_json() or {}
     condition = payload.get("condition", "type 2 diabetes")
     from src.matching.train_models import train_for_condition
-
     model_path = train_for_condition(condition, trials_limit=50)
     if model_path:
         return jsonify({"status": "trained", "model_path": str(model_path)})
@@ -395,6 +473,7 @@ def api_metrics():
 
 @APP.route("/api/trials", methods=["GET"])
 def api_trials():
+    """Return a list of cached trial files available."""
     trial_files = list(config.OUTPUT_DIR.glob("trials_*.json"))
     result = []
     for tf in trial_files:
@@ -416,10 +495,12 @@ VERIFY_TIMEOUT = int(os.environ.get("VERIFY_TIMEOUT", "30"))
 
 
 def _select_top_n(candidates: List[Dict], n: int) -> List[Dict]:
+    """Select the top N candidates (already sorted by rank)."""
     return candidates[:n]
 
 
 def _build_verification_payload(candidate: Dict) -> Dict[str, Any]:
+    """Extract minimum required personal fields for verification."""
     return {
         "patient_id": candidate["patient_id"],
         "first_name": candidate["first_name"],
@@ -428,6 +509,10 @@ def _build_verification_payload(candidate: Dict) -> Dict[str, Any]:
 
 
 def _call_verification_api(payloads: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Post candidate details to the verification API and return results.
+
+    Raises on HTTP or connection errors so the caller can return a clean error.
+    """
     if not VERIFY_API_URL:
         raise ValueError("VERIFY_API_URL environment variable is not configured")
 
@@ -447,11 +532,23 @@ def _call_verification_api(payloads: List[Dict[str, Any]]) -> List[Dict[str, Any
 
 @APP.route("/api/verify", methods=["POST"])
 def api_verify():
+    """Verify top-N ranked candidates against an external verification API.
+
+    Request body:
+        {
+            "condition": "type 2 diabetes",
+            "top_n": 5,           // how many top candidates to verify
+            "candidates": [...]   // optional — pre-ranked candidate list
+        }
+
+    If "candidates" is omitted, the endpoint re-runs /api/rank internally.
+    """
     payload = request.get_json() or {}
     top_n = payload.get("top_n")
     candidates = payload.get("candidates")
     condition = payload.get("condition", "type 2 diabetes")
 
+    # --- validation ---
     if top_n is None:
         return jsonify({"error": "top_n is required"}), 400
     try:
@@ -461,24 +558,76 @@ def api_verify():
     except (TypeError, ValueError):
         return jsonify({"error": "top_n must be a positive integer"}), 400
 
+    # If no pre-ranked candidates provided, generate them
     if not candidates:
-        result = _rank_for_condition(condition, top_n)
-        if "error" in result:
+        cache_path = config.OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
+        trials = fetch_trials(condition, limit=20, cache_path=cache_path)
+        if not trials:
             return jsonify({"error": "no trials found for condition"}), 400
-        candidates = result.get("candidates", [])
 
+        trial = _select_best_trial(trials)
+        profiles = _get_profiles()
+
+        try:
+            rag_features = build_trial_rag_features([trial], config.DATA_DIR)
+            trial_rag = rag_features.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
+        except Exception:
+            trial_rag = {"rag_sim_max": 0.0, "rag_sim_mean": 0.0}
+
+        rows = []
+        for pid, patient in profiles.items():
+            feat = build_match_features(patient, trial.criteria)
+            feat.update(trial_rag)
+            rows.append({"patient_id": pid, **feat})
+
+        df = pd.DataFrame(rows)
+        feature_cols = [c for c in df.columns if c != "patient_id"]
+
+        model = _load_model(condition.replace(" ", "_"))
+        if model is not None:
+            X = df[feature_cols].values.astype(float)
+            try:
+                scores = model.predict(X)
+            except Exception:
+                scores = _heuristic_score(df, feature_cols)
+        else:
+            scores = _heuristic_score(df, feature_cols)
+
+        df["score"] = scores
+        df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
+
+        candidates = []
+        for _, row in df_sorted.iterrows():
+            pid = row["patient_id"]
+            feat = {c: float(row[c]) for c in feature_cols}
+            names = _patient_names.get(pid, {"first": "", "last": ""})
+            raw_score = float(row["score"])
+            confidence = _compute_confidence(raw_score, feat)
+            candidates.append({
+                "patient_id": pid,
+                "first_name": names["first"],
+                "last_name": names["last"],
+                "status": _confidence_label(confidence),
+                "confidence_score": confidence,
+                "reasons": _build_reasons(feat),
+            })
+
+    # Select top N
     selected = _select_top_n(candidates, top_n)
     if not selected:
         return jsonify({"error": "no candidates available to verify"}), 400
 
     log.info("Verification: sending top %d candidates", len(selected))
 
+    # Validate minimum required fields
     for c in selected:
         if not c.get("patient_id") or not c.get("first_name") or not c.get("last_name"):
             return jsonify({"error": "candidate missing required fields (patient_id, first_name, last_name)"}), 400
 
+    # Build minimal payloads
     verification_payloads = [_build_verification_payload(c) for c in selected]
 
+    # Call external verification API
     try:
         api_results = _call_verification_api(verification_payloads)
     except ValueError as e:
@@ -491,6 +640,9 @@ def api_verify():
         log.error("Verification API request failed: %s", e)
         return jsonify({"error": f"verification API request failed: {e}"}), 502
 
+    log.info("Verification: received %d results", len(api_results))
+
+    # Map results back to candidates
     result_map = {r.get("patient_id"): r for r in api_results} if api_results else {}
     verified = []
     for rank_idx, cand in enumerate(selected, start=1):
@@ -501,7 +653,7 @@ def api_verify():
             "first_name": cand["first_name"],
             "last_name": cand["last_name"],
             "rank": rank_idx,
-            "confidence_score": cand.get("confidence_score"),
+            "confidence_score": cand["confidence_score"],
             "verification_result": verification,
         })
 

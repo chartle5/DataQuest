@@ -1,43 +1,45 @@
 {
-  "trial_id": "NCT02426294",
-  "trial_title": "Comparison of Pioglitazone Versus Glimepiride in Type 2 Diabetes Inadequately Controlled With Metformin Plus Alogliptin",
+  "trial_id": "NCT02081586",
+  "trial_title": "mHealth Skill Enhancement Plus Phone CBT for Type 2 Diabetes Distress Medication Nonadherence: Pilot Study",
   "candidates": [
     {
-      "patient_id": "29bb9b62-36b5-a44d-ad39-2ab8c5f8ffb2",
-      "first_name": "Cordell",
-      "last_name": "Harber",
+      "patient_id": "b2241b82-3678-2b6f-211d-0c5913693d5f",
+      "first_name": "Cristine",
+      "last_name": "Kozey",
       "status": "high",
-      "confidence_score": 77.82,
+      "confidence_score": 99.42,
       "reasons": [
-        "Age moderately outside range (gap 0.46)",
+        "Age within required range",
         "Sex matches trial requirement",
         "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
         "HbA1c within maximum threshold",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "dbbe461a-dfd4-400e-c77d-b99a29dada93",
-      "first_name": "Hank",
-      "last_name": "Kris",
+      "patient_id": "6703fd63-bf4e-7b60-0357-61c06b958c75",
+      "first_name": "Xenia",
+      "last_name": "Sauer",
       "status": "high",
-      "confidence_score": 76.88,
+      "confidence_score": 99.41,
       "reasons": [
-        "Age moderately outside range (gap 0.38)",
+        "Age within required range",
         "Sex matches trial requirement",
         "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
         "HbA1c within maximum threshold",
         "Good lab data completeness"
       ]
     },
     {
-      "patient_id": "97309261-961a-50e4-ef11-7181dfabdb63",
-      "first_name": "Mariano",
-      "last_name": "Hickle",
+      "patient_id": "121ae2d7-a1af-18fb-c5c4-c33cc679a590",
+      "first_name": "Lynwood",
+      "last_name": "Howe",
       "status": "high",
-      "confidence_score": 73.37,
+      "confidence_score": 98.21,
       "reasons": [
-        "Age significantly outside range (gap 0.54)",
+        "Age within required range",
         "Sex matches trial requirement",
         "Key condition (T2D) present",
         "HbA1c within maximum threshold",

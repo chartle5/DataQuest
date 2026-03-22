@@ -1,16 +1,85 @@
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 from ..patients.features import PatientProfile
 from ..trials.schema import TrialCriteria
 
 
-def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Dict[str, float]:
+# --------------- ranker mode configuration ---------------
+
+RANKER_MODES = {
+    "diabetes": {
+        "condition_keywords": [
+            "type 2 diabetes", "type ii diabetes", "t2d",
+            "diabetes mellitus",
+        ],
+        "key_labs": [
+            "a1c", "glucose", "creatinine", "cholesterol",
+            "triglycerides", "hemoglobin",
+        ],
+    },
+    "cancer": {
+        "condition_keywords": [
+            "cancer", "carcinoma", "neoplasm", "tumor", "tumour",
+            "malignant", "lymphoma", "leukemia", "melanoma", "sarcoma",
+            "oncology",
+        ],
+        "key_labs": [
+            "hemoglobin", "white blood cell", "platelet",
+            "creatinine", "albumin", "calcium",
+        ],
+    },
+}
+
+# Chemo-related medication keywords for cancer mode
+_CHEMO_KEYWORDS = [
+    "cyclophosphamide", "doxorubicin", "paclitaxel", "cisplatin",
+    "carboplatin", "fluorouracil", "methotrexate", "vincristine",
+    "irinotecan", "oxaliplatin", "gemcitabine", "docetaxel",
+    "etoposide", "bleomycin", "capecitabine", "pemetrexed",
+    "temozolomide", "nivolumab", "pembrolizumab", "atezolizumab",
+    "trastuzumab", "bevacizumab", "rituximab", "cetuximab",
+]
+
+
+def _detect_mode(condition: str) -> str:
+    """Detect ranker mode from condition string."""
+    lower = condition.lower()
+    for kw in RANKER_MODES["cancer"]["condition_keywords"]:
+        if kw in lower:
+            return "cancer"
+    return "diabetes"
+
+
+def build_match_features(
+    patient: PatientProfile,
+    criteria: TrialCriteria,
+    condition_keywords: Optional[List[str]] = None,
+    mode: str = "diabetes",
+) -> Dict[str, float]:
+    mode_cfg = RANKER_MODES.get(mode, RANKER_MODES["diabetes"])
+    # Combine trial-specific keywords with mode-level keywords for robust matching
+    base_kw = mode_cfg["condition_keywords"]
+    if condition_keywords:
+        kw_list = list(set(base_kw + condition_keywords))
+    else:
+        kw_list = base_kw
+
     features: Dict[str, float] = {}
 
     # --- binary match features ---
     features["age_match"] = _match_age(patient.age, criteria)
     features["sex_match"] = _match_sex(patient.sex, criteria)
-    features["t2d_present"] = _has_condition(patient, "type 2 diabetes")
+
+    # Generic key condition — checks trial's actual target condition
+    # Bidirectional substring match to handle different naming conventions
+    # (e.g. "Diabetes Mellitus, Type 2" vs "type 2 diabetes")
+    features["key_condition_present"] = (
+        1.0 if any(
+            any(kw in c or c in kw for c in patient.conditions)
+            for kw in kw_list
+        ) else 0.0
+    )
+
     features["hba1c_above_min"] = _lab_meets_min(patient, "a1c", criteria.hba1c_min)
     features["hba1c_below_max"] = _lab_meets_max(patient, "a1c", criteria.hba1c_max)
     features["renal_exclusion_hit"] = _has_condition(patient, "renal failure")
@@ -26,7 +95,7 @@ def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Di
     features["hba1c_gap"] = _normalized_lab_gap(patient, "a1c", criteria.hba1c_min, criteria.hba1c_max)
 
     # --- aggregate features ---
-    inclusion_fields = ["age_match", "sex_match", "t2d_present", "hba1c_above_min", "hba1c_below_max"]
+    inclusion_fields = ["age_match", "sex_match", "key_condition_present", "hba1c_above_min", "hba1c_below_max"]
     features["inclusion_satisfied_count"] = sum(features[f] for f in inclusion_fields)
 
     exclusion_fields = ["renal_exclusion_hit", "stroke_exclusion_hit", "insulin_pump_conflict"]
@@ -41,7 +110,7 @@ def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Di
         overlap = sum(1.0 for tc in trial_conditions if any(tc in pc for pc in patient.conditions))
         features["diagnosis_overlap_score"] = overlap / len(trial_conditions)
     else:
-        features["diagnosis_overlap_score"] = features["t2d_present"]
+        features["diagnosis_overlap_score"] = features["key_condition_present"]
 
     # --- continuous / tie-breaking features ---
     features["age_normalized"] = patient.age / 100.0
@@ -51,10 +120,41 @@ def build_match_features(patient: PatientProfile, criteria: TrialCriteria) -> Di
     features["condition_count"] = min(len(patient.conditions), 30) / 30.0
     features["insulin_on_med"] = 1.0 if any("insulin" in m for m in patient.medications) else 0.0
 
-    # Lab completeness: fraction of key labs present
-    key_labs = ["a1c", "glucose", "creatinine", "cholesterol", "triglycerides", "hemoglobin"]
+    # Lab completeness: fraction of mode-relevant key labs present
+    key_labs = mode_cfg["key_labs"]
     present = sum(1.0 for k in key_labs if _lab_value(patient, k) is not None)
     features["lab_completeness"] = present / len(key_labs)
+
+    # --- cancer-specific features ---
+    if mode == "cancer":
+        features["has_prior_chemo"] = (
+            1.0 if any(
+                any(ck in m for ck in _CHEMO_KEYWORDS)
+                for m in patient.medications
+            ) else 0.0
+        )
+        features["has_prior_radiation"] = (
+            1.0 if any("radiation" in c for c in patient.conditions)
+            or any("radiation" in m for m in patient.medications)
+            else 0.0
+        )
+        features["has_metastatic_disease"] = (
+            1.0 if any(
+                kw in c
+                for c in patient.conditions
+                for kw in ("metastatic", "metastasis", "stage iv", "stage 4")
+            ) else 0.0
+        )
+        cancer_conds = sum(
+            1 for c in patient.conditions
+            if any(kw in c for kw in RANKER_MODES["cancer"]["condition_keywords"])
+        )
+        features["tumor_condition_count"] = min(cancer_conds, 10) / 10.0
+        chemo_meds = sum(
+            1 for m in patient.medications
+            if any(ck in m for ck in _CHEMO_KEYWORDS)
+        )
+        features["cancer_medication_count"] = min(chemo_meds, 10) / 10.0
 
     return features
 
