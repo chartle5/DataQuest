@@ -21,12 +21,15 @@ body{
   flex-direction:column;
   align-items:center;
 }
-.site-header{display:flex;flex-direction:column;align-items:center;margin:40px 0 18px}
-.logo{width:72px;height:72px;margin-bottom:12px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.45)}
-.brand{font-size:24px;margin:10px 0 0;font-weight:700;letter-spacing:0.6px;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center}
-.brand-sub{font-size:12px;display:block;margin-top:2px;color:var(--muted);font-weight:600;letter-spacing:0.2px}
-.tagline{font-size:13px;color:var(--muted);margin:6px 0 0;letter-spacing:0.3px}
-.main{width:100%;display:flex;justify-content:center;padding:24px}
+.site-header{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:-4px 0 4px;position:relative;overflow:visible}
+.logo{width:340px;height:340px;margin-bottom:2px;border-radius:0;box-shadow:none;border:0;background:transparent;display:block}
+.branding{display:flex;flex-direction:column;align-items:center}
+.branding{display:flex;flex-direction:column;align-items:center;position:relative}
+.brand-text{display:flex;flex-direction:column;align-items:center;position:absolute;left:50%;top:60%;transform:translate(-50%, -50%);text-align:center;z-index:3;pointer-events:none;width:360px;max-width:95%}
+.brand{font-size:26px;margin:0;font-weight:700;letter-spacing:0.4px;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;margin-top:0}
+.brand-sub{font-size:14px;display:none;margin-top:0;color:var(--muted);font-weight:600;letter-spacing:0.2px}
+.tagline{font-size:14px;color:var(--muted);margin:0;letter-spacing:0.3px;white-space:nowrap;overflow:visible}
+.main{width:100%;display:flex;justify-content:center;padding:8px;margin-top:-28px}
 .card{width:100%;max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;box-shadow:0 10px 40px rgba(2,6,23,0.6);padding:30px;border:1px solid rgba(255,255,255,0.03)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:flex;flex-direction:column}
@@ -36,6 +39,9 @@ select,input[type=number]{padding:12px 14px;border-radius:10px;border:1px solid 
 select:focus,input[type=number]:focus{box-shadow:0 6px 18px rgba(6,182,212,0.07);border-color:rgba(6,182,212,0.35)}
 .btn{padding:10px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;font-size:14px;transition:transform 0.15s}
 .btn:hover{transform:translateY(-2px)}
+  .site-header{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:-30px 0 4px;position:relative;overflow:visible}
+  .logo{width:340px;height:340px;margin-bottom:0;border-radius:0;box-shadow:none;border:0;background:transparent;display:block}
+  .main{width:100%;display:flex;justify-content:center;padding:8px;margin-top:-96px}
 .btn:active{transform:translateY(0)}
 .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
 .btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent));color:white;box-shadow:0 6px 18px rgba(7,89,133,0.12)}
@@ -85,4 +91,11 @@ select:focus,input[type=number]:focus{box-shadow:0 6px 18px rgba(6,182,212,0.07)
   .form{grid-template-columns:1fr}
   .card{margin:0 12px;padding:20px}
   .metrics-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:640px){
+  .logo{width:200px;height:200px;margin-bottom:6px;border-radius:0;box-shadow:none}
+  .brand{margin-top:0;font-size:20px}
+  .tagline{margin-top:0;white-space:nowrap;font-size:12px}
+  .brand-text{top:70%}
 }
