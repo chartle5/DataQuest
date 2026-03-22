@@ -7,11 +7,21 @@ from ..config import DATA_DIR, OUTPUT_DIR, PAIRS_OUTPUT_PATH, RANKED_OUTPUT_PATH
 from ..patients.features import build_patient_profiles
 from ..trials.api import fetch_trials
 from ..trials.rag import build_trial_rag_features
-from ..matching.features import build_match_features
+from ..matching.features import build_match_features, _detect_mode
 from ..matching.ranker import TrialRanker
 
+# Features used to define _rule_label() — must be excluded from training X
+# to avoid circular logic (label leakage).
+LABEL_FEATURES = {
+    "key_condition_present", "inclusion_satisfied_count",
+    "renal_exclusion_hit", "stroke_exclusion_hit", "insulin_pump_conflict",
+    "missing_hba1c", "missing_renal_lab",
+    "age_match", "sex_match",
+}
 
-def build_patient_trial_pairs(trials_limit: int = 50) -> pd.DataFrame:
+
+def build_patient_trial_pairs(trials_limit: int = 50, condition: str = "type 2 diabetes") -> pd.DataFrame:
+    mode = _detect_mode(condition)
     profiles = build_patient_profiles(
         patients_path=str(DATA_DIR / "patients.csv"),
         conditions_path=str(DATA_DIR / "conditions.csv"),
@@ -20,17 +30,21 @@ def build_patient_trial_pairs(trials_limit: int = 50) -> pd.DataFrame:
         encounters_path=str(DATA_DIR / "encounters.csv"),
     )
 
+    cache_path = OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
     trials = fetch_trials(
-        "type 2 diabetes",
+        condition,
         limit=trials_limit,
-        cache_path=TRIALS_CACHE_PATH,
+        cache_path=cache_path,
+        mode=mode,
     )
     trial_rag = build_trial_rag_features(trials, DATA_DIR)
     rows = []
 
     for trial in trials:
+        condition_keywords = [c.lower() for c in trial.conditions] if trial.conditions else None
         for patient in profiles.values():
-            features = build_match_features(patient, trial.criteria)
+            features = build_match_features(patient, trial.criteria,
+                                            condition_keywords=condition_keywords, mode=mode)
             rag_features = trial_rag.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
             label = _rule_label(features)
             rows.append(
@@ -44,13 +58,17 @@ def build_patient_trial_pairs(trials_limit: int = 50) -> pd.DataFrame:
             )
 
     df = pd.DataFrame(rows)
-    PAIRS_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(PAIRS_OUTPUT_PATH, index=False)
+    output_path = OUTPUT_DIR / f"patient_trial_pairs_{mode}.csv"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(output_path, index=False)
     return df
 
 
 def rank_patients(df: pd.DataFrame) -> pd.DataFrame:
-    feature_cols = [c for c in df.columns if c not in ("trial_id", "patient_id", "label")]
+    # Exclude label-defining features from training to prevent leakage
+    feature_cols = [c for c in df.columns
+                    if c not in ("trial_id", "patient_id", "label")
+                    and c not in LABEL_FEATURES]
     X = df[feature_cols].values.astype(float)
     y = df["label"].values.astype(float)
 
@@ -159,7 +177,13 @@ def _rule_label(features: dict) -> int:
 
     Higher values indicate better patient-trial match quality.
     """
-    # Hard exclusions -> grade 0
+    # Hard demographic exclusions -> grade 0
+    if features.get("age_match", 1.0) == 0.0:
+        return 0
+    if features.get("sex_match", 1.0) == 0.0:
+        return 0
+
+    # Hard clinical exclusions -> grade 0
     if features.get("renal_exclusion_hit", 0.0) == 1.0:
         return 0
     if features.get("stroke_exclusion_hit", 0.0) == 1.0:
@@ -172,15 +196,17 @@ def _rule_label(features: dict) -> int:
     has_missing = (features.get("missing_hba1c", 0.0) + features.get("missing_renal_lab", 0.0)) > 0
 
     # Good match: key condition present + most inclusions met + no missing data
-    if features.get("t2d_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
+    if features.get("key_condition_present", 0.0) == 1.0 and inc >= 4 and not has_missing:
         return 3
     # Partial match: key condition present or high inclusion count
-    if features.get("t2d_present", 0.0) == 1.0 or inc >= 3:
+    if features.get("key_condition_present", 0.0) == 1.0 or inc >= 3:
         return 2
     # Poor match: few criteria met, no hard exclusion
     return 1
 
 
 if __name__ == "__main__":
-    df_pairs = build_patient_trial_pairs(trials_limit=50)
+    import sys
+    condition = sys.argv[1] if len(sys.argv) > 1 else "type 2 diabetes"
+    df_pairs = build_patient_trial_pairs(trials_limit=50, condition=condition)
     rank_patients(df_pairs)

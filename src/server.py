@@ -24,7 +24,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from src.patients.features import build_patient_profiles, PatientProfile
 from src.trials.api import fetch_trials
 from src.trials.rag import build_trial_rag_features
-from src.matching.features import build_match_features
+from src.matching.features import build_match_features, _detect_mode
 from src.matching.ranker import TrialRanker
 from src import config
 
@@ -92,7 +92,7 @@ def _load_model(condition: str):
 
 # ---------- trial selection ----------
 
-def _trial_richness(trial) -> int:
+def _trial_richness(trial, mode: str = "diabetes") -> int:
     """Score a trial by how many structured criteria it defines.
 
     Trials with more non-null constraints are more useful for matching because
@@ -101,38 +101,69 @@ def _trial_richness(trial) -> int:
     c = trial.criteria
     score = 0
     if c.min_age is not None:
-        score += 1
+        score += 2 if mode == "cancer" else 1
     if c.max_age is not None:
-        score += 1
+        score += 2 if mode == "cancer" else 1
     if c.sex_allowed not in (None, "all"):
         score += 1
-    if c.requires_t2d:
-        score += 2  # strong signal
-    if c.hba1c_min is not None:
-        score += 2
-    if c.hba1c_max is not None:
-        score += 1
+    if mode == "diabetes":
+        if c.requires_t2d:
+            score += 2  # strong signal for diabetes
+        if c.hba1c_min is not None:
+            score += 2
+        if c.hba1c_max is not None:
+            score += 1
+    if mode == "cancer":
+        # Cancer trials: value entity and condition richness
+        if c.entities:
+            score += min(len(c.entities), 5)
+        # Conditions list contains cancer keywords
+        cond_text = " ".join(trial.conditions).lower()
+        if any(kw in cond_text for kw in ("cancer", "carcinoma", "neoplasm", "lymphoma", "melanoma", "leukemia")):
+            score += 3
     if c.excludes_renal_failure:
         score += 1
     if c.excludes_recent_stroke:
         score += 1
     if c.excludes_insulin_pump:
         score += 1
-    if c.entities:
+    if c.entities and mode == "diabetes":
         score += min(len(c.entities), 3)
     return score
 
 
-def _select_best_trial(trials):
-    """Pick the trial with the richest structured criteria for ranking."""
+def _select_best_trial(trials, mode: str = "diabetes", profiles=None):
+    """Pick the trial with the richest structured criteria for ranking.
+
+    When patient profiles are available, penalize trials whose age range
+    has zero overlap with the actual patient population (avoids selecting
+    a trial where every patient is ineligible).
+    """
     if not trials:
         return None
-    return max(trials, key=_trial_richness)
+
+    if profiles:
+        ages = [p.age for p in profiles.values()]
+        min_patient_age, max_patient_age = min(ages), max(ages)
+
+        def _score(trial):
+            base = _trial_richness(trial, mode)
+            c = trial.criteria
+            trial_min = c.min_age or 0
+            trial_max = c.max_age or 120
+            # Check if any patient could be in range
+            if trial_max < min_patient_age or trial_min > max_patient_age:
+                base -= 20  # heavy penalty — no patients can match
+            return base
+
+        return max(trials, key=_score)
+
+    return max(trials, key=lambda t: _trial_richness(t, mode))
 
 
 # ---------- reason / confidence helpers ----------
 
-def _build_reasons(feat: Dict[str, float]) -> List[str]:
+def _build_reasons(feat: Dict[str, float], mode: str = "diabetes") -> List[str]:
     """Human-readable reason codes per patient-trial pair."""
     reasons = []
     if feat.get("age_match") == 1.0:
@@ -149,17 +180,36 @@ def _build_reasons(feat: Dict[str, float]) -> List[str]:
     if feat.get("sex_match") == 1.0:
         reasons.append("Sex matches trial requirement")
 
-    if feat.get("t2d_present") == 1.0:
-        reasons.append("Key condition (T2D) present")
+    if mode == "cancer":
+        if feat.get("key_condition_present") == 1.0:
+            reasons.append("Cancer-related condition present in patient record")
+        else:
+            reasons.append("No cancer-related condition found in patient record")
+        if feat.get("has_prior_chemo", 0) == 1.0:
+            reasons.append("Patient has prior chemotherapy history")
+        if feat.get("has_prior_radiation", 0) == 1.0:
+            reasons.append("Patient has prior radiation treatment")
+        if feat.get("has_metastatic_disease", 0) == 1.0:
+            reasons.append("Metastatic disease present")
+        tumor_ct = feat.get("tumor_condition_count", 0)
+        if tumor_ct > 0:
+            reasons.append(f"{int(tumor_ct * 10)} cancer-related condition(s) found")
+        chemo_ct = feat.get("cancer_medication_count", 0)
+        if chemo_ct > 0:
+            reasons.append(f"{int(chemo_ct * 10)} chemo/targeted-therapy medication(s) found")
     else:
-        reasons.append("Key condition (T2D) not found")
+        # Diabetes mode
+        if feat.get("key_condition_present") == 1.0:
+            reasons.append("Key condition (T2D) present")
+        else:
+            reasons.append("Key condition (T2D) not found")
 
-    if feat.get("hba1c_above_min") == 1.0 and feat.get("missing_hba1c", 0) == 0:
-        reasons.append("HbA1c above minimum threshold")
-    if feat.get("hba1c_below_max") == 1.0 and feat.get("missing_hba1c", 0) == 0:
-        reasons.append("HbA1c within maximum threshold")
-    if feat.get("missing_hba1c") == 1.0:
-        reasons.append("HbA1c data unavailable")
+        if feat.get("hba1c_above_min") == 1.0 and feat.get("missing_hba1c", 0) == 0:
+            reasons.append("HbA1c above minimum threshold")
+        if feat.get("hba1c_below_max") == 1.0 and feat.get("missing_hba1c", 0) == 0:
+            reasons.append("HbA1c within maximum threshold")
+        if feat.get("missing_hba1c") == 1.0:
+            reasons.append("HbA1c data unavailable")
 
     if feat.get("renal_exclusion_hit") == 1.0:
         reasons.append("EXCLUDED: renal failure present")
@@ -180,7 +230,16 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     """Compute a numeric confidence score 0-100 from raw score + features.
 
     Uses sigmoid scaling with adjustments for missing data and exclusions.
+    Hard constraints: age/sex mismatch → 0% (ineligible).
     """
+    # Hard fail: age outside range → ineligible
+    if feat.get("age_match", 1.0) == 0.0:
+        return 0.0
+
+    # Hard fail: sex mismatch → ineligible
+    if feat.get("sex_match", 1.0) == 0.0:
+        return 0.0
+
     # Sigmoid-scale the raw score into 0-100 range
     # Raw heuristic scores typically fall in [-0.5, 1.0]
     scaled = 1.0 / (1.0 + np.exp(-6.0 * (score - 0.3)))
@@ -193,6 +252,10 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
     # Hard exclusions cap confidence
     exclusions = feat.get("exclusion_conflict_count", 0)
     if exclusions > 0:
+        confidence = min(confidence, 15.0)
+
+    # Missing key condition → soft cap (EHR under-coding)
+    if feat.get("key_condition_present", 0.0) == 0.0:
         confidence = min(confidence, 15.0)
 
     return round(max(0.0, min(100.0, confidence)), 2)
@@ -211,43 +274,70 @@ def _confidence_label(confidence_score: float) -> str:
 
 # ---------- scoring ----------
 
-def _heuristic_score(df, feature_cols):
+def _heuristic_score(df, feature_cols, mode: str = "diabetes"):
     """Weighted heuristic score with continuous features for differentiation."""
     score = np.zeros(len(df))
 
-    # Primary match signals (binary)
-    weights = {
-        "age_match": 0.20,
-        "sex_match": 0.04,
-        "t2d_present": 0.18,
-        "hba1c_above_min": 0.08,
-        "hba1c_below_max": 0.04,
-        "inclusion_satisfied_count": 0.06,  # 0-5 range, so 0.06 * 5 = 0.30 max
-        "diagnosis_overlap_score": 0.08,
-        "rag_sim_max": 0.04,
-        "rag_sim_mean": 0.02,
-    }
-    # Continuous tie-breaking features (patient-intrinsic)
-    tiebreaker_weights = {
-        "lab_completeness": 0.06,
-        "condition_count": 0.03,
-        "medication_count": 0.02,
-        "age_normalized": 0.01,  # slight signal — older patients more likely T2D
-        "hba1c_value": 0.03,
-        "insulin_on_med": 0.02,
-    }
-    # Penalty features
-    penalties = {
-        "renal_exclusion_hit": -0.30,
-        "stroke_exclusion_hit": -0.25,
-        "insulin_pump_conflict": -0.20,
-        "exclusion_conflict_count": -0.08,
-        "missing_hba1c": -0.04,
-        "missing_renal_lab": -0.02,
-        "age_gap": -0.25,
-        "hba1c_gap": -0.05,
-        "recent_hospitalization": -0.02,
-    }
+    if mode == "cancer":
+        weights = {
+            "age_match": 0.20,
+            "sex_match": 0.06,
+            "key_condition_present": 0.25,
+            "has_metastatic_disease": 0.10,
+            "has_prior_chemo": 0.08,
+            "cancer_medication_count": 0.06,
+            "tumor_condition_count": 0.05,
+            "diagnosis_overlap_score": 0.10,
+            "inclusion_satisfied_count": 0.04,
+            "rag_sim_max": 0.04,
+            "rag_sim_mean": 0.02,
+        }
+        tiebreaker_weights = {
+            "lab_completeness": 0.04,
+            "condition_count": 0.03,
+            "medication_count": 0.02,
+            "age_normalized": 0.01,
+        }
+        penalties = {
+            "renal_exclusion_hit": -0.20,
+            "stroke_exclusion_hit": -0.15,
+            "exclusion_conflict_count": -0.06,
+            "age_gap": -0.30,
+            "missing_renal_lab": -0.02,
+            "recent_hospitalization": -0.01,
+        }
+    else:
+        # Diabetes mode (default)
+        weights = {
+            "age_match": 0.25,
+            "sex_match": 0.04,
+            "key_condition_present": 0.20,
+            "hba1c_above_min": 0.12,
+            "hba1c_below_max": 0.04,
+            "inclusion_satisfied_count": 0.06,
+            "diagnosis_overlap_score": 0.08,
+            "rag_sim_max": 0.04,
+            "rag_sim_mean": 0.02,
+        }
+        tiebreaker_weights = {
+            "lab_completeness": 0.06,
+            "condition_count": 0.03,
+            "medication_count": 0.02,
+            "age_normalized": 0.01,
+            "hba1c_value": 0.03,
+            "insulin_on_med": 0.02,
+        }
+        penalties = {
+            "renal_exclusion_hit": -0.35,
+            "stroke_exclusion_hit": -0.25,
+            "insulin_pump_conflict": -0.20,
+            "exclusion_conflict_count": -0.08,
+            "missing_hba1c": -0.04,
+            "missing_renal_lab": -0.02,
+            "age_gap": -0.35,
+            "hba1c_gap": -0.05,
+            "recent_hospitalization": -0.02,
+        }
 
     for col, w in weights.items():
         if col in df.columns:
@@ -258,6 +348,14 @@ def _heuristic_score(df, feature_cols):
     for col, w in penalties.items():
         if col in df.columns:
             score += df[col].fillna(0).values * w
+
+    # Hard floor: age or sex outside range → minimum score
+    if "age_match" in df.columns:
+        age_fail = df["age_match"].fillna(1).values == 0.0
+        score[age_fail] = -1.0
+    if "sex_match" in df.columns:
+        sex_fail = df["sex_match"].fillna(1).values == 0.0
+        score[sex_fail] = -1.0
 
     # Deterministic micro-jitter for tie-breaking (hash-based, not random)
     if "patient_id" in df.columns:
@@ -276,18 +374,22 @@ def api_rank():
     payload = request.get_json() or {}
     condition = payload.get("condition", "type 2 diabetes")
     top_n = int(payload.get("top_n", 10))
+    mode = _detect_mode(condition)
 
     cache_path = config.OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
-    trials = fetch_trials(condition, limit=20, cache_path=cache_path)
+    trials = fetch_trials(condition, limit=20, cache_path=cache_path, mode=mode)
     if not trials:
         return jsonify({"error": "no trials found for condition"}), 400
 
-    # Select the trial with richest structured criteria
-    trial = _select_best_trial(trials)
-    log.info("Selected trial %s (richness=%d) from %d candidates",
-             trial.trial_id, _trial_richness(trial), len(trials))
-
     profiles = _get_profiles()
+
+    # Select the trial with richest structured criteria
+    trial = _select_best_trial(trials, mode=mode, profiles=profiles)
+    log.info("Selected trial %s (richness=%d, mode=%s) from %d candidates",
+             trial.trial_id, _trial_richness(trial, mode), mode, len(trials))
+
+    # Derive condition keywords from the trial's conditions list
+    condition_keywords = [c.lower() for c in trial.conditions] if trial.conditions else None
 
     # Compute RAG features for the selected trial
     try:
@@ -298,7 +400,8 @@ def api_rank():
 
     rows = []
     for pid, patient in profiles.items():
-        feat = build_match_features(patient, trial.criteria)
+        feat = build_match_features(patient, trial.criteria,
+                                    condition_keywords=condition_keywords, mode=mode)
         feat.update(trial_rag)
         rows.append({"patient_id": pid, **feat})
 
@@ -311,9 +414,9 @@ def api_rank():
         try:
             scores = model.predict(X)
         except Exception:
-            scores = _heuristic_score(df, feature_cols)
+            scores = _heuristic_score(df, feature_cols, mode=mode)
     else:
-        scores = _heuristic_score(df, feature_cols)
+        scores = _heuristic_score(df, feature_cols, mode=mode)
 
     df["score"] = scores
     df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
@@ -331,7 +434,7 @@ def api_rank():
             "last_name": names["last"],
             "status": _confidence_label(confidence),
             "confidence_score": confidence,
-            "reasons": _build_reasons(feat),
+            "reasons": _build_reasons(feat, mode=mode),
         })
 
     # --- write output file ---
