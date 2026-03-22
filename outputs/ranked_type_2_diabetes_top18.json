@@ -1,0 +1,258 @@
+{
+  "trial_id": "NCT02426294",
+  "trial_title": "Comparison of Pioglitazone Versus Glimepiride in Type 2 Diabetes Inadequately Controlled With Metformin Plus Alogliptin",
+  "candidates": [
+    {
+      "patient_id": "29bb9b62-36b5-a44d-ad39-2ab8c5f8ffb2",
+      "first_name": "Cordell41",
+      "last_name": "Harber290",
+      "status": "high",
+      "confidence_score": 84.16,
+      "reasons": [
+        "Age outside range (gap 0.46)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "dbbe461a-dfd4-400e-c77d-b99a29dada93",
+      "first_name": "Hank686",
+      "last_name": "Kris249",
+      "status": "high",
+      "confidence_score": 82.46,
+      "reasons": [
+        "Age outside range (gap 0.38)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "45cb99d4-99fb-7ac1-64d2-42964be13a53",
+      "first_name": "Hildred696",
+      "last_name": "Boyle917",
+      "status": "high",
+      "confidence_score": 82.44,
+      "reasons": [
+        "Age outside range (gap 0.69)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "97309261-961a-50e4-ef11-7181dfabdb63",
+      "first_name": "Mariano761",
+      "last_name": "Hickle134",
+      "status": "high",
+      "confidence_score": 81.73,
+      "reasons": [
+        "Age outside range (gap 0.54)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "ebb99571-dc6c-2d72-d0c4-fe17388be05a",
+      "first_name": "Demetrius568",
+      "last_name": "Spinka232",
+      "status": "high",
+      "confidence_score": 80.59,
+      "reasons": [
+        "Age outside range (gap 0.77)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "b0edefd0-fa21-15f6-299a-0c259a4e1d24",
+      "first_name": "Pat3",
+      "last_name": "Lind531",
+      "status": "high",
+      "confidence_score": 80.36,
+      "reasons": [
+        "Age outside range (gap 0.85)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "739ce1cb-9771-d8fc-8415-73c4728ccb89",
+      "first_name": "Sylvester827",
+      "last_name": "Schoen8",
+      "status": "high",
+      "confidence_score": 79.62,
+      "reasons": [
+        "Age outside range (gap 0.85)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "b2241b82-3678-2b6f-211d-0c5913693d5f",
+      "first_name": "Cristine925",
+      "last_name": "Kozey370",
+      "status": "high",
+      "confidence_score": 78.58,
+      "reasons": [
+        "Age outside range (gap 1.23)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "e4bef202-446d-df96-173e-fe1a3eb4b2a2",
+      "first_name": "Nakesha793",
+      "last_name": "Muller251",
+      "status": "high",
+      "confidence_score": 70.26,
+      "reasons": [
+        "Age outside range (gap 0.38)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c data unavailable",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "e96f41c8-f5c2-d635-83a8-cbebba782841",
+      "first_name": "Deanne837",
+      "last_name": "West559",
+      "status": "high",
+      "confidence_score": 78.14,
+      "reasons": [
+        "Age outside range (gap 1.08)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "a2a50072-6344-adb2-3254-79c88620f586",
+      "first_name": "Claud279",
+      "last_name": "Nader710",
+      "status": "high",
+      "confidence_score": 77.89,
+      "reasons": [
+        "Age outside range (gap 0.92)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "762fc8bb-0355-d597-372a-63536fb88340",
+      "first_name": "Margene509",
+      "last_name": "Schumm995",
+      "status": "high",
+      "confidence_score": 77.38,
+      "reasons": [
+        "Age outside range (gap 1.23)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "56a12745-a969-3a3c-e10a-3e035119173b",
+      "first_name": "Merilyn246",
+      "last_name": "Bradtke547",
+      "status": "high",
+      "confidence_score": 77.11,
+      "reasons": [
+        "Age outside range (gap 1.23)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "3ee9aa63-649d-769e-fae0-c66a99965c8c",
+      "first_name": "Willie882",
+      "last_name": "Dach178",
+      "status": "high",
+      "confidence_score": 76.73,
+      "reasons": [
+        "Age outside range (gap 0.92)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "c9f5b226-92ca-9222-23ea-7d74446f1507",
+      "first_name": "Randal152",
+      "last_name": "Wolf938",
+      "status": "moderate",
+      "confidence_score": 68.53,
+      "reasons": [
+        "Age outside range (gap 0.54)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c data unavailable",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "9c272169-03a8-dda9-92e2-a3b291dd4761",
+      "first_name": "Abram53",
+      "last_name": "Davis923",
+      "status": "high",
+      "confidence_score": 76.23,
+      "reasons": [
+        "Age outside range (gap 1.31)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "e8df4e36-31ca-7f6a-bbdf-2525b03eae23",
+      "first_name": "Erin498",
+      "last_name": "Huel628",
+      "status": "high",
+      "confidence_score": 76.04,
+      "reasons": [
+        "Age outside range (gap 1.23)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "90a17ca8-e9ae-652d-792f-758b4d1fde41",
+      "first_name": "Norbert530",
+      "last_name": "Fritsch593",
+      "status": "moderate",
+      "confidence_score": 68.01,
+      "reasons": [
+        "Age outside range (gap 0.38)",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c data unavailable",
+        "Good lab data completeness"
+      ]
+    }
+  ]
+}

@@ -34,6 +34,7 @@ log = logging.getLogger(__name__)
 FRONTEND_DIR = Path(__file__).resolve().parents[1] / "frontend"
 APP = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
 
+
 MODELS_DIR = config.OUTPUT_DIR / "models"
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -84,6 +85,7 @@ def _load_model(condition: str):
     if model_path.exists():
         try:
             import joblib
+
             return joblib.load(model_path)
         except Exception:
             return None
@@ -106,19 +108,19 @@ def _trial_richness(trial) -> int:
         score += 1
     if c.sex_allowed not in (None, "all"):
         score += 1
-    if c.requires_t2d:
+    if getattr(c, "requires_t2d", False):
         score += 2  # strong signal
     if c.hba1c_min is not None:
         score += 2
     if c.hba1c_max is not None:
         score += 1
-    if c.excludes_renal_failure:
+    if getattr(c, "excludes_renal_failure", False):
         score += 1
-    if c.excludes_recent_stroke:
+    if getattr(c, "excludes_recent_stroke", False):
         score += 1
-    if c.excludes_insulin_pump:
+    if getattr(c, "excludes_insulin_pump", False):
         score += 1
-    if c.entities:
+    if getattr(c, "entities", None):
         score += min(len(c.entities), 3)
     return score
 
@@ -181,16 +183,12 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
 
     Uses sigmoid scaling with adjustments for missing data and exclusions.
     """
-    # Sigmoid-scale the raw score into 0-100 range
-    # Raw heuristic scores typically fall in [-0.5, 1.0]
     scaled = 1.0 / (1.0 + np.exp(-6.0 * (score - 0.3)))
     confidence = scaled * 100.0
 
-    # Penalize missing data
     missing = feat.get("unknown_field_count", 0)
     confidence -= missing * 8.0
 
-    # Hard exclusions cap confidence
     exclusions = feat.get("exclusion_conflict_count", 0)
     if exclusions > 0:
         confidence = min(confidence, 15.0)
@@ -199,7 +197,6 @@ def _compute_confidence(score: float, feat: Dict[str, float]) -> float:
 
 
 def _confidence_label(confidence_score: float) -> str:
-    """Map numeric confidence to categorical label."""
     if confidence_score >= 70:
         return "high"
     if confidence_score >= 45:
@@ -212,31 +209,27 @@ def _confidence_label(confidence_score: float) -> str:
 # ---------- scoring ----------
 
 def _heuristic_score(df, feature_cols):
-    """Weighted heuristic score with continuous features for differentiation."""
     score = np.zeros(len(df))
 
-    # Primary match signals (binary)
     weights = {
         "age_match": 0.20,
         "sex_match": 0.04,
         "t2d_present": 0.18,
         "hba1c_above_min": 0.08,
         "hba1c_below_max": 0.04,
-        "inclusion_satisfied_count": 0.06,  # 0-5 range, so 0.06 * 5 = 0.30 max
+        "inclusion_satisfied_count": 0.06,
         "diagnosis_overlap_score": 0.08,
         "rag_sim_max": 0.04,
         "rag_sim_mean": 0.02,
     }
-    # Continuous tie-breaking features (patient-intrinsic)
     tiebreaker_weights = {
         "lab_completeness": 0.06,
         "condition_count": 0.03,
         "medication_count": 0.02,
-        "age_normalized": 0.01,  # slight signal — older patients more likely T2D
+        "age_normalized": 0.01,
         "hba1c_value": 0.03,
         "insulin_on_med": 0.02,
     }
-    # Penalty features
     penalties = {
         "renal_exclusion_hit": -0.30,
         "stroke_exclusion_hit": -0.25,
@@ -259,7 +252,6 @@ def _heuristic_score(df, feature_cols):
         if col in df.columns:
             score += df[col].fillna(0).values * w
 
-    # Deterministic micro-jitter for tie-breaking (hash-based, not random)
     if "patient_id" in df.columns:
         jitter = df["patient_id"].apply(
             lambda pid: int(hashlib.sha256(str(pid).encode()).hexdigest()[:8], 16) / (16**8) * 1e-6
@@ -269,27 +261,19 @@ def _heuristic_score(df, feature_cols):
     return score
 
 
-# ---------- routes ----------
+# ---------- core ranking helper ----------
 
-@APP.route("/api/rank", methods=["POST"])
-def api_rank():
-    payload = request.get_json() or {}
-    condition = payload.get("condition", "type 2 diabetes")
-    top_n = int(payload.get("top_n", 10))
-
+def _rank_for_condition(condition: str, top_n: int = 10) -> Dict[str, Any]:
     cache_path = config.OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
     trials = fetch_trials(condition, limit=20, cache_path=cache_path)
     if not trials:
-        return jsonify({"error": "no trials found for condition"}), 400
+        return {"error": "no trials found for condition"}
 
-    # Select the trial with richest structured criteria
     trial = _select_best_trial(trials)
-    log.info("Selected trial %s (richness=%d) from %d candidates",
-             trial.trial_id, _trial_richness(trial), len(trials))
+    log.info("Selected trial %s (richness=%d) from %d candidates", trial.trial_id, _trial_richness(trial), len(trials))
 
     profiles = _get_profiles()
 
-    # Compute RAG features for the selected trial
     try:
         rag_features = build_trial_rag_features([trial], config.DATA_DIR)
         trial_rag = rag_features.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
@@ -297,10 +281,12 @@ def api_rank():
         trial_rag = {"rag_sim_max": 0.0, "rag_sim_mean": 0.0}
 
     rows = []
+    pid_to_patient = {}
     for pid, patient in profiles.items():
         feat = build_match_features(patient, trial.criteria)
         feat.update(trial_rag)
         rows.append({"patient_id": pid, **feat})
+        pid_to_patient[pid] = patient
 
     df = pd.DataFrame(rows)
     feature_cols = [c for c in df.columns if c != "patient_id"]
@@ -325,27 +311,65 @@ def api_rank():
         names = _patient_names.get(pid, {"first": "", "last": ""})
         raw_score = float(row["score"])
         confidence = _compute_confidence(raw_score, feat)
+        patient = pid_to_patient.get(pid)
+        profile_data = None
+        if patient is not None:
+            profile_data = {
+                "age": int(patient.age),
+                "sex": patient.sex,
+                "conditions": sorted(list(patient.conditions))[:50],
+                "medications": sorted(list(patient.medications))[:50],
+                "labs": {k: v for k, v in patient.labs.items()},
+                "recent_hospitalization": bool(patient.recent_hospitalization),
+            }
+
         candidates.append({
             "patient_id": pid,
             "first_name": names["first"],
             "last_name": names["last"],
+            "profile": profile_data,
+            "features": feat,
             "status": _confidence_label(confidence),
             "confidence_score": confidence,
             "reasons": _build_reasons(feat),
         })
 
-    # --- write output file ---
     output_path = config.OUTPUT_DIR / f"ranked_{condition.replace(' ', '_')}_top{top_n}.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump({"trial_id": trial.trial_id, "trial_title": trial.title, "candidates": candidates}, f, indent=2)
     log.info("Output written to %s", output_path)
 
-    return jsonify({
-        "trial_id": trial.trial_id,
-        "trial_title": trial.title,
-        "candidates": candidates,
-    })
+    return {"trial_id": trial.trial_id, "trial_title": trial.title, "candidates": candidates}
+
+
+# ---------- routes ----------
+
+@APP.route("/api/rank", methods=["POST"])
+def api_rank():
+    payload = request.get_json() or {}
+    condition = payload.get("condition", "type 2 diabetes")
+    try:
+        top_n = int(payload.get("top_n", 10))
+    except Exception:
+        top_n = 10
+    result = _rank_for_condition(condition, top_n)
+    if "error" in result:
+        return jsonify(result), 400
+    return jsonify(result)
+
+
+@APP.route("/api/rank", methods=["GET"])
+def api_rank_get():
+    condition = request.args.get("condition", "type 2 diabetes")
+    try:
+        top_n = int(request.args.get("top_n", "10"))
+    except ValueError:
+        top_n = 10
+    result = _rank_for_condition(condition, top_n)
+    if "error" in result:
+        return jsonify(result), 400
+    return jsonify(result)
 
 
 @APP.route("/api/train", methods=["POST"])
@@ -353,6 +377,7 @@ def api_train():
     payload = request.get_json() or {}
     condition = payload.get("condition", "type 2 diabetes")
     from src.matching.train_models import train_for_condition
+
     model_path = train_for_condition(condition, trials_limit=50)
     if model_path:
         return jsonify({"status": "trained", "model_path": str(model_path)})
@@ -370,7 +395,6 @@ def api_metrics():
 
 @APP.route("/api/trials", methods=["GET"])
 def api_trials():
-    """Return a list of cached trial files available."""
     trial_files = list(config.OUTPUT_DIR.glob("trials_*.json"))
     result = []
     for tf in trial_files:
@@ -392,12 +416,10 @@ VERIFY_TIMEOUT = int(os.environ.get("VERIFY_TIMEOUT", "30"))
 
 
 def _select_top_n(candidates: List[Dict], n: int) -> List[Dict]:
-    """Select the top N candidates (already sorted by rank)."""
     return candidates[:n]
 
 
 def _build_verification_payload(candidate: Dict) -> Dict[str, Any]:
-    """Extract minimum required personal fields for verification."""
     return {
         "patient_id": candidate["patient_id"],
         "first_name": candidate["first_name"],
@@ -406,10 +428,6 @@ def _build_verification_payload(candidate: Dict) -> Dict[str, Any]:
 
 
 def _call_verification_api(payloads: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Post candidate details to the verification API and return results.
-
-    Raises on HTTP or connection errors so the caller can return a clean error.
-    """
     if not VERIFY_API_URL:
         raise ValueError("VERIFY_API_URL environment variable is not configured")
 
@@ -429,23 +447,11 @@ def _call_verification_api(payloads: List[Dict[str, Any]]) -> List[Dict[str, Any
 
 @APP.route("/api/verify", methods=["POST"])
 def api_verify():
-    """Verify top-N ranked candidates against an external verification API.
-
-    Request body:
-        {
-            "condition": "type 2 diabetes",
-            "top_n": 5,           // how many top candidates to verify
-            "candidates": [...]   // optional — pre-ranked candidate list
-        }
-
-    If "candidates" is omitted, the endpoint re-runs /api/rank internally.
-    """
     payload = request.get_json() or {}
     top_n = payload.get("top_n")
     candidates = payload.get("candidates")
     condition = payload.get("condition", "type 2 diabetes")
 
-    # --- validation ---
     if top_n is None:
         return jsonify({"error": "top_n is required"}), 400
     try:
@@ -455,76 +461,24 @@ def api_verify():
     except (TypeError, ValueError):
         return jsonify({"error": "top_n must be a positive integer"}), 400
 
-    # If no pre-ranked candidates provided, generate them
     if not candidates:
-        cache_path = config.OUTPUT_DIR / f"trials_{condition.replace(' ', '_')}.json"
-        trials = fetch_trials(condition, limit=20, cache_path=cache_path)
-        if not trials:
+        result = _rank_for_condition(condition, top_n)
+        if "error" in result:
             return jsonify({"error": "no trials found for condition"}), 400
+        candidates = result.get("candidates", [])
 
-        trial = _select_best_trial(trials)
-        profiles = _get_profiles()
-
-        try:
-            rag_features = build_trial_rag_features([trial], config.DATA_DIR)
-            trial_rag = rag_features.get(trial.trial_id, {"rag_sim_max": 0.0, "rag_sim_mean": 0.0})
-        except Exception:
-            trial_rag = {"rag_sim_max": 0.0, "rag_sim_mean": 0.0}
-
-        rows = []
-        for pid, patient in profiles.items():
-            feat = build_match_features(patient, trial.criteria)
-            feat.update(trial_rag)
-            rows.append({"patient_id": pid, **feat})
-
-        df = pd.DataFrame(rows)
-        feature_cols = [c for c in df.columns if c != "patient_id"]
-
-        model = _load_model(condition.replace(" ", "_"))
-        if model is not None:
-            X = df[feature_cols].values.astype(float)
-            try:
-                scores = model.predict(X)
-            except Exception:
-                scores = _heuristic_score(df, feature_cols)
-        else:
-            scores = _heuristic_score(df, feature_cols)
-
-        df["score"] = scores
-        df_sorted = df.sort_values("score", ascending=False).head(top_n).reset_index(drop=True)
-
-        candidates = []
-        for _, row in df_sorted.iterrows():
-            pid = row["patient_id"]
-            feat = {c: float(row[c]) for c in feature_cols}
-            names = _patient_names.get(pid, {"first": "", "last": ""})
-            raw_score = float(row["score"])
-            confidence = _compute_confidence(raw_score, feat)
-            candidates.append({
-                "patient_id": pid,
-                "first_name": names["first"],
-                "last_name": names["last"],
-                "status": _confidence_label(confidence),
-                "confidence_score": confidence,
-                "reasons": _build_reasons(feat),
-            })
-
-    # Select top N
     selected = _select_top_n(candidates, top_n)
     if not selected:
         return jsonify({"error": "no candidates available to verify"}), 400
 
     log.info("Verification: sending top %d candidates", len(selected))
 
-    # Validate minimum required fields
     for c in selected:
         if not c.get("patient_id") or not c.get("first_name") or not c.get("last_name"):
             return jsonify({"error": "candidate missing required fields (patient_id, first_name, last_name)"}), 400
 
-    # Build minimal payloads
     verification_payloads = [_build_verification_payload(c) for c in selected]
 
-    # Call external verification API
     try:
         api_results = _call_verification_api(verification_payloads)
     except ValueError as e:
@@ -537,9 +491,6 @@ def api_verify():
         log.error("Verification API request failed: %s", e)
         return jsonify({"error": f"verification API request failed: {e}"}), 502
 
-    log.info("Verification: received %d results", len(api_results))
-
-    # Map results back to candidates
     result_map = {r.get("patient_id"): r for r in api_results} if api_results else {}
     verified = []
     for rank_idx, cand in enumerate(selected, start=1):
@@ -550,7 +501,7 @@ def api_verify():
             "first_name": cand["first_name"],
             "last_name": cand["last_name"],
             "rank": rank_idx,
-            "confidence_score": cand["confidence_score"],
+            "confidence_score": cand.get("confidence_score"),
             "verification_result": verification,
         })
 
