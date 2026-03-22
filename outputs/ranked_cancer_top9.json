@@ -7,7 +7,7 @@
       "first_name": "Denae",
       "last_name": "Schiller",
       "status": "high",
-      "confidence_score": 94.87,
+      "confidence_score": 99.33,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -24,7 +24,7 @@
       "first_name": "Miguelina",
       "last_name": "Kunze",
       "status": "high",
-      "confidence_score": 92.0,
+      "confidence_score": 96.78,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -36,27 +36,11 @@
       ]
     },
     {
-      "patient_id": "a6b2d3b1-c611-047c-66c6-114f1aefc5e0",
-      "first_name": "Latashia",
-      "last_name": "Cormier",
-      "status": "high",
-      "confidence_score": 91.7,
-      "reasons": [
-        "Age within required range",
-        "Sex matches trial requirement",
-        "Cancer-related condition present in patient record",
-        "Patient has prior chemotherapy history",
-        "1 cancer-related condition(s) found",
-        "2 chemo/targeted-therapy medication(s) found",
-        "Good lab data completeness"
-      ]
-    },
-    {
       "patient_id": "d6dc3125-470e-d0eb-f8bb-bd8a2e2607cc",
       "first_name": "Selena",
       "last_name": "McKenzie",
       "status": "high",
-      "confidence_score": 91.67,
+      "confidence_score": 96.54,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -72,7 +56,23 @@
       "first_name": "Rubye",
       "last_name": "Dach",
       "status": "high",
-      "confidence_score": 91.37,
+      "confidence_score": 96.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Cancer-related condition present in patient record",
+        "Patient has prior chemotherapy history",
+        "1 cancer-related condition(s) found",
+        "2 chemo/targeted-therapy medication(s) found",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "a6b2d3b1-c611-047c-66c6-114f1aefc5e0",
+      "first_name": "Latashia",
+      "last_name": "Cormier",
+      "status": "high",
+      "confidence_score": 95.8,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -88,7 +88,7 @@
       "first_name": "Beverley",
       "last_name": "Wunsch",
       "status": "high",
-      "confidence_score": 91.07,
+      "confidence_score": 95.29,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -104,7 +104,7 @@
       "first_name": "Cynthia",
       "last_name": "Marquardt",
       "status": "high",
-      "confidence_score": 87.07,
+      "confidence_score": 91.82,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -121,7 +121,7 @@
       "first_name": "Machelle",
       "last_name": "McCullough",
       "status": "high",
-      "confidence_score": 74.0,
+      "confidence_score": 77.51,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
@@ -136,8 +136,8 @@
       "patient_id": "aba844fc-17a0-2280-be3e-3115f5785d6d",
       "first_name": "Caridad",
       "last_name": "O'Conner",
-      "status": "moderate",
-      "confidence_score": 69.4,
+      "status": "high",
+      "confidence_score": 73.3,
       "reasons": [
         "Age within required range",
         "Sex matches trial requirement",
