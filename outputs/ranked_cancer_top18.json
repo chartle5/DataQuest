@@ -1,0 +1,276 @@
+{
+  "trial_id": "NCT01865123",
+  "trial_title": "A Randomized Controlled Trial of Meditation Compared to Exposure Therapy and Education Control on PTSD in Veterans",
+  "candidates": [
+    {
+      "patient_id": "c85bd7bb-90f6-6388-b357-e6e697556bd8",
+      "first_name": "Jean712",
+      "last_name": "Brakus656",
+      "status": "high",
+      "confidence_score": 98.22,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "9c272169-03a8-dda9-92e2-a3b291dd4761",
+      "first_name": "Abram53",
+      "last_name": "Davis923",
+      "status": "high",
+      "confidence_score": 98.22,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "762fc8bb-0355-d597-372a-63536fb88340",
+      "first_name": "Margene509",
+      "last_name": "Schumm995",
+      "status": "high",
+      "confidence_score": 98.22,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "7f0d1583-e134-8f99-4cfd-7d1fba9625c5",
+      "first_name": "Javier97",
+      "last_name": "Blick895",
+      "status": "high",
+      "confidence_score": 98.21,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "aa167500-a187-b3e7-55be-e8eda6ad091e",
+      "first_name": "Dung738",
+      "last_name": "Kovacek682",
+      "status": "high",
+      "confidence_score": 98.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "b86c528e-8ae9-64d2-b525-102dbef17af4",
+      "first_name": "Jamal145",
+      "last_name": "Durgan499",
+      "status": "high",
+      "confidence_score": 98.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "739c84e9-48f2-a2f3-2e0e-b9a133fa6ffe",
+      "first_name": "Sebastian508",
+      "last_name": "Rutherford999",
+      "status": "high",
+      "confidence_score": 98.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "5b8fd393-abef-93ec-3266-f7b221c0ab3d",
+      "first_name": "Porfirio146",
+      "last_name": "Stoltenberg489",
+      "status": "high",
+      "confidence_score": 98.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "8ba0888d-ade1-0bb8-1506-b29bc6477f62",
+      "first_name": "Miss492",
+      "last_name": "Casper496",
+      "status": "high",
+      "confidence_score": 98.2,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "d4306349-c563-8d80-63cc-1661fd2ccbdf",
+      "first_name": "Art115",
+      "last_name": "Jerde200",
+      "status": "high",
+      "confidence_score": 98.19,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "dd931af9-ddee-96ac-d9ed-a9ae814cfb2f",
+      "first_name": "Juana825",
+      "last_name": "Rold\u00e1n470",
+      "status": "high",
+      "confidence_score": 98.19,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "4223789f-9413-1e50-91b3-ecc5e7bf83ea",
+      "first_name": "Micah422",
+      "last_name": "Adams676",
+      "status": "high",
+      "confidence_score": 98.19,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "7194ae05-3c7c-fff2-edad-25e314145f10",
+      "first_name": "Nickolas58",
+      "last_name": "Lemke654",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "08e89797-5200-f6fb-0524-39f72308c15b",
+      "first_name": "Linda558",
+      "last_name": "Donnelly343",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "379b6e59-5f6d-2953-ef68-e1e62f40b1ad",
+      "first_name": "Murray856",
+      "last_name": "Hand679",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "d1f30515-d6b7-db73-423c-ec11c9473391",
+      "first_name": "Cristobal567",
+      "last_name": "Jones311",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "45cb99d4-99fb-7ac1-64d2-42964be13a53",
+      "first_name": "Hildred696",
+      "last_name": "Boyle917",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    },
+    {
+      "patient_id": "b0edefd0-fa21-15f6-299a-0c259a4e1d24",
+      "first_name": "Pat3",
+      "last_name": "Lind531",
+      "status": "high",
+      "confidence_score": 98.18,
+      "reasons": [
+        "Age within required range",
+        "Sex matches trial requirement",
+        "Key condition (T2D) present",
+        "HbA1c above minimum threshold",
+        "HbA1c within maximum threshold",
+        "Good lab data completeness"
+      ]
+    }
+  ]
+}
